@@ -696,7 +696,7 @@ msgstr "Diweddarwyd yn ddiwethaf ar %(last_updated)s."
 msgid ""
 "Created using <a href=\"http://sphinx-doc.org/\">Sphinx</a> "
 "%(sphinx_version)s."
-msgstr "Cr谷wyd gan ddefnyddio <a href=\"http://sphinx-doc.org/\">Sphinx</a> %(sphinx_version)s"
+msgstr "Crëwyd gan ddefnyddio <a href=\"http://sphinx-doc.org/\">Sphinx</a> %(sphinx_version)s"
 
 #: sphinx/themes/basic/opensearch.xml:4
 #, python-format
