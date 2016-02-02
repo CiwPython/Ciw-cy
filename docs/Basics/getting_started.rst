@@ -1,32 +1,32 @@
 .. _getting-started:
 
-===============
-Getting Started
-===============
+==========
+I Ddechrau
+==========
 
-Consider the following 2 node queueing network:
+Ystyriwch y rhwydwaith ciwio 2 nod canlynol:
 
 .. image:: ../_static/2nodes.svg
    :scale: 100 %
-   :alt: A 2 node queueing network.
+   :alt: Rhwydwaith ciwio 2 nod.
    :align: center
 
-This queueing network contains 2 nodes:
+Mae'r rhwydwaith ciwio yma yn cynnwys 2 nod:
 
-* Node 1 (Bottom)
-	- Poisson arrivals at rate 6.0
-	- Exponential service rate 8.5
-	- Single server
-	- Infinite queueing capacity
-	- Probability 0.2 of joining Node 2 after service
-* Node 2 (Top)
-	- Poisson arrivals at rate 2.5
-	- Exponential service rate 5.5
-	- Single server
-	- Maximum queueing capacity of 4
-	- Probability 0.1 of joining Node 1 after service
+* Nod 1 (Gwaelod)
+	- Dyfodiadau Poisson ar gyfradd 6.0
+	- Gwasanaethau esbonyddol ar gyfradd 8.5
+	- Un gweinydd
+	- Cynhwysedd ciwio anfeidrol
+	- Tebygolrwydd 0.2 o ymuno â Nod 2 wedi gwasanaeth
+* Nod 2 (Top)
+	- Dyfodiadau Poisson ar gyfradd 2.5
+	- Gwasanaethau esbonyddol ar gyfradd  5.5
+	- Un gweinydd
+	- Cynhwysedd ciwio macsimwm o 4
+	- Tebygolrwydd 0.1 o ymuno â Nod 1 wedi gwasanaeth
 
-We wish to simulate this system for 1000 time units. This system is defined by the following parameters dictionary::
+Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i ddiffinio gan y geiriadur paramedrau canlynol::
 
     >>> params = {
     ... 'Arrival_rates': {'Class 0': [6.0, 2.5]},
@@ -40,13 +40,13 @@ We wish to simulate this system for 1000 time units. This system is defined by t
     ... 'Transition_matrices': {'Class 0': [[0.0, 0.2], [0.1, 0.0]]}
     ... }
 
-Please see :ref:`parameters-dict` for a fuller explaination of this.
-Ciw can then use this parameters dictionary to run the simulation::
+Gwelwch :ref:`parameters-dict` am esboniad llawn o hwn.
+Fe all Ciw defnyddio'r geiriadur paramedrau hwn i redeg yr efelychiad::
 
 	>>> import ciw
 	>>> Q = ciw.Simulation(params)
 	>>> Q.simulate_until_max_time()
 
-Once this simulation has been run, :ref:`output-file` can be written to file through::
+Unwaith fod yr efelychiant wedi rhedeg, gall ysgrifennu :ref:`output-file` trwy::
 
-	>>> Q.write_records_to_file(<path_to_file>)  # doctest:+SKIP
+	>>> Q.write_records_to_file(<path_i_ffeil>)  # doctest:+SKIP

@@ -1,7 +1,7 @@
-Basics
-======
+Sylfaenau
+=========
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2
@@ -10,5 +10,4 @@ Contents:
    parameters_dict.rst
    output_file.rst
    further_shell.rst
-   run_simulation_commandline.rst
    parameters.rst

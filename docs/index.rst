@@ -1,9 +1,9 @@
-Welcome to Ciw's documentation!
-===============================
+Croeso i ddogfennaeth Ciw!
+==========================
 
-Ciw (Welsh for queue), is a simulation framework package for open queueing networks.
+Llyfrgell Python sy'n fframwaith efelychiant cyfrifiadurol ar gyfer rhwydweithiau ciwio agored yw Ciw.
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2
@@ -16,8 +16,8 @@ Contents:
    glossary.rst
 
 
-Indices and tables
-==================
+Indecsau a tablau
+=================
 
 * :ref:`genindex`
 * :ref:`modindex`

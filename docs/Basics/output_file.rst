@@ -1,18 +1,19 @@
 .. _output-file:
 
-===============
-The Output Data
-===============
+=============
+Y Data Allbwn
+=============
 
-Once a simulation has been run, the following method may be called to write a data file::
+Unwaith fod efelychiad wedi rhedeg, fe allwch alw'r method canlynol i ysgrifennu ffeil ddata::
 
-    >>> Q.write_records_to_file(<path_to_file>) # doctest:+SKIP
+    >>> Q.write_records_to_file(<path_i_ffeil>) # doctest:+SKIP
 
-This file contains does not contain summary statistics, but all the information that happened during the simulation in raw format.
-Each time an individual completes service at a service station, a data record of that service is kept.
-This file contains all these data records for all services of all customers at all nodes during the simulation run time.
+Nid yw'r ffeil yn cynnwys ystadegau cryno, ond mae'n cynnwys yr holl wybodaeth a ddigwyddodd yn ystod yr efelychiad yn fformat crai.
+Pob tro mae unigolyn yn cyflawni gwasanaeth yn orsaf gwasanaeth, mae record data o'r gwasanaeth hwnna yn cael ei chadw.
+Mae'r ffeil yma yn cynnwys yr holl recordiau data o holl wasanaethau holl gwsmeriaid ym mhob nod yn ystod amser yr efelychiad.
 
-The following table summarises the columns:
+Mae'r tabl canlynol yn crynhoi'r colofnau:
+
 
     +------------+-------+------+--------------+--------------+--------------------+--------------+------------------+--------------+-----------+
     | I.D number | Class | Node | Arrival Date | Waiting Time | Service Start Date | Service Time | Service End Date | Time Blocked | Exit Date |
@@ -26,6 +27,6 @@ The following table summarises the columns:
     | ...        | ...   | ...  | ...          | ...          | ...                | ...          | ...              | ...          | ...       |
     +------------+-------+------+--------------+--------------+--------------------+--------------+------------------+--------------+-----------+
 
-The :code:`write_records_to_file` method writes a header as default. To disable this feature, input :code:`headers=False`::
+Mae'r method :code:`write_records_to_file` yn ysgrifennu penawdau fel rhagosodiad. I analluogi'r nodwedd hwn, mewnbwniwch :code:`headers=False`::
 
-    >>> Q.write_records_to_file(<path_to_file>, header=False) # doctest:+SKIP
+    >>> Q.write_records_to_file(<path_i_ffeil>, header=False) # doctest:+SKIP

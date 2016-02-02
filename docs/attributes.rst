@@ -1,5 +1,5 @@
 .. _objects-attributes:
 
-===================================
-Full List of Objects and Attributes
-===================================
+=======================================
+Rhestr Lawn o Wrthrychau a Phriodweddau
+=======================================

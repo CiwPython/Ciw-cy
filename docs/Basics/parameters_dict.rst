@@ -1,30 +1,30 @@
 .. _parameters-dict:
 
-=========================
-The Parameters Dictionary
-=========================
+======================
+Y Geiriadur Paramedrau
+======================
 
-In order to fully define a queueing network simulation, the following need to be defined:
+Er mwyn ddiffinio efelychiad rhwydwaith ciwio yn llawn, angen diffinio'r canlynol:
 
-- Number of nodes (service stations)
-- Number of customer classes
-- Simulation run time
+- Nifer o nodau (gorsafoedd gwasanaeth)
+- Nifer o ddosbarthau cwsmer
+- Amser rhedeg yr efelychiad
 
-Every node must have the following defined globally (independent of customer class):
+Ar gyfer pob nod mae angen diffinio; canlynol (yn annibynnol o ddosbarth cwsmer):
 
-- Number of servers
-- Queue capacity
+- Nifer o weinyddion
+- Cynhwysedd ciwio
 
-Then, for every node and every class the following must be defined:
+Yna, ar gyfer pob nod a phob dosbarth cwsmer, rhaid ddiffinio'r canlynol:
 
-- Arrival rates
-- Service distribution
+- Cyfradd dyfodiad
+- Dosraniad amser gwasanaeth
 
-And then each customer class requires:
+Ac mae pob dosbarth cwsmer angen:
 
-- Transition matrix
+- Matrics trosglwyddiadau
 
-A full example of the parameters dictionary for a three node network with two classes of customer is shown below::
+Dangosir esiampl lawn o eiriadur paramedrau ar gyfer rhwydwaith tri nod gyda dau ddosbarth cwsmer isod:
 
     >>> params = {'Arrival_rates': {'Class 1': [1.0, 1.8, 7.25],
     ...                             'Class 0': [6.0, 4.5, 2.0]},
@@ -40,22 +40,21 @@ A full example of the parameters dictionary for a three node network with two cl
     ...                          'Class 0': [[0.1, 0.6, 0.2], [0.0, 0.5, 0.5], [0.3, 0.1, 0.1]]}}
 
 
-Notice that:
+Noder:
 
-- :code:`Queue_capacities` can be set to :code:`"Inf"`.
-- When :code:`Queue_capacities` aren't set to :code:`"Inf"` blocking rules apply. Type I (blocked after service) blocking applies here.
-- :code:`Number_of_servers` may be set to `"Inf"` also.
-- To obtain no arrivals, set :code:`Arrival_rates` to 0.
-- There are many service distributions available, see :ref:`service-distributions`.
-- The :code:`Transition_matrices` for :code:`Class 0` section represents the following transition matrix::
+- Gall osod :code:`Queue_capacities` i fod yn :code:`"Inf"`.
+- Pan nad ydy :code:`Queue_capacities` wedi'i osod i :code:`"Inf"` mae rheolau blocio yn gymwys. Mae blocio Fath I (blocio ar ôl wasanaeth) yn gymwys fan hyn.
+- Gall osod :code:`Number_of_servers` i fod yn :code:`"Inf"` hefyd.
+- I fedru cael dim dyfodiadau, gosodwch :code:`Arrival_rates` i 0.
+- Mae yna nifer of dosraniadau amser gwasanaeth ar gael, gweler :ref:`service-distributions`.
+- Mae adran :code:`Transition_matrices` ar gyfer :code:`Class 0` yn cynrychioli’r matrics trosglwyddo canlynol::
 
    [[0.1, 0.6, 0.2],
     [0.0, 0.5, 0.5],
     [0.3, 0.1, 0.1]]
 
-In this transition matrix the `(i,j)` th element corresponds to the probability of transitioning to node `j` after service at node `i`.
+Yn y matrics trosglwyddo yma mae'r elfen `(i,j)`ed yn cyfateb a'r tebygolrwydd o drosglwyddo i nod `j` ar ôl wasanaeth yn nod `i`.
 
+Mae yna nifer o nodweddion eraill, gweler :ref:`features` am ragor o wybodaeth.
 
-There are numerous other features, please see :ref:`features` for more information.
-
-The keys of this dictionary may also be used as keyword arguments when defining a simulation. Ciw features a function that will load in these parameters from a file, please read :ref:`parameters-file`.
+Fe all allweddau'r geiriadur hefyd cael ei ddefnyddio fel dadlau allweddair wrth ddiffinio efelychiad. Mae gan Ciw ffwythiant i lwytho'r paramedrau hyn o ffeil, gweler :ref:`parameters-file`.

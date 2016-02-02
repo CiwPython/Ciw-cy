@@ -1,44 +1,44 @@
-Going Deeper
-============
+Yn Ddyfnach
+===========
 
-In :ref:`getting-started` you saw how to run a simple simulation. This page lets you access the simulation by exploring its attributed and methods.
-First, set up a parameters file as described in :ref:`parameters-file`.
+Yn :ref:`getting-started` fe welwch sut i redeg efelychiad syml. Mae'r tudalen hwn yn gadael i chi cyrchu'r efelychiad trwy archwilio'r cod mewnol
+Yn gyntaf, sefydlwch y ffeil paramedrau fel y disgrifiwyd yn :ref:`parameters-file`.
 
-Now importing Ciw and the parameters file as a dictionary is simple::
+Nawr mae llwytho Ciw a'r ffeil paramedrau fel geiriadur yn syml::
 
     >>> import ciw
-    >>> params = ciw.load_parameters(<path_to_file>) # doctest:+SKIP
+    >>> params = ciw.load_parameters(<path_i_ffeil>) # doctest:+SKIP
     >>> params["Number_of_servers"] # doctest:+SKIP
     [2, 1, 1] # doctest:+SKIP
 
-Set up a Simulation object, from which all parameters can also be accessed::
+Sefydlwch wrthrych Simulation, lle allwch gael mynediad i'r paramedrau::
 
     >>> Q = ciw.Simulation(params) # doctest:+SKIP
     >>> Q.number_of_nodes # doctest:+SKIP
     3 # doctest:+SKIP
     >>> Q.queue_capacities # doctest:+SKIP
     ['Inf', 'Inf', 10] # doctest:+SKIP
-    >>> Q.lmbda    # The arrival rates of the system # doctest:+SKIP
+    >>> Q.lmbda    # Cyfraddau dyfodiad i'r system # doctest:+SKIP
     [[1.0, 1.8, 7.25], [6.0, 4.5, 2.0]] # doctest:+SKIP
-    >>> Q.lmbda[0]    # Arrival rates of the 0th class # doctest:+SKIP
+    >>> Q.lmbda[0]    # Cyfradd dyfodiad y 0eg dosbarth cwsmer # doctest:+SKIP
     [1.0, 1.8, 7.2] # doctest:+SKIP
 
-A full list of Ciw's objects and attributes can be found here: :ref:`objects-attributes`
-Now to run a simulation simply run the following method::
+Fe allwch ffeindio rhestr lawn o wrthrychau a phriodweddau Ciw fan hyn: :ref:`objects-attributes`.
+Nawr i redeg efelychiad, redwch y method canlynol::
 
     >>> Q.simulate_until_max_time() # doctest:+SKIP
 
-Individuals' data records can be accessed directly using the following methods::
+Medrwch cael mynediad i recordiau data'r unigolion trwy'r methodau canlynol::
 
-    >>> all_individuals = Q.get_all_individuals()    # Creates a list of all individuals in the system # doctest:+SKIP
+    >>> all_individuals = Q.get_all_individuals()    # Creu rhestr holl cwsmeriaid yn y system # doctest:+SKIP
     >>> all_individuals[0] # doctest:+SKIP
     Individual 13 # doctest:+SKIP
-    >>> all_individuals[0].data_records.values()[0][0].wait    # Time Individual 13 was waiting for this instance of service # doctest:+SKIP
+    >>> all_individuals[0].data_records.values()[0][0].wait    # Yr amser oedd Unigolyn 13 yn aros ar gyfer yr achos hyn o wasanaeth # doctest:+SKIP
     0.39586652218275364 # doctest:+SKIP
-    >>> all_individuals[0].data_records.values()[0][0].arrival_date # Time Individual 13 arrived for this instance of service # doctest:+SKIP
+    >>> all_individuals[0].data_records.values()[0][0].arrival_date # Amser cyrraedd Unigolyn 13 ar gyfer yr achos hyn o wasanaeth # doctest:+SKIP
     0.5736475797750542 # doctest:+SKIP
 
-A full list of data records can be obtained, with or without headers::
+Fe allwch gael rhestr lawn y recordiau data, gyda neu heb bennawd::
     
     >>> records = Q.get_all_records(headers=True) # doctest:+SKIP
     >>> records[:3] # doctest:+SKIP
@@ -46,9 +46,8 @@ A full list of data records can be obtained, with or without headers::
     [1, 0, 1, 0.16207509531905792, 0.0, 0.16207509531905792, 0.014861757967438763, 0.1769368532864967, 0.0, 0.1769368532864967], # doctest:+SKIP
     [2, 0, 1, 0.4628182409609607, 0.0, 0.4628182409609607, 0.13420139243827206, 0.5970196333992328, 0.0, 0.5970196333992328]] # doctest:+SKIP
 
+Gall ysgrifennu'r rhestr lawn o recordiau data i ffeil csv::
 
-The full list data records can be written to a csv file::
+    >>> Q.write_records_to_file(<path_i_ffeil>) # doctest:+SKIP
 
-    >>> Q.write_records_to_file(<path_to_file>) # doctest:+SKIP
-
-Please see :ref:`output-file` for an explanation of the data contained here.
+Gwelwch :ref:`output-file` ar gyfer esboniad llawn o'r data hwn.

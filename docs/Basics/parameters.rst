@@ -1,12 +1,12 @@
 .. _parameters-file:
 
-===================
-The Parameters File
-===================
+==================
+Y Ffeil Paramedrau
+==================
 
-Ciw features a :code:`load_parameters` function that imports a parameters file as a dictionary. This file take is in :code:`.yml` format. A :code:`parameters.yml` file of this same format is required for use with :ref:`command-line-tool`.
+Mae Ciw yn cynnwys ffwythiant :code:`load_parameters` sy'n llwytho ffeil paramedrau fel geiriadur. Mae'r ffeil yma mewn fformat :code:`.yml`.
 
-A full example of the parameters file for a three node network with two classes of customer is shown below::
+Dangosir esiampl lawn o ffeil paramedrau ar gyfer rhwydwaith tri nod gyda dau ddosbarth cwsmer isod::
 
     Arrival_rates:
       Class 0:
@@ -69,4 +69,4 @@ A full example of the parameters file for a three node network with two classes 
         - 0.2
         - 0.2
 
-The variable names are identical to the keys of the parameters dictionary (:ref:`parameters-dict`), and the keyword arguments that may also be used.
+Mae enwau'r newidynnau union yr un fath ag allweddau'r geiriadur paramedrau (:ref:`parameters-dict`), a'r dadlau allweddair a all cael ei ddefnyddio.
