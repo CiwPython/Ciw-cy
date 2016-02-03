@@ -1,10 +1,10 @@
 .. _other-stuff:
 
-=================================
-Other Computer Simulation Options
-=================================
+=======================================
+Opsiynau Efelychiad Cyfrifiadurol Arall
+=======================================
 
-Ciw is just one way in which simulations of queueing networks can be carried out. Here is a list of other options that may be of interest, both commercial and open source:
+Ond un ffordd o efelychu rhwydweithiau ciwio yw Ciw. Dyma restr o opsiynau arall gall fod o ddiddordeb, masnachol ac yn ffynhonnell agored.
 
 - `SimPy <https://simpy.readthedocs.org/en/latest/>`_.
 - `SIMUL8 <http://www.simul8.com/>`_.

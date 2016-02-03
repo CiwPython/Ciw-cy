@@ -1,18 +1,18 @@
 .. _code-structure:
 
-==============
-Code Structure
-==============
+===============
+Strwythur y Cod
+===============
 
 Ciw is structured in an object orientated manor.
 
 
 .. image:: ../_static/codestructure.png
    :scale: 100 %
-   :alt: Code structure for Ciw.
+   :alt: Strwythur y cod ar gyfer Ciw.
    :align: center
 
-The classes that make up Ciw are:
+Y dosbarthau sy'n ffurfio Ciw yw:
 
 - Simulation
 - Arrival Node

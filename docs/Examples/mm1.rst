@@ -1,15 +1,15 @@
 .. _m-m-1:
 
-==============================
-Example - Simulate M/M/1 Queue
-==============================
+==================================
+Enghraifft - Efelychu System M/M/1
+==================================
 
-Here, an example of an M/M/1 queue will be given, and results compared to to those obtained using standard queueing theory.
-This will walk through an example of an M/M/1 queue with Poisson arrivals of rate 3 and Exponential service times of rate 5.
+Fan hyn rhoddir esiampl o system M/M/1, a chymharir canlyniadau'r efelychiad hwn gyda chanlyniadau a rhoddir gan theori ciwio.
+Bydd y tudalen hwn yn gweithio trwy enghraifft o system M/M/1 gyda dyfodiadau Poisson cyfradd 3 ac amseroedd gwasanaeth esbonyddol cyfradd 5.
 
-Standard queueing theory gives the expected wait in an M/M/1 queue as :math:`\mathbb{E}[W] = \frac{\rho}{\mu(1-\rho)}`. With arrival rate :math:`\lambda = 3` and service rate :math:`\mu = 5`, we get traffic intensity :math:`\rho = \frac{\lambda}{\mu} = 0.6`, and so :math:`\mathbb{E}[W] = 0.3`.
+Mae theori ciwio yn rhoi'r amser aros cymedrig yn system M/M/1 fel :math:`\mathbb{E}[W] = \frac{\rho}{\mu(1-\rho)}`. Wrth fewnbynnu cyfradd dyfodiad :math:`\lambda = 3` a chyfradd wasanaeth :math:`\mu = 5`, derbyniwn ddwysedd traffig  :math:`\rho = \frac{\lambda}{\mu} = 0.6`, ac felly :math:`\mathbb{E}[W] = 0.3`.
 
-We set up the parameters in ASQ::
+Sefydlwch y paramedrau o fewn ciw::
 
     >>> params_dict = {'Arrival_rates': {'Class 0': [3.0]},
     ...                'Service_distributions': {'Class 0': [['Exponential', 5.0]]},
@@ -18,8 +18,8 @@ We set up the parameters in ASQ::
     ...                'Number_of_servers': [1]
     ...                }
 
-The following code repeats the experiment 100 times, only recording waits for those that arrived after a warm-up time of 50.
-It then returns the average wait in the system::
+Mae'r cod canlynol yn ailadrodd yr arbrawf 100 gwaith, ond yn recordio'r amseroedd aros ar gyfer cwsmeriaid a chyrhaeddwyd wedi'r amser cynhesu 50.
+Mae'n dychwelyd amser aros cymedrig y system::
     
     >>> import ciw
     >>> from random import seed
@@ -38,4 +38,4 @@ It then returns the average wait in the system::
     >>> print sum(ws)/len(ws)
     0.292014274888
 
-We see that the results of the simulation are in agreement with those of standard queueing theory.
+Gwelwn fod canlyniadau'r efelychiad yn cytuno gyda chanlyniadau theori ciwio.

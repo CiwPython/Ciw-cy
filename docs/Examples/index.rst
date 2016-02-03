@@ -1,7 +1,7 @@
-Examples
-========
+Enghreifftiau
+=============
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2
