@@ -1,10 +1,10 @@
 .. _features:
 
-========
-Features
-========
+==========
+Nodweddion
+==========
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2

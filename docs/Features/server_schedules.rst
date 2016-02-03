@@ -1,11 +1,11 @@
 .. _server-schedules:
 
-=================================
-Assign Work Schedules for Servers
-=================================
+======================================
+Aseinio Amserlenni Gwaith i Weinyddion
+======================================
 
-Ciw allows users to assign cyclic work schedules to servers at each service centre.
-An example cyclic work schedule may look like this:
+Mae Ciw yn galluogi defnyddwyr i aseinio amserlenni gwaith cylchol i weinyddion ym mhob gorsaf gwasanaeth.
+Gall esiampl o amserlen gwaith cylchol edrych fel hyn:
 
 	+-------------------+---------+---------+---------+---------+---------+---------+
 	|    Shift Times    |    0-40 |  40-100 | 100-120 | 120-180 | 180-220 | 220-250 |
@@ -13,32 +13,33 @@ An example cyclic work schedule may look like this:
 	| Number of Servers |       2 |       3 |       1 |       2 |       4 |       0 | 
 	+-------------------+---------+---------+---------+---------+---------+---------+
 
-This schedule is cyclic, therefore after the last shift (220-250), schedule begins again with the shift (0-40). The cycle length for this schedule is 250.
+Mae'r amserlen hon yn gylchol, ac felly ar ôl y shifft olaf (220-250), mae'r amserlen yn dechrau eto gyda'r shifft (0-40). Cyfnod y cylchred yw 250.
 
-In order to define this work schedule, it must be given a name.
-Let's call it :code:`my_special_schedule_01`.
+Er mwyn ddiffinio'r amserlen gwaith hon, rhaid rhoi enw iddo.
+Gadewch i ni ei alw'n :code:`fy_amserlen_arbennig_01`.
 
-In the :code:`parameters.yml` file, under :code:`Number_of_servers`, for the given node enter the name of the schedule. The :code:`cycle_length` must also be given.
-An example is shown::
+Yn y ffeil :code:`parameters.yml`, o dan :code:`Number_of_servers`, ar gyfer y nod priodol rhowch enw'r amserlen. Rhaid rhoi'r :code:`cycle_length` hefyd.
+Dangosir esiampl::
 
     cycle_length: 250
     Number_of_servers:
-      - 'my_special_schedule_01'
+      - 'fy_amserlen_arbennig_01'
       - 3
 
-The equivalent way to add this to the parameters dictionary is by first adding the cycle length::
+Y ffordd gyfatebol i ychwanegu hwn i'r geiriadur paramedrau yw trwy ychwanegu cyfnod y cylchred yn gyntaf::
     
     'cycle_length':250
 
-And then under number of servers, add the schedule name::
+Ac o dan :code:`Number_of_servers` ychwanegwch enw'r amserlen::
 
-    'Number_of_servers':['my_special_schedule_01', 3]
+    'Number_of_servers':['fy_amserlen_arbennig_01', 3]
 
-This tells Ciw that at Node 1 the number of servers will vary over time according to the work schedule :code:`my_special_schedule_01`.
-This schedule hasn't been defined yet.
-To define the work schedule, add the following lines to the end of the :code:`parameters.yml` file::
+Mae hwn yn dweud Ciw bydd nifer o weinyddion yn Nod 1 yn newid dros amser yn ôl yr amserlen gwaith :code:`fy_amserlen_arbennig_01`.
 
-    my_special_schedule_01:
+Nid yw'r amserlen wedi'i ddiffinio eto.
+I ddiffinio'r amserlen gwaith, ychwanegwch y llinellau canlynol i ddiwedd y ffeil :code:`parameters.yml`::
+
+    fy_amserlen_arbennig_01:
       - - 0
         - 2
       - - 40
@@ -52,13 +53,13 @@ To define the work schedule, add the following lines to the end of the :code:`pa
       - - 220
         - 0
 
-And equivalently, adding the following to the parameters dictionary::
+A'r ffordd gyfatebol yn y geiriadur paramedrau yw ychwanegu'r canlynol::
 
-    'my_special_schedule_01':[[0, 2], [40, 3], [100, 1], [120, 2], [180, 4], [220, 0]]
+    'fy_amserlen_arbennig_01':[[0, 2], [40, 3], [100, 1], [120, 2], [180, 4], [220, 0]]
 
-Here we are saying that there will be 2 servers scheduled between times 0 and 40, 3 between 40 and 100, etc. The final shift denotes 0 servers between times 220 and :code:`cycle_length`, and then the schedule cycles to the beginning.
-This fully defines the cyclic work schedule.
+Fan hyn rydym yn dweud fe fydd yna 2 weinydd rhwng amseroedd 0 a 40, 3 rhwng amseroedd 40 a 100, ayyb. Mae'r shifft olaf yn dynodi 0 gweinydd rhwng amseroedd 220 a :code:`cycle_length`, ac yna mae'r amserlen yn cylchu i'r dechrau.
+Mae hwn yn diffinio'r amserlen gwaith yn llawn.
 
-Note:
+Noder:
 
-- If more than one work schedule is defined, the same :code:`cycle_length` must be used for the entire system.
+- Os ddiffinnir mwy nag un amserlen gwaith, rhaid defnyddio'r un :code:`cycle_length` ar gyfer y system gyfan.

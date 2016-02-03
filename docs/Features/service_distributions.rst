@@ -1,10 +1,10 @@
 .. _service-distributions:
 
-==========================
-Service Time Distributions
-==========================
+================================
+Dosraniadau Amseroedd Gwasanaeth
+================================
 
-Ciw currently allows the following continuous service rate distributions:
+Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwasanaeth:
 
 - :ref:`uniform_dist`
 - :ref:`deterministic_dist`
@@ -14,17 +14,17 @@ Ciw currently allows the following continuous service rate distributions:
 - :ref:`lognormal_dist`
 - :ref:`weibull_dist`
 
-See :ref:`custom-distributions` for how to define custom discrete service time distributions.
-Note that when choosing parameters for these distributions, ensure that no negative numbers may be sampled.
+Gweler :ref:`custom-distributions` i weld sut allwch ddiffinio FfDT arwahanol ar gyfer amseroedd gwasanaeth.
+Noder pan ddewisir paramedrau ar gyfer y dosraniadau yma, sicrhewch ni all samplo rhifau negatif.
 
 .. _uniform_dist:
 
-------------------------
-The Uniform Distribution
-------------------------
+-------------------
+Y Dosraniad Unffurf
+-------------------
 
-The uniform distribution samples a random number between two numbers `a` and `b`.
-In the :code:`parameters.yml` file, write a uniform distribution between `4` and `9` as follows::
+Samplwyd y dosraniad unffurf rhif ar hap rhwng dau rif `a` a `b`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad unffurf rhwng `4` a `9`::
 
     - - Uniform
       - 4
@@ -35,12 +35,12 @@ In the :code:`parameters.yml` file, write a uniform distribution between `4` and
 
 .. _deterministic_dist:
 
-------------------------------
-The Deterministic Distribution
-------------------------------
+-------------------------
+Y Dosraniad Penderfynedig
+-------------------------
 
-The deterministic distribution is non-stachastic, and produces the same service time repeatedly.
-In the :code:`parameters.yml` file, write a deterministic distribution that repeatedly gives a value of `18.2` as follows::
+Nid yw'r dosraniad penderfynedig yn stocastig, a chynhyrchwyd yr un amser gwasanaeth dro ar ôl tro.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad penderfynedig sy'n rhoi'r gwerth `18.2`::
 
     - - Deterministic
       - 18.2
@@ -50,12 +50,12 @@ In the :code:`parameters.yml` file, write a deterministic distribution that repe
 
 .. _triangular_dist:
 
----------------------------
-The Triangular Distribution
----------------------------
+---------------------
+Y Dosraniad Trionglog
+---------------------
 
-The triangular distribution samples a continuous pdf that rises linearly from its minimum value `low` to its mode value `mode`, and then decreases linearly to its highest attainable value `high`.
-In the :code:`parameters.yml` file, write a triangular distribution between `2.1` and `7.6` with mode of `3.4` as follows::
+Samplwyd y dosraniad trionglog rhif ar hap o FfDT parhaus sy'n codi'n llinol o'i werth isaf `is` i'w modd `modd`, a’n yna'n disgyn yn llinol i'w werth uchaf `uch`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad trionglog rhwng `2.1` a `7.6` gyda modd `3.4`::
 
     - - Triangular
       - 2.1
@@ -68,12 +68,12 @@ In the :code:`parameters.yml` file, write a triangular distribution between `2.1
 
 .. _exponential_dist:
 
-----------------------------
-The Exponential Distribution
-----------------------------
+----------------------
+Y Dosraniad Esbonyddol
+----------------------
 
-The exponential distribution samples a random number from the negative exponential distribution with `1 / lambda`.
-In the :code:`parameters.yml` file, write an exponential distribution with mean `0.2` as follows::
+Samplwyd y dosraniad esbonyddol rhif ar hap o'r dosraniad esbonyddol negatif gyda chymedr `1 / lambda`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad esbonyddol gyda chymedr `0.2`::
 
     - - Exponential
       - 5
@@ -86,12 +86,12 @@ In the :code:`parameters.yml` file, write an exponential distribution with mean 
 
 .. _gamma_dist:
 
-----------------------
-The Gamma Distribution
-----------------------
+----------------
+Y Dosraniad Gama
+----------------
 
-The gamma distribution samples a random number from the gamma distribution with shape parameter `alpha` and scale parameter `beta`.
-In the :code:`parameters.yml` file, write a gamma distribution with parameters `alpha = 0.6` and `beta = 1.2` as follows::
+Samplwyd y dosraniad gama rhif ar hap o'r dosraniad gama gyda pharamedr siâp `alffa` a pharamedr raddfa `beta`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad gama gyda pharamedrau `alffa = 0.6` a `beta = 1.2`::
 
     - - Gamma
       - 0.6
@@ -105,12 +105,12 @@ In the :code:`parameters.yml` file, write a gamma distribution with parameters `
 
 .. _lognormal_dist:
 
---------------------------
-The Lognormal Distribution
---------------------------
+---------------------
+Y Dosraniad Lognormal
+---------------------
 
-The lognormal distribution samples a random number from the log of the normal distribution with mean `mu` and standard deviation `sigma`.
-In the :code:`parameters.yml` file, write a lognomal distribution of the normal distribution with mean `4.5` and standard deviation `2.0` as follows::
+Samplwyd y dosraniad gama rhif ar hap o log y dosraniad normal gyda chymedr `mu` a gwiriad safonol `sigma`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio log y dosraniad normal gyda chymedr `4.5` a gwiriad safonol `2.0`::
 
     - - Lognormal
       - 4.5
@@ -123,12 +123,12 @@ In the :code:`parameters.yml` file, write a lognomal distribution of the normal 
 
 .. _weibull_dist:
 
-------------------------
-The Weibull Distribution
-------------------------
+-------------------
+Y Dosraniad Weibull
+-------------------
 
-The Weibull distribution samples a random number from the Weibull distribution with scale parameter `alpha` and shape parameter `beta`.
-In the :code:`parameters.yml` file, write a Weibull distribution with `alpha = 0.9` and `beta = 0.8` as follows::
+Samplwyd y dosraniad Weibull rhif ar hap o'r dosraniad Weibull gyda pharamedr raddfa `alffa` a pharamedr siâp `beta`.
+Yn y ffeil :code:`parameters.yml`, mae'r cod isod yn diffinio dosraniad Weibull gyda pharamedrau `alffa = 0.9` a `beta = 0.8`::
 
     - - Weibull
       - 0.9

@@ -1,15 +1,15 @@
 .. _dynamic-classes:
 
-========================
-Dynamic Customer Classes
-========================
+==========================
+Dosbarthau Cwsmer Deinamig
+==========================
 
-Ciw allows customers to probabilistically change their class after service. That is after service at node `k` a customer of class `i` will become class `j` with probability `P(J=j | I=i, K=k)`. These probabilities are input into the system through the :code:`Class_change_matrices`.
+Mae Ciw yn gadael i gwsmeriaid newid ei dosbarth cwsmer yn ôl tebygolrwydd ar ôl gorffen gwasanaeth. Hynny yw ar ôl gwasanaeth yn nod `k` fe fydd cwsmer o ddosbarth `i` yn dod yn gwsmer o ddosbarth `j` gyda thebygolrwydd `P(J=j | I=i, K=k)`. Mewnbynna'r tebygolrwyddau hyn trwy'r :code:`Class_change_matrices`.
 
-Below is an example of a class change matrix for a given node:
+Dangosir esiampl o matrics newid dosbarth ar gyfer nod isod:
 
 +-----------------+
-| Node 1          |
+| Nod  1          |
 +=====+=====+=====+
 | 0.3 | 0.4 | 0.3 |
 +-----+-----+-----+
@@ -19,7 +19,7 @@ Below is an example of a class change matrix for a given node:
 +-----+-----+-----+
 
 +-----------------+
-| Node 2          |
+| Nod  2          |
 +=====+=====+=====+
 | 1.0 | 0.0 | 0.0 |
 +-----+-----+-----+
@@ -28,13 +28,13 @@ Below is an example of a class change matrix for a given node:
 | 0.2 | 0.2 | 0.6 |
 +-----+-----+-----+
 
-In this example a customer of class 0 finishing service at node 1 will become class 0 again with probability 0.3, will become class 1 with probability 0.4, and will become class 2 with probability 0.3. A different matrix is given for customers finishing service at node 2.
+Yn yr esiampl hon fydd cwsmer dosbarth 0 yn gorffen gwasanaeth yn nod 1 yn dod yn gwsmer dosbarth 0 gyda thebygolrwydd 0.3, yn dod yn gwsmer dosbarth 1 gyda thebygolrwydd 0.4, ac yn dod yn gwsmer dosbarth 2 gyda thebygolrwydd 0.3. Rhoddir matrics gwahanol ar gyfer cwsmeriaid yn gorffen gwasanaeth yn nod 2.
 
-This is input into the simulation model by including the following to the parameters dictionary::
+Mewnbynna hyn i'r model efelychiad trwy ychwanegu'r canlynol i'r geiriadur paramedrau::
     
     'Class_change_matrices':{'Node 0':[[0.3, 0.4, 0.3], [0.1, 0.9, 0.0], [0.5, 0.1, 0.4]], 'Node 1':[[1.0, 0.0, 0.0], [0.4, 0.5, 0.1], [0.2, 0.2, 0.6]]}
 
-This is equivalent to adding the following code to the parameters file::
+Mae hwn yn gyfatebol i ychwanegu'r cod canlynol i'r ffeil paramedrau::
 
     Class_change_matrices:
       Node 0:
@@ -58,4 +58,4 @@ This is equivalent to adding the following code to the parameters file::
         - 0.2
         - 0.6
 
-Omitting this code will simply assume that customers cannot change class after service.
+Heb ychwanegu'r cod hwn bydd y model yn cymryd yn ganiataol fod cwsmeriaid ddim yn newid dosbarth.
