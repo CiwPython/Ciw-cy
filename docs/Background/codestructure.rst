@@ -6,7 +6,7 @@ Strwythur y Cod
 
 Mae Ciw wedi'i strwythuro mewn o wrthrychau a dosbarthiadau.
 
-.. image:: ../_static/codestructure.png
+.. image:: ../_static/codestructure.svg
    :scale: 100 %
    :alt: Strwythur y cod ar gyfer Ciw.
    :align: center

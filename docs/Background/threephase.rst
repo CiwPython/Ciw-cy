@@ -8,7 +8,7 @@ Mae Ciw yn defnyddio'r dull tri cham safonol ar gyfer efelychiad digwyddiadau ar
 Ciw makes use of the standard three phase simulation approach for discrete event simulations.
 
 
-.. image:: ../_static/3phaseapproach.png
+.. image:: ../_static/3phaseapproach.svg
    :scale: 100 %
    :alt: Y dull tri cham ar gyfer efelychiad.
    :align: center
