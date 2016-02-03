@@ -4,8 +4,7 @@
 Strwythur y Cod
 ===============
 
-Ciw is structured in an object orientated manor.
-
+Mae Ciw wedi'i strwythuro mewn o wrthrychau a dosbarthiadau.
 
 .. image:: ../_static/codestructure.png
    :scale: 100 %
