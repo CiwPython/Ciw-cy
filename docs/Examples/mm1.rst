@@ -11,7 +11,7 @@ Mae theori ciwio yn rhoi'r amser aros cymedrig yn system M/M/1 fel :math:`\mathb
 
 Sefydlwch y paramedrau o fewn ciw::
 
-    >>> params_dict = {'Arrival_rates': {'Class 0': [3.0]},
+    >>> params_dict = {'Arrival_distributions': {'Class 0': [['Exponential', 3.0]]},
     ...                'Service_distributions': {'Class 0': [['Exponential', 5.0]]},
     ...                'Simulation_time': 250,
     ...                'Transition_matrices': {'Class 0': [[0.0]]},

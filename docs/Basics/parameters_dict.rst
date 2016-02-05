@@ -26,8 +26,8 @@ Ac mae pob dosbarth cwsmer angen:
 
 Dangosir esiampl lawn o eiriadur paramedrau ar gyfer rhwydwaith tri nod gyda dau ddosbarth cwsmer isod:
 
-    >>> params = {'Arrival_rates': {'Class 1': [1.0, 1.8, 7.25],
-    ...                             'Class 0': [6.0, 4.5, 2.0]},
+    >>> params = {'Arrival_distributions': {'Class 1': [['Exponential', 1.0], ['Exponential', 1.8], ['Exponential', 7.25]],
+    ...                             'Class 0': [['Exponential', 6.0], ['Exponential', 4.5], ['Exponential', 2.0]]},
     ...           'Number_of_nodes': 3,
     ...           'detect_deadlock': False,
     ...           'Simulation_time': 2500,
@@ -45,7 +45,7 @@ Noder:
 - Gall osod :code:`Queue_capacities` i fod yn :code:`"Inf"`.
 - Pan nad ydy :code:`Queue_capacities` wedi'i osod i :code:`"Inf"` mae rheolau blocio yn gymwys. Mae blocio Fath I (blocio ar ôl wasanaeth) yn gymwys fan hyn.
 - Gall osod :code:`Number_of_servers` i fod yn :code:`"Inf"` hefyd.
-- I fedru cael dim dyfodiadau, gosodwch :code:`Arrival_rates` i 0.
+- I fedru cael dim dyfodiadau, gosodwch :code:`Arrival_distributions` i :code:`'NoArrivals'`.
 - Mae yna nifer of dosraniadau amser gwasanaeth ar gael, gweler :ref:`service-distributions`.
 - Mae adran :code:`Transition_matrices` ar gyfer :code:`Class 0` yn cynrychioli’r matrics trosglwyddo canlynol::
 

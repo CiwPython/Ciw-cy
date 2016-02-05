@@ -29,7 +29,7 @@ Mae'r rhwydwaith ciwio yma yn cynnwys 2 nod:
 Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i ddiffinio gan y geiriadur paramedrau canlynol::
 
     >>> params = {
-    ... 'Arrival_rates': {'Class 0': [6.0, 2.5]},
+    ... 'Arrival_distributions': {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
     ... 'Number_of_nodes': 2,
     ... 'detect_deadlock': False,
     ... 'Simulation_time': 1000,

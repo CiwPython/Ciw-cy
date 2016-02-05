@@ -18,10 +18,10 @@ Sefydlwch wrthrych Simulation, lle allwch gael mynediad i'r paramedrau::
     3 # doctest:+SKIP
     >>> Q.queue_capacities # doctest:+SKIP
     ['Inf', 'Inf', 10] # doctest:+SKIP
-    >>> Q.lmbda    # Cyfraddau dyfodiad i'r system # doctest:+SKIP
-    [[1.0, 1.8, 7.25], [6.0, 4.5, 2.0]] # doctest:+SKIP
-    >>> Q.lmbda[0]    # Cyfradd dyfodiad y 0eg dosbarth cwsmer # doctest:+SKIP
-    [1.0, 1.8, 7.2] # doctest:+SKIP
+    >>> Q.lmbda    # Dosraniadau dyfodiad i'r system # doctest:+SKIP
+    [[['Exponential', 1.0], ['Exponential', 1.8], ['Exponential', 7.25]], [['Exponential', 6.0], ['Exponential', 4.5], ['Exponential', 2.0]]] # doctest:+SKIP
+    >>> Q.lmbda[0]    # Dosraniadau dyfodiad y 0eg dosbarth cwsmer # doctest:+SKIP
+    [['Exponential', 1.0], ['Exponential', 1.8], ['Exponential', 7.2]] # doctest:+SKIP
 
 Fe allwch ffeindio rhestr lawn o wrthrychau a phriodweddau Ciw fan hyn: :ref:`objects-attributes`.
 Nawr i redeg efelychiad, redwch y method canlynol::

@@ -8,15 +8,21 @@ Mae Ciw yn cynnwys ffwythiant :code:`load_parameters` sy'n llwytho ffeil paramed
 
 Dangosir esiampl lawn o ffeil paramedrau ar gyfer rhwydwaith tri nod gyda dau ddosbarth cwsmer isod::
 
-    Arrival_rates:
+    Arrival_distributions:
       Class 0:
-      - 6.0
-      - 4.5
-      - 2.0
+      - - Exponential
+        - 6.0
+      - - Exponential
+        - 4.5
+      - - Exponential
+        - 2.0
       Class 1:
-      - 1.0
-      - 1.8
-      - 7.25
+      - - Exponential
+        - 1.0
+      - - Exponential
+        - 1.8
+      - - Exponential
+        - 7.25
     detect_deadlock: False
     Number_of_classes: 2
     Number_of_nodes: 3

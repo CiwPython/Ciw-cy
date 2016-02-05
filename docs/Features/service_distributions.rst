@@ -1,10 +1,10 @@
 .. _service-distributions:
 
-================================
-Dosraniadau Amseroedd Gwasanaeth
-================================
+===================================================
+Dosraniadau Amseroedd Gwasanaeth a Rhwng-Dyfodiadau
+===================================================
 
-Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwasanaeth:
+Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwasanaeth a rhwng-dyfodiadau:
 
 - :ref:`uniform_dist`
 - :ref:`deterministic_dist`

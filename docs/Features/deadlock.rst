@@ -29,7 +29,7 @@ Ystyriwch y ciw M/M/1/3 lle mae gan gwsmeriaid tebygolrwydd 0.5 o ailymuno a'r c
 
 Paramedrau::
 
-    >>> params = {'Arrival_rates': {'Class 0': [6.0]},
+    >>> params = {'Arrival_rates': {'Class 0': [['Exponential', 6.0]]},
     ...           'Number_of_nodes': 1,
     ...           'detect_deadlock': True,
     ...           'Simulation_time': 2500,
