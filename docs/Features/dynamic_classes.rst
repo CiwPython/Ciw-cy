@@ -18,6 +18,7 @@ Dangosir esiampl o matrics newid dosbarth ar gyfer nod isod:
 | 0.5 | 0.1 | 0.4 |
 +-----+-----+-----+
 
+
 +-----------------+
 | Nod  2          |
 +=====+=====+=====+
