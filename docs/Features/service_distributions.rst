@@ -4,7 +4,7 @@
 Dosraniadau Amseroedd Gwasanaeth a Rhwng-Dyfodiadau
 ===================================================
 
-Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwasanaeth a rhwng-dyfodiadau, yn ogystal â dosraniadau empirig.:
+Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwasanaeth a rhwng-dyfodiadau, yn ogystal â dosraniadau empirig a trwy fewnbynnu ffwythiant eich hun:
 
 - :ref:`uniform_dist`
 - :ref:`deterministic_dist`
@@ -14,6 +14,7 @@ Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwa
 - :ref:`lognormal_dist`
 - :ref:`weibull_dist`
 - :ref:`empirical_dist`
+- :ref:`own_functions`
 
 
 Gweler :ref:`custom-distributions` i weld sut allwch ddiffinio FfDT arwahanol ar gyfer amseroedd gwasanaeth.
@@ -142,3 +143,17 @@ Mewnbynnu rhestr arsylwadau::
 Mewnbynnu path i ffeil :code:`.csv`::
 
     ['Empirical', '<path_i_ffeil>']
+
+
+
+
+
+.. _own_functions:
+
+----------------------
+Mewnbynnu Ffwythiannau
+----------------------
+
+Mae Ciw yn gadael i ddefnyddwyr mewnbynnu ffwythiannau ei hun i gynhyrchu amseroedd gwasanaeth a rhwng-dyfodiadau. Gall wneud hyn trwy roi ffwythiant yn y ffordd ganlynol::
+
+	['UserDefined', lambda : random.random()]
