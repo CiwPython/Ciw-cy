@@ -9,7 +9,7 @@ Yna mae Ciw yn recordio'r amser nes cyrraedd llwyrglo o bob cyflwr.
 
 Er mwyn cymryd mantais o'r nodwedd yma, gosodwch opsiwn canfod llwyrglo i True yn y ffeil paramedrau::
 
-    detect_deadlock: True
+    Detect_deadlock: True
 
 Yna defnyddiwch y method :code:`simulate_until_deadlock` i ddychwelyd yr amseroedd nes llwyrglo o bob cyflwr::
 
@@ -31,7 +31,7 @@ Paramedrau::
 
     >>> params = {'Arrival_rates': {'Class 0': [['Exponential', 6.0]]},
     ...           'Number_of_nodes': 1,
-    ...           'detect_deadlock': True,
+    ...           'Detect_deadlock': True,
     ...           'Simulation_time': 2500,
     ...           'Number_of_servers': [1],
     ...           'Queue_capacities': [3],

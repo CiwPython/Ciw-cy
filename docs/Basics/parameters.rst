@@ -23,7 +23,7 @@ Dangosir esiampl lawn o ffeil paramedrau ar gyfer rhwydwaith tri nod gyda dau dd
         - 1.8
       - - Exponential
         - 7.25
-    detect_deadlock: False
+    Detect_deadlock: False
     Number_of_classes: 2
     Number_of_nodes: 3
     Number_of_servers:
