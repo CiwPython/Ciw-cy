@@ -36,4 +36,4 @@ Mae'r method :code:`write_records_to_file` yn ysgrifennu penawdau fel rhagosodia
 Y Geiriadur Gwrthodiadau
 ------------------------
 
-Pan mae gan nodau cynhwysedd ciwio cyfyngedig, mae rhai cwsmeriaid yn cael ei wrthod o'r system. Cadwyd data'r cwsmeriaid a wrthodwyd mewn geiriadur :code:`rejection_dict` yr Arrival Node. Mae hwn yn eiriadur o eiriaduron, gyda nodau a dosbarthau cwsmer fel allweddau, a rhestr o ddyddiadau dyfodiad fel gwerthoedd. Er enghraifft mae :code:`Q.nodes[0].rejection_dict[1][2]` yn rhoi rhestr o'r dyddiadau a wnaeth cwsmeriaid newydd dosbarth 2 cael eu gwrthod o nod 1.
+Pan mae gan nodau cynhwysedd ciwio cyfyngedig, mae rhai cwsmeriaid yn cael ei wrthod o'r system. Cadwyd data'r cwsmeriaid a wrthodwyd mewn geiriadur :code:`rejection_dict`. Mae hwn yn eiriadur o eiriaduron, gyda nodau a dosbarthau cwsmer fel allweddau, a rhestr o ddyddiadau dyfodiad fel gwerthoedd. Er enghraifft mae :code:`Q.rejection_dict[1][2]` yn rhoi rhestr o'r dyddiadau a wnaeth cwsmeriaid newydd dosbarth 2 cael eu gwrthod o nod 1.
