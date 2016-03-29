@@ -20,6 +20,6 @@ Indecsau a tablau
 =================
 
 * :ref:`genindex`
-* :ref:`modindex`
+* :ref:`glossary`
 * :ref:`search`
 
