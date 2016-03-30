@@ -11,11 +11,12 @@ Er mwyn cymryd mantais o'r nodwedd yma, gosodwch opsiwn canfod llwyrglo i True y
 
     Detect_deadlock: True
 
-Yna defnyddiwch y method :code:`simulate_until_deadlock` i ddychwelyd yr amseroedd nes llwyrglo o bob cyflwr::
+Yna defnyddiwch y method :code:`simulate_until_deadlock`. Mae'r priodwedd :code:`times_to_deadlock` yn cynnwys yr amseroedd nes llwyrglo o bob cyflwr::
 
    >>> import ciw
    >>> Q = ciw.Simulation(deadlock_params) # doctest:+SKIP
-   >>> times = Q.simulate_until_deadlock() # doctest:+SKIP
+   >>> Q.simulate_until_deadlock() # doctest:+SKIP
+   >>> times = Q.times_to_deadlock # doctest:+SKIP
 
 lle mae :code:`times` yn eiriadur gyda chyflyrau fel allweddu ac amseroedd fel gwerthoedd. Noder anwybyddwyd :code:`Simulation_time` yn yr achos yma.
 
