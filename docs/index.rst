@@ -7,11 +7,13 @@ Cynnwys:
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
    
    Basics/index.rst
    Features/index.rst
    Examples/index.rst
    Background/index.rst
+   kwargs.rst
    attributes.rst
    glossary.rst
 
