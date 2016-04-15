@@ -8,6 +8,6 @@ Oherwydd y `problemau a cyfyngiadau <https://docs.python.org/2/tutorial/floating
 
 Er mwyn gweithredu manylder rhifyddeg, ychwanegwch yr opsiwn i'r geiriadur paramedrau::
 
-    Exact: 26
+    'Exact': 26
 
 Mae'r allwedd :code:`Exact` yn dynodi'r lefel manyldeb.
