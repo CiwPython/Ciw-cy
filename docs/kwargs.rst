@@ -17,14 +17,14 @@ Geiriadur yw hwn, gyda allweddi fel dosbarthiadau cwsmer, a'i werthoedd yw rhest
 Dangosir engrhaifft::
 
     'Arrival_distributions': {'Class 0': [['Exponential', 2.4],
-                                        ['Uniform', 0.3, 0.5]],
-                            'Class 1': [['Exponential', 3.0],
-                                        ['Deterministic', 0.8]]}
+                                          ['Uniform', 0.3, 0.5]],
+                              'Class 1': [['Exponential', 3.0],
+                                          ['Deterministic', 0.8]]}
 
 Enghraiff o lle ond un dosbarth cwsmer sydd angen::
 
     'Arrival_distributions': [['Exponential', 2.4],
-                            ['Exponential', 2.0]]
+                              ['Exponential', 2.0]]
 
 
 Class_change_matrices

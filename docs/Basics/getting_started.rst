@@ -40,7 +40,7 @@ Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i dd
     ... 'Transition_matrices': {'Class 0': [[0.0, 0.2], [0.1, 0.0]]}
     ... }
 
-Gwelwch :ref:`parameters-dict` am esboniad llawn o hwn.
+Gwelwch :ref:`sim-parameters` am esboniad llawn o hwn.
 Fe all Ciw defnyddio'r geiriadur paramedrau hwn i redeg yr efelychiad::
 
 	>>> import ciw

@@ -2,7 +2,7 @@ Yn Ddyfnach
 ===========
 
 Yn :ref:`getting-started` fe welwch sut i redeg efelychiad syml. Mae'r tudalen hwn yn gadael i chi cyrchu'r efelychiad trwy archwilio'r cod mewnol
-Yn gyntaf, sefydlwch y ffeil paramedrau fel y disgrifiwyd yn :ref:`parameters-file`.
+Yn gyntaf, sefydlwch y ffeil paramedrau fel y disgrifiwyd yn :ref:`sim-parameters`.
 
 Nawr mae llwytho Ciw a'r ffeil paramedrau fel geiriadur yn syml::
 
