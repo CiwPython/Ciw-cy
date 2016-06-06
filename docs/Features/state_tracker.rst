@@ -24,9 +24,9 @@ Mae'r Traciwr Naïf yn recordio nifer o gwsmeriaid ym mhob nod, a faint o rain s
 
 Mae hwn yn dynodi 3 cwsmer yn y nod cyntaf, 0 o rain wedi blocio; 5 cwsmer yn yr ail nod, 4 o rain wedi blocio; 10 cwsmer yn y trydydd nod, 0 o rain wedi blocio; a 9 cwsmer yn y pedwerydd nod, 1 o rain wedi blocio.
 
-Yn y geiriadur paramedrau, dynodwch dylai dyfneyddio'r Traciwr Naïf fel y ganlyn::
+Mae'r gwrthrych Simulation yn cymryd yr opsiwn :code:`Tracker' a ddefnyddwyd fel y ganlyn::
 
-    'Tracker': 'Naive'
+    Q = ciw.Simulation(N,, tracker='Naive') # doctest: +SKIP
 
 .. _matrix:
 
@@ -44,6 +44,6 @@ Mae'r Traciwr Matrics yn recordio trefn a chyrchfan y blocio yn ffurf matrics. Y
 
 Mae hwn yn dynodi 3 cwsmer wrth y nod cyntaf, 5 cwsmer wrth yr ail nod, 10 cwsmer wrth y trydydd nod, a 9 cwsmer wrth y pedwerydd nod. Mae hefyd yn cynrychioli trefn y blocio. O'r cwsmeriaid sydd wedi'i flocio, y cyntaf i flocio oedd cwsmer yn nod 2 i nod 2; yr ail i flocio oedd y cwsmer yn nod 2 i nod 4; y trydydd i flocio oedd y cwsmer yn nod 4 i nod 1; a'r pedwerydd i flocio oedd y cwsmer yn nod 2 i nod 2.
 
-Yn y geiriadur paramedrau, dynodwch dylai dyfneyddio'r Traciwr Matrics fel y ganlyn::
+Mae'r gwrthrych Simulation yn cymryd yr opsiwn :code:`Tracker' a ddefnyddwyd fel y ganlyn::
 
-    'Tracker': 'Matrix'
+    Q = ciw.Simulation(N, tracker='Matrix') # doctest: +SKIP

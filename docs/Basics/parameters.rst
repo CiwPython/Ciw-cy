@@ -8,7 +8,6 @@ Er mwyn ddiffinio efelychiad rhwydwaith ciwio yn llawn, angen diffinio'r canlyno
 
 - Nifer o nodau (gorsafoedd gwasanaeth)
 - Nifer o ddosbarthau cwsmer
-- Amser rhedeg yr efelychiad
 
 Ar gyfer pob nod mae angen diffinio; canlynol (yn annibynnol o ddosbarth cwsmer):
 
@@ -43,32 +42,10 @@ Yn y matrics trosglwyddo yma mae'r elfen `(i,j)` ed yn cyfateb a'r tebygolrwydd 
 
 Mae yna nifer o nodweddion eraill, gweler :ref:`features` am ragor o wybodaeth.
 
-Mae yna tri ffordd o fewnbynnu paramedrau i wrthrych Simulation:
+Mae yna dau ffordd o fewnbynnu paramedrau i wrthrych Simulation:
 
-* :ref:`using_kwargs`
 * :ref:`params_dict`
 * :ref:`params_file`
-
-
-.. _using_kwargs:
-
-----------------
-Defnyddio Kwargs
-----------------
-
-Fe all wrthrych Simulation cymryd i fewn kwargs. Dangosir engrhaifft::
-	
-    >>> import ciw
-    >>> Q = ciw.Simulation(
-    ... Arrival_distributions = {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
-    ... Number_of_nodes = 2,
-    ... Simulation_time = 1000,
-    ... Number_of_servers = [1, 1],
-    ... Queue_capacities = ['Inf', 4],
-    ... Number_of_classes = 1,
-    ... Service_distributions = {'Class 0': [['Exponential', 8.5], ['Exponential', 5.5]]},
-    ... Transition_matrices = {'Class 0': [[0.0, 0.2], [0.1, 0.0]]}
-    ... )
 
 
 .. _params_dict:
@@ -83,14 +60,14 @@ Fe all wrthrych Simulation cymryd geiriadur yn cynnwys holl kwargs fel allweddi.
     >>> params = {
     ... 'Arrival_distributions': {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
     ... 'Number_of_nodes': 2,
-    ... 'Simulation_time': 1000,
     ... 'Number_of_servers': [1, 1],
     ... 'Queue_capacities': ['Inf', 4],
     ... 'Number_of_classes': 1,
     ... 'Service_distributions': {'Class 0': [['Exponential', 8.5], ['Exponential', 5.5]]},
     ... 'Transition_matrices': {'Class 0': [[0.0, 0.2], [0.1, 0.0]]}
     ... }
-    >>> Q = ciw.Simulation(params)
+    >>> N = ciw.create_network(params)
+    >>> Q = ciw.Simulation(N)
 
 
 .. _params_file:
@@ -123,7 +100,6 @@ Mae Ciw yn cynnwys ffwythiant :code:`load_parameters` sy'n llwytho ffeil paramed
         - 8.5
       - - Exponential
         - 5.5
-    Simulation_time: 1000
     Transition_matrices:
       Class 0:
       - - 0.0
@@ -134,7 +110,7 @@ Mae Ciw yn cynnwys ffwythiant :code:`load_parameters` sy'n llwytho ffeil paramed
 Ac yna i'w llwytho i mewn::
 
     >>> import ciw
-    >>> params = ciw.load_parameters('parameters.yml')
-    >>> Q = ciw.Simulation(params)
+    >>> N = ciw.create_network('parameters.yml') # doctest:+SKIP
+    >>> Q = ciw.Simulation(N) # doctest:+SKIP
 
 Mae enwau'r newidynnau union yr un fath ag allweddau'r geiriadur paramedrau.

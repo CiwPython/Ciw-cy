@@ -43,53 +43,6 @@ Engrhaifft ar gyfer rhwydwaith dau nod gyda dau dosbarth cwsmer::
                                          [0.4, 0.5, 0.1],
                                          [0.2, 0.2, 0.6]]}
 
-Cycle_length
-~~~~~~~~~~~~
-
-*Opsiynnol, angenrheidiol os ddefnyddir amserlenni gwaith*
-
-Cyfnod y cylchred yr amserlen gwaith. Am fwy o manylion gweler :ref:`server-schedules`.
-
-Dangosir engrhaifft::
-
-    'Cycle_length': 7
-
-
-Detect_deadlock
-~~~~~~~~~~~~~~~
-
-*Opsiynnol, angenrheidiol os ddefnyddir simulate_until_deadlock()*
-
-Dynodir pa mecanwaith canfod llwyrglo a ddefnyddir, os a defnyddir. Am fwy o manylion gweler :ref:`deadlock-detection`.
-
-Dangosir engrhaiff o defnyddio dim mecanwaith canfod llwyrglo (er, cynhyrchir yr un canlyniad trwy gadael allan yr opsiwn yma)::
-
-    'Detect_deadlock': False
-
-
-Exact
-~~~~~
-
-*Opsiynnol*
-
-Mae'r opsiwn yma yn alluogu'r opsiwn manylder, a yn dynodi lefel manylder sydd angen. Dylai ond defnyddio pan ei fod yn angenrheidiol. Am fwy o manylion gweler :ref:`exact-simulations`.
-
-Engrhaifft::
-
-    'Exact': 26
-
-
-Name
-~~~~
-
-*Opsiynnol*
-
-Ffordd o gynrychiolui'r efelychiad. Y werth diofyn yw 'Simulation'.
-
-Engrhaifft::
-
-    'Name': 'Fy Efelychiad Gwych!'
-
 
 Number_of_classes
 ~~~~~~~~~~~~~~~~~
@@ -156,30 +109,6 @@ Enghraiff o lle ond un dosbarth cwsmer sydd angen::
 
     'Service_distributions': [['Exponential', 4.8],
                             ['Exponential', 5.2]]
-
-
-Simulation_time
-~~~~~~~~~~~~~~~
-
-*Opsiynnol, angenrheidiol os defnyddir simulate_until_max_time()*
-
-Nifer o unedau amser i rhedeg yr efelychiad ar gyfer.
-
-Engrhaifft::
-
-    'Simulation_time': 2500
-
-
-Tracker
-~~~~~~~
-
-*Opsiynnol*
-
-Dynodir pa mecanwaith tracio cyflwr a ddefnyddir. Am fwy o manylion gweler :ref:`state-tracker`.  Os nad ydy wedi'i cynnwys, ni defnyddir traciwr cyflwr, heblaw os defnyddir mecanwaith canfod llwyrglo, lle defnyddir y Traciwr Naïf.
-
-Engrhaifft::
-
-    'Tracker': 'Naive'
 
 
 

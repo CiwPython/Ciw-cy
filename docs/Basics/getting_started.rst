@@ -32,7 +32,6 @@ Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i dd
     ... 'Arrival_distributions': {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
     ... 'Number_of_nodes': 2,
     ... 'Detect_deadlock': False,
-    ... 'Simulation_time': 1000,
     ... 'Number_of_servers': [1, 1],
     ... 'Queue_capacities': ['Inf', 4],
     ... 'Number_of_classes': 1,
@@ -41,11 +40,12 @@ Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i dd
     ... }
 
 Gwelwch :ref:`sim-parameters` am esboniad llawn o hwn.
-Fe all Ciw defnyddio'r geiriadur paramedrau hwn i redeg yr efelychiad::
+Fe all Ciw defnyddio'r geiriadur paramedrau hwn i greu wrthrych Network, sy'n cael ei ddefnyddio i redeg yr efelychiad::
 
 	>>> import ciw
-	>>> Q = ciw.Simulation(params)
-	>>> Q.simulate_until_max_time()
+	>>> N = ciw.create_network(params)
+	>>> Q = ciw.Simulation(N)
+	>>> Q.simulate_until_max_time(1000)
 
 Unwaith fod yr efelychiant wedi rhedeg, gall ysgrifennu :ref:`output-file` trwy::
 

@@ -11,22 +11,15 @@ Nawr mae llwytho Ciw a'r ffeil paramedrau fel geiriadur yn syml::
     >>> params["Number_of_servers"] # doctest:+SKIP
     [2, 1, 1] # doctest:+SKIP
 
-Sefydlwch wrthrych Simulation, lle allwch gael mynediad i'r paramedrau::
+Sefydlwch wrthrychau Network a Simulation, lle allwch gael mynediad i'r paramedrau::
 
-    >>> Q = ciw.Simulation(params) # doctest:+SKIP
-    >>> Q.number_of_nodes # doctest:+SKIP
-    3 # doctest:+SKIP
-    >>> Q.queue_capacities # doctest:+SKIP
-    ['Inf', 'Inf', 10] # doctest:+SKIP
-    >>> Q.lmbda    # Dosraniadau dyfodiad i'r system # doctest:+SKIP
-    [[['Exponential', 1.0], ['Exponential', 1.8], ['Exponential', 7.25]], [['Exponential', 6.0], ['Exponential', 4.5], ['Exponential', 2.0]]] # doctest:+SKIP
-    >>> Q.lmbda[0]    # Dosraniadau dyfodiad y 0eg dosbarth cwsmer # doctest:+SKIP
-    [['Exponential', 1.0], ['Exponential', 1.8], ['Exponential', 7.2]] # doctest:+SKIP
+    >>> N = ciw.create_network(params) # doctest:+SKIP
+    >>> Q = ciw.Simulation(N) # doctest:+SKIP
 
 Fe allwch ffeindio rhestr lawn o wrthrychau a phriodweddau Ciw fan hyn: :ref:`objects-attributes`.
 Nawr i redeg efelychiad, redwch y method canlynol::
 
-    >>> Q.simulate_until_max_time() # doctest:+SKIP
+    >>> Q.simulate_until_max_time(1000) # doctest:+SKIP
 
 Medrwch cael mynediad i recordiau data'r unigolion trwy'r methodau canlynol::
 

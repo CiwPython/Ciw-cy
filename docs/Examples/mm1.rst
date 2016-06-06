@@ -13,7 +13,6 @@ Sefydlwch y paramedrau o fewn ciw::
 
     >>> params_dict = {'Arrival_distributions': {'Class 0': [['Exponential', 3.0]]},
     ...                'Service_distributions': {'Class 0': [['Exponential', 5.0]]},
-    ...                'Simulation_time': 250,
     ...                'Transition_matrices': {'Class 0': [[0.0]]},
     ...                'Number_of_servers': [1]
     ...                }
@@ -24,10 +23,11 @@ Mae'n dychwelyd amser aros cymedrig y system::
     >>> import ciw
     >>> from random import seed
     >>> def iteration(warmup):
-    ...     Q = ciw.Simulation(params_dict)
-    ...     Q.simulate_until_max_time()
-    ...     records = Q.get_all_records(headers=False)
-    ...     waits = [row[4] for row in records if row[3] > warmup]
+    ...     N = ciw.create_network(params_dict)
+    ...     Q = ciw.Simulation(N)
+    ...     Q.simulate_until_max_time(250)
+    ...     records = Q.get_all_records()
+    ...     waits = [row.waiting_time for row in records if row.arrival_date > warmup]
     ...     return sum(waits)/len(waits)
     
     >>> seed(27)
@@ -36,6 +36,6 @@ Mae'n dychwelyd amser aros cymedrig y system::
     ...     ws.append(iteration(50))
     
     >>> print sum(ws)/len(ws)
-    0.292014274888
+    0.303011702426
 
 Gwelwn fod canlyniadau'r efelychiad yn cytuno gyda chanlyniadau theori ciwio.

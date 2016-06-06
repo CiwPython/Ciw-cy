@@ -11,7 +11,9 @@ Mae Ciw wedi'i strwythuro mewn o wrthrychau a dosbarthiadau.
    :alt: Strwythur y cod ar gyfer Ciw.
    :align: center
 
-Y dosbarthau sy'n ffurfio Ciw yw:
+Mae Ciw yn cynnwys 3 fath o wrthrych, Craidd, Mewnbwn, ac Opsiynnol.
+
+Craidd:
 
 - Simulation
 - Arrival Node
@@ -20,3 +22,14 @@ Y dosbarthau sy'n ffurfio Ciw yw:
 - Server
 - Individual
 - Data Record
+
+Mewnbwn:
+
+- Network
+- Service Centre
+- Customer Classe
+
+Opsiynnol:
+
+- State Tracker
+- Deadlock Detector

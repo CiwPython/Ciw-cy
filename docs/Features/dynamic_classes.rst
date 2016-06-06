@@ -33,12 +33,12 @@ Yn yr esiampl hon fydd cwsmer dosbarth 0 yn gorffen gwasanaeth yn nod 1 yn dod y
 
 Mewnbynna hyn i'r model efelychiad trwy ychwanegu'r canlynol i'r geiriadur paramedrau::
     
-    'Class_change_matrices': {'Node 0': [[0.3, 0.4, 0.3], [0.1, 0.9, 0.0], [0.5, 0.1, 0.4]], 'Node 1': [[1.0, 0.0, 0.0], [0.4, 0.5, 0.1], [0.2, 0.2, 0.6]]}
+    'Class_change_matrices': {'Node 1': [[0.3, 0.4, 0.3], [0.1, 0.9, 0.0], [0.5, 0.1, 0.4]], 'Node 2': [[1.0, 0.0, 0.0], [0.4, 0.5, 0.1], [0.2, 0.2, 0.6]]}
 
 Mae hwn yn gyfatebol i ychwanegu'r cod canlynol i'r ffeil paramedrau::
 
     Class_change_matrices:
-      Node 0:
+      Node 1:
       - - 0.3
         - 0.4
         - 0.3
@@ -48,7 +48,7 @@ Mae hwn yn gyfatebol i ychwanegu'r cod canlynol i'r ffeil paramedrau::
       - - 0.5
         - 0.1
         - 0.4
-      Node 1:
+      Node 2:
       - - 1.0
         - 0.0
         - 0.0
