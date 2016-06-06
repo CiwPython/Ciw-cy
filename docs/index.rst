@@ -9,6 +9,7 @@ Cynnwys:
    :maxdepth: 2
    :titlesonly:
    
+   installation.rst
    Basics/index.rst
    Features/index.rst
    Examples/index.rst

@@ -4,7 +4,8 @@
 Rhestr Llawn Paramedrau
 =======================
 
-Below is a full list of the :code:`**kwargs` that a :code:`Simulation` object takes. If using a parameters dictionary, here is the full list of required keys along with a description of the values required. If using a parameters file then here are the arguments and values of the required :code:`.yml` file.
+Fan hyn mae rhestr lawn y paramedrau a all geiriadur paramedrau ei gymryd, gyda disgrifiad o'r gwerthoedd hanfodol. Os ydych yn defnyddio ffeil paramedrau, dyma'r opsiynau a'r gwerthoedd sydd angen yn y ffeil :code:`.yml'.
+
 
 Arrival_distributions
 ~~~~~~~~~~~~~~~~~~~~~

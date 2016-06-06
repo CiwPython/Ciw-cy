@@ -24,7 +24,7 @@ Ac mae pob dosbarth cwsmer angen:
 - Matrics trosglwyddiadau
 
 
-Dangosir rhestr llawn o'r baramedrau all wrthrych Simulation yn Ciw cymryd yma: :ref:`parameters-list`.
+Dangosir rhestr llawn o'r baramedrau all wrthrych geiriadur paramedrau Ciw cymryd yma: :ref:`parameters-list`.
 Noder:
 
 - Gall osod :code:`Queue_capacities` i fod yn :code:`"Inf"`.
@@ -42,7 +42,7 @@ Yn y matrics trosglwyddo yma mae'r elfen `(i,j)` ed yn cyfateb a'r tebygolrwydd 
 
 Mae yna nifer o nodweddion eraill, gweler :ref:`features` am ragor o wybodaeth.
 
-Mae yna dau ffordd o fewnbynnu paramedrau i wrthrych Simulation:
+Mae yna dau ffordd o fewnbynnu paramedrau i wrthrych Network:
 
 * :ref:`params_dict`
 * :ref:`params_file`
@@ -54,7 +54,7 @@ Mae yna dau ffordd o fewnbynnu paramedrau i wrthrych Simulation:
 Geiriadur Paramedrau
 --------------------
 
-Fe all wrthrych Simulation cymryd geiriadur yn cynnwys holl kwargs fel allweddi. Dangosir engrhaifft::
+Fe allwch creu gwrthrych Network o geiriadur paramedrau, gan ddefnyddio'r ffwythiant :code:`ciw.create_network`. Dangosir engrhaifft::
 
     >>> import ciw
     >>> params = {
@@ -76,7 +76,8 @@ Fe all wrthrych Simulation cymryd geiriadur yn cynnwys holl kwargs fel allweddi.
 Ffeil Paramedrau
 ----------------
 
-Mae Ciw yn cynnwys ffwythiant :code:`load_parameters` sy'n llwytho ffeil paramedrau fel geiriadur. Mae'r ffeil yma mewn fformat :code:`.yml`. Dangosir engrhaifft::
+Fe allwch creu gwrthrych Network o ffeil paramedrau, gan ddefnyddio'r ffwythiant :code:`ciw.create_network`. Mar hwn yn ffeil :code:`.yml' sy'n cynnwys yr un wybodaeth a geiriadur paramedrau. Dangosir engrhaifft::
+
 
     parameters.yml
     
