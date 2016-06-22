@@ -119,18 +119,20 @@ html_theme = 'classic'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "footerbgcolor":"#c9611d",
+    "footerbgcolor":"white",
+    "footertextcolor":"black",
     "sidebarbgcolor":"#ffbe00",
     "sidebarwidth":"350",
     "sidebartextcolor":"#df6c20",
     "sidebarlinkcolor":"black",
-    "relbarbgcolor":"#df6c20",
-    "headbgcolor":"#ff9933",
+    "relbarbgcolor":"#16BAC5",
+    "headbgcolor":"#9DD6F9",
     "headtextcolor":"black",
     "linkcolor":"#cc5200",
     "visitedlinkcolor":"#cc5200",
     "bodyfont":"Optima",
-    "headfont":"Century Gothic"
+    "headfont":"Optima",
+    "codebgcolor":"#F7F7F7"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
