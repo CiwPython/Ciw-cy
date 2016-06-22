@@ -7,11 +7,11 @@ Aseinio Amserlenni Gwaith i Weinyddion
 Mae Ciw yn galluogi defnyddwyr i aseinio amserlenni gwaith cylchol i weinyddion ym mhob gorsaf gwasanaeth.
 Gall esiampl o amserlen gwaith cylchol edrych fel hyn:
 
-	+-------------------+---------+---------+---------+---------+---------+---------+
+	+--------------------+---------+---------+---------+---------+---------+---------+
 	|  Amseroedd sifft   |    0-40 |  40-100 | 100-120 | 120-180 | 180-220 | 220-250 |
-	+-------------------+---------+---------+---------+---------+---------+---------+
+	+--------------------+---------+---------+---------+---------+---------+---------+
 	| Nifer o weinyddion |       2 |       3 |       1 |       2 |       4 |       0 | 
-	+-------------------+---------+---------+---------+---------+---------+---------+
+	+--------------------+---------+---------+---------+---------+---------+---------+
 
 Mae'r amserlen hon yn gylchol, ac felly ar ôl y shifft olaf (220-250), mae'r amserlen yn dechrau eto gyda'r shifft (0-40). Cyfnod y cylchred yw 250.
 
