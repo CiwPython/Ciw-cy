@@ -31,7 +31,6 @@ Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i dd
     >>> params = {
     ... 'Arrival_distributions': {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
     ... 'Number_of_nodes': 2,
-    ... 'Detect_deadlock': False,
     ... 'Number_of_servers': [1, 1],
     ... 'Queue_capacities': ['Inf', 4],
     ... 'Number_of_classes': 1,

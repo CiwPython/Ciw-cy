@@ -35,7 +35,8 @@ Mae'n dychwelyd amser aros cymedrig y system::
     >>> for i in range(100):
     ...     ws.append(iteration(50))
     
-    >>> print sum(ws)/len(ws)
-    0.303011702426
+    >>> average_waits = sum(ws)/len(ws)
+    >>> print(round(average_waits 10))
+    0.3030117024
 
 Gwelwn fod canlyniadau'r efelychiad yn cytuno gyda chanlyniadau theori ciwio.

@@ -26,7 +26,7 @@ Mae hwn yn dynodi 3 cwsmer yn y nod cyntaf, 0 o rain wedi blocio; 5 cwsmer yn yr
 
 Mae'r gwrthrych Simulation yn cymryd yr opsiwn :code:`Tracker' a ddefnyddwyd fel y ganlyn::
 
-    Q = ciw.Simulation(N, tracker='Naive') # doctest: +SKIP
+    Q = ciw.Simulation(N, tracker='Naive') # doctest:+SKIP
 
 .. _matrix:
 
@@ -46,4 +46,4 @@ Mae hwn yn dynodi 3 cwsmer wrth y nod cyntaf, 5 cwsmer wrth yr ail nod, 10 cwsme
 
 Mae'r gwrthrych Simulation yn cymryd yr opsiwn :code:`Tracker' a ddefnyddwyd fel y ganlyn::
 
-    Q = ciw.Simulation(N, tracker='Matrix') # doctest: +SKIP
+    Q = ciw.Simulation(N, tracker='Matrix') # doctest:+SKIP
