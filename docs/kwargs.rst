@@ -4,7 +4,7 @@
 Rhestr Llawn Paramedrau
 =======================
 
-Fan hyn mae rhestr lawn y paramedrau a all geiriadur paramedrau ei gymryd, gyda disgrifiad o'r gwerthoedd hanfodol. Os ydych yn defnyddio ffeil paramedrau, dyma'r opsiynau a'r gwerthoedd sydd angen yn y ffeil :code:`.yml'.
+Fan hyn mae rhestr lawn y paramedrau a all geiriadur paramedrau ei gymryd, gyda disgrifiad o'r gwerthoedd hanfodol. Os ydych yn defnyddio ffeil paramedrau, dyma'r opsiynau a'r gwerthoedd sydd angen yn y ffeil :code:`.yml`.
 
 
 Arrival_distributions

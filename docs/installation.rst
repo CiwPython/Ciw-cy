@@ -12,3 +12,5 @@ Serch hynny, os hoffwch osod Ciw o'r ffynhonnell::
     $ cd Ciw
     $ pip install -r requirements.txt
     $ python setup.py install
+
+Ar hyn o bryd mae gan Ciw cymorth am, ac wedi'i profi'n rheolaidd am fersiynau Python 2.7, 3.4 a 3.5.
