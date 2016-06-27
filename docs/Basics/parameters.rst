@@ -76,7 +76,7 @@ Fe allwch creu gwrthrych Network o geiriadur paramedrau, gan ddefnyddio'r ffwyth
 Ffeil Paramedrau
 ----------------
 
-Fe allwch creu gwrthrych Network o ffeil paramedrau, gan ddefnyddio'r ffwythiant :code:`ciw.create_network`. Mar hwn yn ffeil :code:`.yml' sy'n cynnwys yr un wybodaeth a geiriadur paramedrau. Dangosir engrhaifft::
+Fe allwch creu gwrthrych Network o ffeil paramedrau, gan ddefnyddio'r ffwythiant :code:`ciw.create_network`. Mar hwn yn ffeil :code:`.yml` sy'n cynnwys yr un wybodaeth a geiriadur paramedrau. Dangosir engrhaifft::
 
 
     parameters.yml
