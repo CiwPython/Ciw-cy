@@ -41,8 +41,7 @@ Paramedrau::
 Rhedeg nes cyrraedd llwyrglo::
 
     >>> import ciw
-    >>> from random import seed
-    >>> seed(99)
+    >>> ciw.seed(99)
     >>> N = ciw.create_network(params)
     >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph')
     >>> Q.simulate_until_deadlock()

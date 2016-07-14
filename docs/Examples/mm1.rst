@@ -21,7 +21,6 @@ Mae'r cod canlynol yn ailadrodd yr arbrawf 100 gwaith, ond yn recordio'r amseroe
 Mae'n dychwelyd amser aros cymedrig y system::
     
     >>> import ciw
-    >>> from random import seed
     >>> def iteration(warmup):
     ...     N = ciw.create_network(params_dict)
     ...     Q = ciw.Simulation(N)
@@ -30,7 +29,7 @@ Mae'n dychwelyd amser aros cymedrig y system::
     ...     waits = [row.waiting_time for row in records if row.arrival_date > warmup]
     ...     return sum(waits)/len(waits)
     
-    >>> seed(27)
+    >>> ciw.seed(27)
     >>> ws = []
     >>> for i in range(100):
     ...     ws.append(iteration(50))
