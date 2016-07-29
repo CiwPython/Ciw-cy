@@ -49,4 +49,4 @@ Rhedeg nes cyrraedd llwyrglo::
     >>> self.times_to_deadlock # doctest:+SKIP
     {((1, 0),): 1.0845416939916719, ((3, 0),): 0.5436399978272065, ((0, 0),): 1.1707879982560288, ((4, 0),): 0.15650986183172932, ((3, 1),): 0.0, ((2, 0),): 1.0517097907100657}
 
-Fan hyn mae'r cyflwr :code:`((i, j),)` yn dynodi'r cyflwr lle mae `i` cwsmer yn y nod a `j` o rain wedi'i flocio.
+Fan hyn mae'r cyflwr :code:`((i, j),)` yn dynodi'r cyflwr lle mae `i` cwsmer yn y nod a `j` o rain wedi'i flocio (Gweler :ref:`state-tracker`).
