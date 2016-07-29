@@ -9,12 +9,13 @@ Yna mae Ciw yn recordio'r amser nes cyrraedd llwyrglo o bob cyflwr.
 
 Er mwyn cymryd mantais o'r nodwedd yma, gosodwch opsiwn canfod llwyrglo i un o'r canfodyddion llwyrglo wrth greu'r gwrthrych Simulation::
 
-    >>> Q = ciw.Simulation(params, deadlock_detector='StateDigraph') # doctest:+SKIP
+    >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph') # doctest:+SKIP
 
 Yna defnyddiwch y method :code:`simulate_until_deadlock`. Mae'r priodwedd :code:`times_to_deadlock` yn cynnwys yr amseroedd nes llwyrglo o bob cyflwr (lle recordiwyd y cyflwr gan :ref:`state-tracker`)::
 
     >>> import ciw
-    >>> Q = ciw.Simulation(params, deadlock_detector='StateDigraph') # doctest:+SKIP
+    >>> N = ciw.create_network(params) # doctest:+SKIP
+    >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph') # doctest:+SKIP
     >>> Q.simulate_until_deadlock() # doctest:+SKIP
     >>> times = Q.times_to_deadlock # doctest:+SKIP
 
