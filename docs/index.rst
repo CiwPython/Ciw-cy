@@ -1,7 +1,7 @@
 Croeso i ddogfennaeth Ciw!
 ==========================
 
-Llyfrgell Python sy'n fframwaith efelychiad cyfrifiadurol ar gyfer rhwydweithiau ciwio agored yw Ciw.
+Llyfrgell efelychiad cyfrifiadurol Python ar gyfer rhwydweithiau ciwio agored yw Ciw.
 
 Cynnwys:
 
