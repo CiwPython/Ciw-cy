@@ -17,6 +17,7 @@ Cynnwys:
    kwargs.rst
    attributes.rst
    glossary.rst
+   changelog.rst
 
 
 Indecsau a tablau

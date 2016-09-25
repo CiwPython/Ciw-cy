@@ -1,8 +1,8 @@
 .. _server-schedules:
 
-======================================
-Aseinio Amserlenni Gwaith i Weinyddion
-======================================
+=============================
+Amserlenni Gwaith Gweinyddion
+=============================
 
 Mae Ciw yn galluogi defnyddwyr i aseinio amserlenni gwaith cylchol i weinyddion ym mhob gorsaf gwasanaeth.
 Gall esiampl o amserlen gwaith cylchol edrych fel hyn:
@@ -54,3 +54,5 @@ A'r ffordd gyfatebol yn y geiriadur paramedrau yw ychwanegu'r canlynol::
 
 Fan hyn rydym yn dweud fe fydd yna 2 weinydd rhwng amseroedd 0 a 40, 3 rhwng amseroedd 40 a 100, ayyb.
 Mae hwn yn diffinio'r amserlen gwaith yn llawn.
+
+Noder fod ar hyn o bryd nid yw amserlenni gwaith a nifer anfeidraidd o weinyddion yn gweithio gyda'i gilydd, ac felly ni allwch ychwanegu nifer anfeidraidd o weinyddion o fewn amserlen gwaith.

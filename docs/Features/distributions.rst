@@ -15,6 +15,7 @@ Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwa
 - :ref:`weibull_dist`
 - :ref:`empirical_dist`
 - :ref:`own_functions`
+- :ref:`no_arrivals`
 
 
 Gweler :ref:`custom-distributions` i weld sut allwch ddiffinio FfDT arwahanol ar gyfer amseroedd gwasanaeth.
@@ -157,3 +158,17 @@ Mewnbynnu Ffwythiannau
 Mae Ciw yn gadael i ddefnyddwyr mewnbynnu ffwythiannau ei hun i gynhyrchu amseroedd gwasanaeth a rhwng-dyfodiadau. Gall wneud hyn trwy roi ffwythiant yn y ffordd ganlynol::
 
 	['UserDefined', lambda : random.random()]
+
+
+
+.. _no_arrivals:
+
+--------------
+Dim Dyfodiadau
+--------------
+
+Os nad yw nod yn cael unrhyw dyfodiadau o rhyw dosbarth cwsmer, yna gellir ychwanegu'r cod isod i'r geiriadur paramedrau::
+
+    'NoArrivals'
+
+Noder fod yna ddim bracedu sgwâr fan hyn. Hefyd nodwch fod hwn ond yn ddilys ar gyfer dyfodiadau, a ni ddylir rhoi hwn yn yr opsiwn :code:`Service_distributions`.
