@@ -5,6 +5,10 @@ Log Newidiadau
 
 Mae'r log newidiadau yma yn Saesneg gan ei fod wedi'i thynnu yn syth o'r ffeil CHANGES.rst.
 
+v0.2.5 (2016-10-06)
+-------------------
+Fix bug that didn't include .rst files in MANIFEST.in.
+
 v0.2.4 (2016-09-27)
 -------------------
 Fixed bug in which priority classes and dynamic classes didn't work together.
