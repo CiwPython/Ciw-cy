@@ -15,6 +15,7 @@ Ar hyn o bryd mae Ciw yn caniatáu'r dosraniadau canlynol ar gyfer amseroedd gwa
 - :ref:`weibull_dist`
 - :ref:`empirical_dist`
 - :ref:`own_functions`
+- :ref:`time_dependent`
 - :ref:`no_arrivals`
 
 
@@ -158,6 +159,18 @@ Mewnbynnu Ffwythiannau
 Mae Ciw yn gadael i ddefnyddwyr mewnbynnu ffwythiannau ei hun i gynhyrchu amseroedd gwasanaeth a rhwng-dyfodiadau. Gall wneud hyn trwy roi ffwythiant yn y ffordd ganlynol::
 
 	['UserDefined', lambda : random.random()]
+
+
+
+.. _time_dependent:
+
+--------------------------
+Ffwythiannu Amser Dibynnol
+--------------------------
+
+Yn debyg i ychwanegu ffwythiannau :code:`UserDefined`, mae Ciw yn gallu delio gyda ffwythiannu sy'n dibynnol ar yr amser. Ffwythiannau lambda yw rhain sy'n cymryd mewn paramedr amser. Mae Ciw yn defnyddio amser presennol yr efelychiad i samplu amser gwasanaeth neu rhyng-dyfodiad newydd::
+
+    ['TimeDependent', lambda t : fy_ffwythiant_amser_dibynnol(t)]
 
 
 
