@@ -26,16 +26,14 @@ Mae'r rhwydwaith ciwio yma yn cynnwys 2 nod:
 	- Cynhwysedd ciwio macsimwm o 4
 	- Tebygolrwydd 0.1 o ymuno â Nod 1 wedi gwasanaeth
 
-Rydym yn dymuno efelychu'r system hon am 1000 uned amser. Mae'r system wedi'i ddiffinio gan y geiriadur paramedrau canlynol::
+Rydym yn dymuno efelychu'r system hon am 100 uned amser. Mae'r system wedi'i ddiffinio gan y geiriadur paramedrau canlynol::
 
     >>> params = {
     ... 'Arrival_distributions': {'Class 0': [['Exponential', 6.0], ['Exponential', 2.5]]},
-    ... 'Number_of_nodes': 2,
+    ... 'Service_distributions': {'Class 0': [['Exponential', 8.5], ['Exponential', 5.5]]},
+    ... 'Transition_matrices': {'Class 0': [[0.0, 0.2], [0.1, 0.0]]},
     ... 'Number_of_servers': [1, 1],
     ... 'Queue_capacities': ['Inf', 4],
-    ... 'Number_of_classes': 1,
-    ... 'Service_distributions': {'Class 0': [['Exponential', 8.5], ['Exponential', 5.5]]},
-    ... 'Transition_matrices': {'Class 0': [[0.0, 0.2], [0.1, 0.0]]}
     ... }
 
 Gwelwch :ref:`sim-parameters` am esboniad llawn o hwn.
