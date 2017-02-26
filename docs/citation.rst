@@ -3,7 +3,7 @@
 Cyfeirio i'r Llyfrgell
 ======================
 
-Os gwelwch yn dda, defnydiwch y canlynol i cyfeirio i'r llyfrgell Ciw::
+Os gwelwch yn dda, defnyddiwch y canlynol i cyfeirio i'r llyfrgell Ciw::
 
     @misc{ciwpython,
       author       = {{ {The Ciw library developers} }}
