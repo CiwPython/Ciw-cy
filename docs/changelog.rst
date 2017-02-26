@@ -5,6 +5,10 @@ Log Newidiadau
 
 Mae'r log newidiadau yma yn Saesneg gan ei fod wedi'i thynnu yn syth o'r ffeil CHANGES.rst.
 
+v0.2.9 (2017-02-24)
+-------------------
+Allow zero servers.
+
 v0.2.8 (2016-11-10)
 -------------------
 Add option for time dependent distributions.

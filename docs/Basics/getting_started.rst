@@ -44,8 +44,8 @@ Fe all Ciw defnyddio'r geiriadur paramedrau hwn i greu wrthrych Network, sy'n ca
 	>>> import ciw
 	>>> N = ciw.create_network(params)
 	>>> Q = ciw.Simulation(N)
-	>>> Q.simulate_until_max_time(1000)
+	>>> Q.simulate_until_max_time(100)
 
-Unwaith fod yr efelychiant wedi rhedeg, gall ysgrifennu :ref:`output-file` trwy::
+Unwaith fod yr efelychiant wedi rhedeg, gall cael holl :ref:`results-data` trwy::
 
-	>>> Q.write_records_to_file(<path_i_ffeil>)  # doctest:+SKIP
+	>>> recs = Q.get_all_records()
