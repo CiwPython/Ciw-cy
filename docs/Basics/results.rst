@@ -74,15 +74,15 @@ O fan hyn, fe allwn cael edrych ar nifer o mesuron perfformiad trwy trin y rhest
 
     >>> waits2 = [r.waiting_time for r in recs if r.node == 2]
     >>> waits2
-    [0.0, 0.17402..., 0.25654..., 0.245544...]
+    [0.0, 0.252..., 0.242..., 0.366..., 0.278..., 0.064..., 0.540..., 0.455..., 0.474...]
     >>> sum(waits2) / len(waits2)
-    0.16902829492661808
+    0.29721841186163034
 
 Efallai hoffwch weld amseroedd gwasanaeth pob cwsmer a pasiodd trwy Nod 1:
 
     >>> service1 = [r.service_time for r in recs if r.node == 1]
     >>> service1
-    [0.05654..., 0.13221..., 0.127559..., 0.10152..., 0.19745...]
+    [0.040..., 0.213..., 0.080..., 0.011..., 0.169..., 0.0305..., 0.212..., 0.0287..., 0.067...]
 
 
 .. _count_losses:
@@ -94,14 +94,14 @@ Cyfri Colledion
 Fe fydd nodau gyda cynhwysedd ciwio cyfyngedig yn gwrthod cwsmeriaid newydd sy'n cyrraedd os ydynt yn cyraedd pan mae'r nod yn llawn. Mae'r colledion yma yn cael eu recordio mewn :code:`rejection_dict`. Dyma geiriadur o geiriaduron, gyda nodau a dosbarthau cwsmer fel allweddau, a rhestr o dyddiadau cyrraedd fel gwerthoedd.
 
     >>> Q.rejection_dict
-    {1: {0: []}, 2: {0: [0.79694..., 1.17701..., 1.19512..., 1.25265...]}}
+    {1: {0: []}, 2: {0: [1.1902..., 1.3520...]}}
 
 Fan hyn welwn fod colled cwsmer o dosbarth cwsmer 0 yn Nod 2 ar dyddiadau 0.796, 1.770, 1.195, a 1.252.
 Os hoffwn weld nifer of colledion dosbarth cwsmer 0 yn Nod 2:
 
     >>> number_of_losses_class0_node2 = len(Q.rejection_dict[2][0])
     >>> number_of_losses_class0_node2
-    4
+    2
 
 I weld cyfanswm nifer o colledion, rhaid swmio dros holl nodau a dosbarth cwsmer:
 
@@ -110,7 +110,7 @@ I weld cyfanswm nifer o colledion, rhaid swmio dros holl nodau a dosbarth cwsmer
     ...     range(1, N.number_of_nodes + 1) for cls in
     ...     range(N.number_of_classes)])
     >>> number_of_losses
-    4
+    2
 
 
 .. _access_nodes:
@@ -129,19 +129,19 @@ Yn gyntaf, edrychwn ar y nodau eu hun:
 Mae'r Exit Node yn cynnwys holl unigolion sydd wedi gadael y system:
 
     >>> Q.nodes[-1].all_individuals
-    [Individual 3, Individual 1, Individual 4, Individual 2]
+    [Individual 2, Individual 3, Individual 1, Individual 5, Individual 4, Individual 6, Individual 7, Individual 8, Individual 9]
 
 Mae hwn yn dweud wrthon fod 4 unigolyn wedi gorffen eu gwasanaethau ac wedi gadael y system. Fe allwn hefyd edrych ar yr unigolion sydd dal yn y nodau wasanaeth:
 
     >>> Q.nodes[1].all_individuals
-    [Individual 10, Individual 15, Individual 16, Individual 17]
+    [Individual 12, Individual 15]
     
     >>> Q.nodes[2].all_individuals
-    [Individual 5, Individual 6, Individual 7, Individual 8, Individual 9]
+    [Individual 10, Individual 11]
 
 Wrth cyfuno'r wybodaeth hwn gyda'r wybodaeth a cawsom o'r :code:`rejection_dict`, rydym nawr yn gwybod pob unigolyn aeth i mewn i'r system:
 
-- Fe wnaeth Unigolion 1 i 4 cwblhau bod gwasanaeth.
-- Fe wnaeth Unigolion 5 i 9 cyrraedd Nod 2, ond aethen nhw ddim pellach.
-- Fe wnaeth Unigolyn 10, a 15 i 17 cyrraedd Nod 1, ond aethen nhw ddim pellach.
-- Roedd 4 Unigolyn wedi'i wrthod, ac felly Unigolion 11 i 14 cafodd eu wrthod.
+- Fe wnaeth Unigolion 1 i 9 cwblhau bod gwasanaeth.
+- Fe wnaeth Unigolion 10 a 11 cyrraedd Nod 2, ond aethen nhw ddim pellach.
+- Fe wnaeth Unigolyn 12 a 15 cyrraedd Nod 1, ond aethen nhw ddim pellach.
+- Roedd 4 Unigolyn wedi'i wrthod, ac felly Unigolion 13 a 14 cafodd eu wrthod.

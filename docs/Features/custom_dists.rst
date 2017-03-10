@@ -16,7 +16,7 @@ Gall esiampl o ddosraniad arwahanol edrych fel hyn:
 
 Diffinir y dosraniad yma gan rhestr o rhestrau::
 
-    [[0.1, 9.5], [0.1, 10.2], [0.3, 10.6], [0.2, 10.9], [0.2, 11.7], [0.2, 12.1]]
+    [[0.1, 9.5], [0.1, 10.2], [0.3, 10.6], [0.2, 10.9], [0.2, 11.7], [0.1, 12.1]]
 
 Fan hyn rydym yn dweud samplwyd y gwerth 9.5 gyda thebygolrwydd 0.1, samplwyd y gwerth 10.2 gyda thebygolrwydd 0.1, ayyb. Noder rhaid i'r tebygolrwydd symio i 1.
 
@@ -31,7 +31,7 @@ Dangosir esiampl::
     Service_distributions:
       Class 0:
       - - Custom
-        - [[0.1, 9.5], [0.1, 10.2], [0.3, 10.6], [0.2, 10.9], [0.2, 11.7], [0.2, 12.1]]
+        - [[0.1, 9.5], [0.1, 10.2], [0.3, 10.6], [0.2, 10.9], [0.2, 11.7], [0.1, 12.1]]
       - - Exponential
         - 0.1
       Class 1:
