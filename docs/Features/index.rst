@@ -9,6 +9,7 @@ Cynnwys:
 .. toctree::
    :maxdepth: 2
 
+   simulating.rst
    seed.rst
    progress_bar.rst
    distributions.rst
