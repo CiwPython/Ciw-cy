@@ -2,6 +2,11 @@ div.sphinxsidebar #searchbox input[type="submit"] {
     width: 60px;
 }
 
+
+* {
+	font-size: 101%;
+}
+
 pre {
     border-top: 1px solid #16BAC5;
     border-bottom: 1px solid #16BAC5;

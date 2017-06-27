@@ -1,48 +1,80 @@
 .. _simulation-practice:
 
-=================
-Arferion Efelychu
-=================
+===================
+Simulation Practice
+===================
 
-Mae sicrhau arferion da wrth fodelu gydag efelychiadau yn bwysig er mwyn cael dadansoddiadau ystyrlon o'r modelau. Llyfr a argymhellir ar y pwnc yw 'Simulation: The practice of model development and use' gan Stewart Robinson. Mae'r tudalen yma yn crynhoi rhai agweddau pwysig o gynnal dadansoddiadau trwy efelychiad.
+Ensuring good practice when simulation modelling is important to get meaningful analyses from the models.
+This is shown in :ref:`Tutorial IV <tutorial-iv>`.
+A recommended resource on the subject is [SW14]_.
+This page will briefly summarise some important aspects of carrying out simulation model analysis.
 
-------------------------------
-Perfformio Dyblygiadau Lluosog
-------------------------------
+-------------------------------
+Performing Multiple Repetitions
+-------------------------------
 
-Ni ddylai defnyddwyr dibynnu ar ganlyniadau rhediad sengl o'r efelychiad, oherwydd natur stocastig efelychiadau. Wrth redeg un dyblygiad yn unig, ni allai defnyddwyr gwybod os yw'r ymddygiad a welir yn nodweddiadol, eithafol neu'n anarferol. I ddod dros hwn mae angen perfformio dyblygiadau lluosog, yn defnyddio ffrwd haprif gwahanol pob tro. Yna, fe allwch ddadansoddi canlyniadau'r dosraniadau canlyniadau (er enghraifft gan gymryd gwerthoedd cymedrig y dangosyddion perfformiad allweddol.)
+Users should not rely on the results of a single run of the simulation due to the intrinsic stochastic nature of simulation.
+When only running one repetition, users cannot know whether the behaviour of that run is typical, extreme or unusual.
+To counter this multiple replications must be performed, each using different random number streams.
+Then analyses on the distribution of results can be performed (for example taking mean values of key performance indicators).
 
-Yn Ciw, y ffordd symlaf o weithredu hwn yw creu a rhedeg yr efelychiad mewn lŵp, gan osod hedyn ffrwd haprif gwahanol pob tro.
+In Ciw, the simplest way of implementing this is to create and run the simulation in a loop, using a different random seed every time.
 
--------------
-Amser Cynhesu
--------------
+------------
+Warm-up Time
+------------
 
-Fel arfer mae efelychiadau yn dechrau o dan amgylchiadau afrealistig, hynny yw mai ganddyn nhw amodau cychwynnol afrealistig. Yn Ciw, yr amodau cychwynnol diofyn yw system wag. Wrth gwrs fe all fod yna sefyllfaoedd lle mae angen casglu'r holl ganlyniadau o system wag, ond mewn sefyllfaoedd arall, er enghraifft wrth ddadansoddi systemau mewn cydbwysedd, mae'r amodau cychwynnol yn achosi bias digroeso. Un dull safonol o oroesi hwn yw defnyddio amser cynhesu. Rhed yr efelychiad amser penodol (yr amser cynhesu) i gael y system mewn cyflwr priodol cyn bod unrhyw ganlyniadau yn cael ei gasglu.
+Simulation models often begin in unrealistic circumstances, that is they have unrealistic initial conditions.
+In Ciw, the default initial condition is an empty system.
+Of course there may be situations where collecting all results from an empty system is required, but in other situations, for example when analysing systems in equilibrium, these initial conditions cause unwanted bias.
+One standard method of overcoming this is to use a warm-up time.
+The simulation is run for a certain amount of time (the warm-up time) to get the system in an appropriate state before results are collected.
 
-Yn Ciw, y ffordd symlaf o weithredu hwn yw hidlo mas unrhyw record a chrëwyd cyn yr amser cynhesu.
+In Ciw, the simplest way of implementing this is to filter out records that were created before the warm-up time.
 
-Mae'r enghraifft isod yn dangos y ffordd symlaf o berfformio dyblygiadau lluosog, a defnyddio amser cynhesu, yn Ciw. Mae'n dangos sut i ffeindio'r amser aros cymedrig ar gyfer ciw M/M/1::
+
+--------------
+Cool-down Time
+--------------
+
+If collecting records using the :code:`get_all_records` method, then this will only collect completed records.
+There may be a need to collect arrival or waiting information of those individuals still in service.
+In Ciw, we can do this by simulating past the end of the observation period, and then only collect those relevant records that are in the observation period.
+
+In Ciw, the simplest way of implementing this is to filter out records that were created after the cool-down time began.
+
+
+
+-------
+Example
+-------
+
+
+The example below shows the simplest way to perform multiple replications, and use a warm-up and cool-down time, in Ciw.
+It shows how to find the average waiting time in an :ref:`M/M/1 <kendall-notation>` queue::
 
     >>> import ciw
-    >>> params = {'Arrival_distributions': [['Exponential', 5.0]],
-    ...           'Service_distributions': [['Exponential', 8.0]],
-    ...           'Transition_matrices': [[0.0]],
-    ...           'Number_of_servers': [1]}
+    >>> N = ciw.create_network(
+    ...     Arrival_distributions=[['Exponential', 5.0]],
+    ...     Service_distributions=[['Exponential', 8.0]],
+    ...     Transition_matrices=[[0.0]],
+    ...     Number_of_servers=[1]
+    ... )
     >>>
     >>> average_waits = []
-    >>> warmup = 50
+    >>> warmup = 10
+    >>> cooldown = 10
+    >>> maxsimtime = 40
     >>>
-    >>> for s in range(100):
+    >>> for s in range(25):
     ...     ciw.seed(s)
-    ...     N = ciw.create_network(params)
     ...     Q = ciw.Simulation(N)
-    ...     Q.simulate_until_max_time(200)
+    ...     Q.simulate_until_max_time(warmup + maxsimtime + cooldown)
     ...     recs = Q.get_all_records()
-    ...     waits = [r.waiting_time for r in recs if r.arrival_date > warmup]
-    ...     average_waits.append(sum(waits)/len(waits))
+    ...     waits = [r.waiting_time for r in recs if r.arrival_date > warmup and r.arrival_date < warmup + maxsimtime]
+    ...     average_waits.append(sum(waits) / len(waits))
     >>>
-    >>> average_wait = sum(average_waits)/len(average_waits)
-    >>> print(round(average_wait, 5))
-    0.21071
+    >>> average_wait = sum(average_waits) / len(average_waits)
+    >>> average_wait
+    0.204764...
 

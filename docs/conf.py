@@ -59,7 +59,7 @@ author = u'Geraint Palmer'
 # built documents.
 #
 # The short X.Y version.
-version = '0.2.11'
+version = '1.1.0'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -243,7 +243,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'Ciw.tex', u'Ciw Documentation',
+  (master_doc, 'Ciw.tex', u'Dogfennaeth Ciw',
    u'Geraint Palmer', 'manual'),
 ]
 
