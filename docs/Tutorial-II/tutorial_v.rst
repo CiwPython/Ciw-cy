@@ -1,42 +1,40 @@
 .. _tutorial-v:
 
-===============================
-Tutorial V: A Network of Queues
-===============================
+================================
+Tiwtorial V: Rhwydwaith o Ciwiau
+================================
 
-Ciw's real power comes when modelling networks of queues.
-That is many service nodes, such that when customers finish service, there is a probability of joining another node, rejoining the current node, or leaving the system.
+Mae pŵer go iawn Ciw yn dod wrth modelu rhwydwaith o ciwiau.
+Hynny yw nifer o nodau gwasanaeth, fel bod pan mae cwsmer yn gorffen gwasanaeth, mae yna tebygolrwydd o ymuno a nod arall, ail-ymuno a'r nod presennol, neu gadael y system.
 
-Imagine a café that sells both hot and cold food.
-Customers arrive and can take a few routes:
+Dychmygwch caffi sy'n gwerthu bwyd poeth ac oer.
+Gall cwsmeriaid cymryd nifer o llwybrau:
 
-+ Customers only wanting cold food must queue at the cold food counter, and then take their food to the till to pay.
-+ Customers only wanting hot food must queue at the hot food counter, and then take their food to the till to pay.
-+ Customers wanting both hot and cold food must first queue for cold food, then hot food, and then take both to the till and pay.
++ Mae angen i cwsmeriaid sydd ond eisiau bwyd oer ciwio wrth y cownter bwyd oer, ac yna cymryd eu bwyd i'r til i talu.
++ Mae angen i cwsmeriaid sydd ond eisiau bwyd poeth ciwio with y cownter bwyd poeth, ac yna cymryd eu bwyd i'r til i talu.
++ Mae angen i cwsmeriaid sydd eisiau bwyd oer a bwyd poeth ciwio yn gyntaf ar gyfer bwyd oer, yna ar gyfer bwyd poeth, ac yna cymryd y ddau i'r til i talu.
 
-In this system there are three nodes: Cold food counter (Node 1), Hot food counter (Node 2), and the till (Node 3):
+Yn y system yma mae yna tri nod: Cownter bwyd oer (Nod 1), Cownter bwyd poeth (Nod 2), a'r til (Nod 3):
 
-+ Customer wanting hot food only arrive at a rate of 12 per hour.
-+ Customers wanting cold food arrive at a rate of 18 per hour.
-+ 30% of all customer who buy cold food also want to buy hot food.
-+ On average it takes 1 minute to be served cold food, 2 and a half minutes to be served hot food, and 2 minutes to pay.
-+ There is 1 server at the cold food counter, 2 servers at the hot food counter, and 2 servers at the till.
++ Mae cwsmeriaid sydd ond eisiau bwyd poeth yn cyrraedd ar gyfradd 12 yr awr.
++ Mae cwsmeriaid sydd eisiau bwyd oer yn cyrraedd ar gyfradd 18 yr awr.
++ Mae 30% o'r holl cwsmeriaid sydd eisiau prynu bwyd oer hefyd eisiau prynu bwyd poeth.
++ Ar gyfartaledd mae'n cymryd 1 munud i weinu bwyd oer, 2 a hanner munud i weinu bwyd poeth, a 2 munud i talu.
++ Mae yna 1 gweinydd wrth y cownter bwyd oer, 2 weinydd wrth y cownter bwyn poeth, a 2 weinydd wrth y til.
 
-A diagram of the system is shown below:
+Dangosir diagram o'r system isod:
 
 .. image:: ../_static/cafe.svg
    :scale: 100 %
-   :alt: Diagram of café queueing network.
+   :alt: Diagram o'r rhwydwaith ciwio caffi.
    :align: center
 
-This system can be described in one Network object.
-Arrival and Service distributions are listed in the order of the nodes.
-So are number of servers.
-We do however require a *transition matrix*.
+Gellir disgrifio'r system yma mewn un gwrthrych Network.
+Rhestrir y dosraniadau dyfodi a gwasanaeth a nifer y weinyddion yn trefn y nodau.
+Mae hefyd angen *matrics trosglwyddo*.
 
-A transition matrix is an :math:`n \times n` matrix (where :math:`n` is the number of nodes in the network) such that the :math:`(i,j)\text{th}` element corresponds to the probability of transitioning to node :math:`j` after service at node :math:`i`.
-In Python, we write this matrix as a list of lists.
-The transition matrix for the café system looks like this:
+Matrics trosglwyddo yw matrics :math:`n \times n` (lle :math:`n` yw nifer y nodau yn y rhwydwaith) fel bod yr elfen :math:`(i,j)\text{fed}` yn cyfateb i'r tebygolrwydd o trosglwyddo i nod :math:`j` ar ol gorffen wasanaeth yn nod :math:`i`.
+Mae matrics trosglwyddo'r caffi yn edrych fel hyn:
 
 .. math::
 
@@ -47,9 +45,8 @@ The transition matrix for the café system looks like this:
     \end{pmatrix}
 
 
-That is 30% of cold food customers then go to hot food, while the remaining 70% go to the till, and 100% of hot food customers go to the till.
-This is included when creating a network, with the keyword :code:`Transition_matrices`.
-So, our Network for the café looks like this::
+Hynny yw mae 30% o'r cwsmeriaid bwyd oer yn mynd ymlaen i'r cownter bwyd poeth, tra bod y 70% sy'n weddill yn mynd i'r till, ac mae 100% o cwsmeriaid bwyd poeth yn mynd ymlaen i'r til.
+Felly mae Network y caffi yn edrych fel hyn::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -65,18 +62,18 @@ So, our Network for the café looks like this::
     ...     Number_of_servers=[1, 2, 2]
     ... )
 
-Notice the Arrival distributions:
-18 cold food arrivals per hour is equivalent to :code:`0.3` per minute; 12 hot food arrivals per hour is equivalent to :code:`0.2` per minute; and we want no arrivals to occur at the Till.
+Sylwch y dosraniadau dyfodi:
+mae 18 dyfodiad bwyd oer yn cyfatebol i :code:`0.3` y munud; mae 12 dyfodiad bwyd poeth yn cyfatebol i :code:`0.2` y munud; a nid oes unrhyw dyfodiadau wrth y til.
 
-Notice the Service distributions:
-an average cold food service time of 1 minute is equivalent to a rate of 1/1 = :code:`1` service per minute; an average hot food service time of 2.5 minutes is equivalent to 1/2.5 = :code:`0.4` services per minute; and an average till service time of 2 minutes is equivalent to :code:`0.5` services per minute.
+Sylwch y dosraniadau gwasanaeth:
+mae amser gwasanaeth bwyd oer cymedrig o 1 munud yn cyfatebol i cyfradd o 1/1 = :code:`1` gwasanaeth y munud; mae amser gwasanaeth bwyd poeth cymedrig o 2.5 munud yn cyfatebol i 1/2.5 = :code:`0.4` gwasanaeth y munud; ac mae amser gwasanaeth cymedrig o 2 munud with y til yn cyfatebol i :code:`0.5` gwasanaeth y munud.
 
-Let's simulate this for one shift of lunchtime of 3 hours (180 mins).
-At the beginning of lunchtime the café opens, and thus begins from an empty system.
-Therefore no warm-up time is required.
-We'll use 20 minutes of cool-down time.
-We'll run 10 trials, to get a measure of the average number of customers that pass through the system.
-To find the average number of customers that pass through the system, we can count the number of data records that have passed through Node 3 (the Till)::
+Gadewch i ni efelychu'r system yma am un sifft amser cinio o 3 awr (180 munud).
+Ar dechrau amser cinio mae'r caffi yn agor, felly mae'r system yn dechrau yn gwag.
+Felly nad oes angen amser-cynhesu.
+Defnyddiwn 20 munud o amser-oeri.
+Rhedwn 10 arbrawf, i cael mesur nifer cymedrig cwsmeriaid sy'n pasio trwy'r system.
+I ffeindio'r nifer cymedrig o cwsmeriaid sy'n pasio trwy'r system, gallwn cyfri'r nifer o gofnodion data sydd wedi pasio trwy Nod 3 (y til)::
 
     >>> completed_custs = []
     >>> for trial in range(10):
@@ -87,9 +84,9 @@ To find the average number of customers that pass through the system, we can cou
     ...     num_completed = len([r for r in recs if r.node==3 and r.arrival_date < 180])
     ...     completed_custs.append(num_completed)
 
-We can now get the average number of customers that have passed through the system::
+Nawr gallwn cael nifer cymedrig o cwsmeriaid sydd wedi pasio trwy'r system::
 
     >>> sum(completed_custs) / len(completed_custs)
     83.0
 
-So we've now used Ciw to find out that this café can serve an average 83 customers in a three hour lunchtime.
+Felly rydym wedi defnyddio Ciw i ffeindio fod y caffi medru weinu nifer cyfataledd o 83 cwsmer mewn sifft amser cinio o tri awr.

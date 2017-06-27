@@ -1,10 +1,10 @@
-Tutorials - Part 2
-==================
+Tiwtorialau - Rhan 2
+====================
 
-Part 2 of the Ciw tutorial will cover some of the other core features of the library.
-It covers networks of queues, the transition matrix, blocking, and multiple classes of customer.
+Fe fydd Rhan 2 o tiwtorialau Ciw yn ymdrin â priodweddau craidd arall y llyfrgell.
+Mae'n ymdrin â rhwydweithiau o ciwiau, y marics trosglwyddo, blocio, a dosbarthau cwsmer lluosog.
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2

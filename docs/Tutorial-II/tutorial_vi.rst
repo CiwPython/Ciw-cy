@@ -1,23 +1,23 @@
 .. _tutorial-vi:
 
-================================
-Tutorial VI: Restricted Networks
-================================
+======================================
+Tiwtorial VI: Rhwydweithiau Cyfyngedig
+======================================
 
-Imagine a manufacturing plant that produces stools:
+Dychmygwch ffatri gweithgynhyrchu sy'n cynhyrchu stolion:
 
-+ Every 4 seconds a seat arrives on a conveyor-belt.
-+ The belt contains three workstations.
-+ At the each workstation a leg is connected.
-+ Connecting a leg takes a random amount of time between 3 seconds and 5 seconds.
-+ Between workstations (and before the first workstation) the conveyor-belt is only long enough to hold 3 stools.
-+ If the belt before the first workstation is full then new stools fall to the floor and break.
-+ If a stool finishes 'service' at a workstation, but there is no space on the conveyor-belt, that stool must remain at the workstation until room becomes available on the conveyor-belt. While this blockage happens, that workstation cannot begin assembling any more stools. (Full details on blocking available :ref:`here <ciw-mechanisms>`.)
++ Pob 4 eiliad mae sedd yn cyrraedd ar gludfelt.
++ Mae'r cludfelt yn cynnwys tri gweithfan.
++ Wrth pob gweithfan mae coes yn cael ei cysylltu.
++ Mae cysylltu coes yn cymryd cyfnod o amser ar hap rhwng 3 eiliad a 5 eiliad.
++ Rhwng gweithfannau (a cyn y gweithfan cyntaf) mae'r cludfan ond digon hir i dal 3 stôl.
++ Os yw'r cludfelt cyn y gweithfan cyntaf yn llawn, mae stolion newydd yn cwmpo i'r llawr ac yn torri.
++ Os yw'r stôl yn gorffen 'gwasanaeth' ar gweithfan, ond nid oes lle ar y cludfelt, mae angen i'r stôl yna aros wrth y gweithfan nes daeth lle ar y cludfan. Tra bod y blocio yma yn digwydd, ni all y gwiethfan yna cydosod unrhyw mwy o stolion. (Mae manylion llawn ar flocio ar gael :ref:`fan hyn <ciw-mechanisms>`.)
 
-Each broken stool costs the factory 10p in wasted wood.
-We wish to know how many stools will fall to the floor and break per hour of operation, and thus the average cost per hour.
-First let's define the Network.
-A restricted network such as this is represented by nearly the same Network object as an unrestricted network, but we now include the keyword :code:`Queue_capacities`::
+Mae pob stôl sy'n torri yn costio'r ffatri 10c mewn pren gwastraff.
+Rydyn ni angen gwybod faint o stolion sy'n cwmpo i'r llawr a torri pob awr mae'r ffatri'n weithredol, ac felly y cost cymedrig pob awr.
+Yn gyntaf, diffiniwn ni'r Network.
+Mae rhwydwaith cyfyngedig fel hwn wedi'i cynrychioli gan bron yr un gwrthrych Network a rhwydwaith anghyfyngedig, ond nawr ychwanegwn ni'r allweddair :code:`Queue_capacities`::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -34,12 +34,12 @@ A restricted network such as this is represented by nearly the same Network obje
     ...     Queue_capacities=[3, 3, 3]
     ... )
 
-The time taken to attach a leg to the stool (service time) is sampled using the uniform distribution.
-This samples values equally likely between an upper and lower limit.
-Note the time units here are in seconds.
+Mae'r amser mae'n cymryd i atodi coes i stôl (yr amser gwasanaeth) wedi'i samplu o dosraniad unffurf.
+Mae'r dosraniad yma yn samplu pob gwerth rhwng terfyn isaf a terfyn uchaf.
+Nodwch yr unedau amser fan hyn yw eiliadau.
 
-If we simulate this, we have access to information about the blockages, for example the amount of time a stool was spent blocked at each node.
-To illustrate, let's simulate for 20 minutes::
+Pan efelychwn ni hwn, gallwn gweld gwybodaeth am y blocio, er engrhaifft y cyfnod o amser gwariodd stôl wedi'i flocio ym mhob nod.
+I gweld hwn, gadewch i ni efelychu'r system am 20 munud::
 
     >>> ciw.seed(2)
     >>> Q = ciw.Simulation(N)
@@ -50,23 +50,24 @@ To illustrate, let's simulate for 20 minutes::
     >>> max(blockages)
     1.503404...
 
-Here we see that in 10 minutes the maximum time a stool was blocked at a workstation for was 1.5 seconds.
+Gwelwn fod yn 20 munud y cyfnod macsimwm gwariodd stôl wedi'i flocio yn gweithfan oedd 1.5 eiliad.
 
-We can get information about the stools that fell off the conveyor-belt using the Simulation's :code:`rejection_dict` attribute.
-This is a dictionary, that maps node numbers to dictionaries.
-These dictionaries map customer class numbers to a list of dates at which customers where rejected::
+Gallwn gweld y gwybodaeth ar y stolion a wnaeth cwmpo bant o'r cludfelt gan defnyddio priodwedd :code:`rejection_dict` y gwrthrych Simulation.
+Geiriadur yw hwn, sy'n mapio rhifau nod i geiriaduron.
+Mae'r geiriaduron yma yn mapio rhifau dosbarthau cwsmer i rhestrau o dyddiadau a cafodd cwsmeriaid eu wrthod::
 
     >>> Q.rejection_dict
     {1: {0: [740.0, 960.0, 1140.0]}, 2: {0: []}, 3: {0: []}}
 
-In this run 3 stools were rejected (fell to the floor as there was no room on the conveyor-belt) at Node 1, at times 740, 960, and 1140.
-To get the number of stools rejected, take the length of this list::
+Yn y rhediad yma cafodd 3 stôl eu wrthod (cwmpo i'r llawr gan nad oedd lle ar y cludfelt) wrth Nod 1, ar dyddiadau 740, 960, a 1140.
+I cael nifer y stolion a cafodd eu wrthod, cymerwch hyd y list yma::
 
     >>> len(Q.rejection_dict[1][0])
     3
 
-Now we'll run 8 trials, and get the average number of rejections in an hour. We will take a warm-up time of 10 minutes.
-A cool-down will be unnecessary as we are recording rejections, which happen at the time of arrival::
+Rhedwn 8 arbrawf, a ffeindiwn nifer o gwrthodion yr awr.
+Cymerwn amser-twymo o 10 munud.
+Ni fydd amser-oeri yn briodol gan ein fod ni'n recordio gwrthodion, sy'n digwydd ar y pwynt cyrraedd::
 
     >>> broken_stools = []
     >>> for trial in range(8):
@@ -82,12 +83,12 @@ A cool-down will be unnecessary as we are recording rejections, which happen at 
     >>> sum(broken_stools)/len(broken_stools)
     6.75
 
-On average the system gets 6.75 broken stools per hour; costing and average of 67.5p per hour of operation.
+Ar gyfartaledd mae 6.75 stôl yn torri pob awr; yn costio 67.5c yr awr ar gyfartaledd.
 
-A new stool assembly system, costing £2500, can reduce the variance in the leg assembly time, such that it takes between 3.5 and 4.5 seconds to attach a leg.
-How many hours of operation will the manufacturing plant need to run for so that the new system has saved the plant as much money as it costed?
+Mae system cydosod newydd, yn costio £2500, yn gallu lleihau amrwyiant yn amser atodi coes, fel bod hwn yn cymryd rhwng 3.5 a 4.5 eiliad i atodi coes.
+Faint o oriau gweithredu sydd angen ar y ffatri i ennill nol yr arian a wnaeth y system newydd cosio?
 
-First, under the new system how many broken stools per hour do we expect?::
+Yn gyntaf, o dan y system newydd faint o stolion rydym yn disgwyl torri pob awr?::
 
     >>> N = ciw.create_network(
     ...     Arrival_distributions=[['Deterministic', 4.0],
@@ -114,5 +115,5 @@ First, under the new system how many broken stools per hour do we expect?::
     >>> sum(broken_stools) / len(broken_stools)
     0.875
 
-Thus the new system saves an average of 5.875 stools per hour, around 58.75p per hour.
-Therefore it would take :math:`2500/0.5875 \approx 4255.32` hours of operation for the system to begin paying off.
+Felly mae'r system newydd yn safio 5.875 stôl yr awr, tua 58.75c yr awr.
+Felly fe fydd yn cymryd :math:`2500/0.5875 \approx 4255.32` awr gweithredu i'r system talu ar gyfer y system newydd.

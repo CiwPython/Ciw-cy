@@ -20,7 +20,7 @@ Yn gloi, gallwn ni cael rhestr o'r holl confnodion data a casglwyd gan holl cwsm
 
     >>> recs = Q.get_all_records()
 
-Mae hwn yn rhoi rhestr o yuples enwedig.
+Mae hwn yn rhoi rhestr o tuples enwedig.
 Mae pob tuple yn cynnwys y gwybodaeth canlynol:
 
     - :code:`id_number`
@@ -76,5 +76,13 @@ Crëwyd y histogram o ameroess aros isod gan defnyddio matplotlib, yn defnyddio'
    :scale: 100 %
    :alt: Histogram o amseroedd aros ar gyfer Tiwtorial III.
    :align: center
+
+Os hoffwch chi gweld pa mor brysur neu segur mae'r gweinyddion wedi bod trwy rhediad yr efelychiad, gallwn edrych ar :code:`server_utilisation` y nod.
+Hwn yw defnydd cymedrig pob gweinydd, sy'n hafal i faint o amser roedd y gweinydd yn brysur (gyda cwsmer), wedi rhannu gyda cyfanswm yr amser roedd y gweinydd ar ddyletswydd::
+
+    >>> Q.transitive_nodes[0].server_utilisation
+    0.60517...
+
+Felly yn ein banc, ar gyfartaledd roedd y weinyddion yn brysur 60.5% o'r amser.
 
 Yn y tiwtorial nesaf dangoswn ni sut i defnyddio Ciw i cael canlyniadau dibynadwy, ac o'r diwedd ffeindio'r amser aros cymedrig ar gyfer y banc.
