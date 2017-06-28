@@ -1,28 +1,30 @@
 .. _tutorial-vii:
 
-==========================================
-Tutorial VII: Multiple Classes of Customer
-==========================================
+========================================
+Tiwtorial VII: Dosbarthau Cwsmer Lluosog
+========================================
 
-Imagine a 24 hour paediatricians clinic:
+Dychmygwch clinig paediatregydd 24 awr:
 
-+ Two types of patient arrive, babies and children.
-+ When patients arrive they must register at the reception desk.
-+ Registration time is random, but for babies lasts an average of 15 minutes, and for children and average of 10 minutes.
-+ After registration the two types of patients go to separate waiting rooms where they wait to be seen by separate specialists.
-+ Appointments with specialists take a random amount of time, but on average last one hour.
-+ There is one receptionist on duty, two baby specialists on duty, and three children's specialists on duty.
-+ Babies arrive randomly at a rate of one per hour, children at a rate two per hour.
++ Mae dau fath o glaf yn cyrraedd, babanod a plant.
++ Pan cyrhaeddir cleifion mae angen iddynt cofrestru yn y derbynfa.
++ Mae'r amser y mae'n cymryd i cofrestru ar hap, ond ar gyfer babanon mae'n para 15 munud ar gyfartaledd, ac ar gyfer plant mae'n para 10 munud ar gyfartaledd.
++ Ar ôl cofrestru mae'r dau math o glaf yn mynd i ystafelloedd aros gwahanol, lle maent yn aros ar gyfer arbennigwyr gwahanol.
++ Mae apwyntiad gyda arbenigwyr yn para am amser ar hap, ond yn para ar gyfartaledd un awr.
++ Mae yna un derbynnydd ar ddyletswydd, dau arbenigwr babanod, a tri arbenigwr plant ar ddyletswydd.
++ Mae babanod yn cyrraedd ar hap ar gyfradd un yr awr, a plant ar gyfradd dau yr awr.
 
-In this set-up we have a scenario where two different types of customer are accessing the same resources, but may use them in different ways. Ciw handles this by assigning **customer classes** to customers. In this set-up:
+Yn y senario yma mae dau gwahanol fath o cwsmer yn defnyddio'r un adnoddau, ond gallen nhw defnyddio'r adnoddau yma mewn gwahanol ffyrdd.
+Mae Ciw yn delio gyda hwn trwy aseinio **dosbarthau cwsmer** i cwsmeriaid.
+Yn y senario yma:
 
-+ Babies are assigned customer :code:`'Class 0'`.
-+ Children are assigned customer :code:`'Class 1'`.
-+ The receptionist's desk is Node 1.
-+ The baby specialist clinic is Node 2.
-+ The children's specialist clinic is Node 3.
++ Aseinir babanod y dosbarth cwsmer :code:`'Class 0'`.
++ Aseinir plant y dosbarth cwsmer :code:`'Class 1'`.
++ Y derbynfa yw Nod 1.
++ Yr arbenigwr babanod yw Nod 2.
++ Yr arbenigwr plant yw Nod 3.
 
-We assign different behaviour for different customer classes by replacing the values of the keywords of the Network object with dictionaries, with customer classes as keys and the required behaviour as values::
+Aseiniwn ymddygiad gwahanol i dosbarthau cwsmer gwahanol trwy amnewid gwerthoedd allweddeiriau'r gwrthrych Network gyda geiriaduron, gyda dosbarthau cwsmer fel allweddau, a'r ymddygiad penodol fel gwerthoedd::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -47,15 +49,16 @@ We assign different behaviour for different customer classes by replacing the va
     ...     Number_of_servers=[1, 2, 3],
     ... )
 
-Notice that where we know certain customer classes will not require a service (for example babies will never require service at the children's specialist: Class 0 customers will never require service at Node 3) we are still required to input a service distribution. We choose the dummy distribution :code:`['Deterministic', 0.0]`.
+Sylwch er rydym yn gwybod ni fydd dosbarthau cwsmer penodol angen gwasanaeth (er enghraifft ni fydd angen gweld arbenigwr plant ar babanod: bydd cwsmeriaid Class 0 byth angen gwasanaeth yn Nod 3) mae dal angen mewnbynnu dosraniad gwasanaeth.
+Dewisiwn y dosraniad ffug :code:`['Deterministic', 0.0]`.
 
-Let's simulate this clinic for 9 hours::
+Efelychwch y clinig am 9 awr::
 
     >>> Q = ciw.Simulation(N)
     >>> Q.simulate_until_max_time(9)
     >>> recs = Q.get_all_records()
 
-Now we should see that no customer of Class 0 ever reached Node 3; and no customer of Class 1 ever reached Node 2::
+Gwelwn nad oes unrhyw cwsmer Class 0 wedi cyrraedd Nod 3; a nad oes unrhyw cwsmer Class 1 wedi cyrraedd Nod 2::
 
     >>> visited_by_babies = {1, 2}
     >>> set([r.node for r in recs if r.customer_class==0]) == visited_by_babies
@@ -65,7 +68,9 @@ Now we should see that no customer of Class 0 ever reached Node 3; and no custom
     >>> set([r.node for r in recs if r.customer_class==1]) == visited_by_children
     True
 
-Now say we'd like to find the average waiting time at the reception, baby specialist's clinic, and children's specialist's clinic. We'll simulate for 24 hours, using 3 hour war-mup and 3 hour cool-down, for 16 trials. Let's collect the average waiting times at each node every time::
+Hoffwn ffeindio'r amser aros cymedrig yn y derbynfa, wrth yr arbenigwr babanod, ac wrth yr arbenigwr plant.
+Efelychwn am 24 awr, yn defnyddio amser-twymo o 3 awr ac amser-oeri o 3 awr, ar 16 arbrawf.
+Casglwn yr amseroedd aros cymedrig wrth pob nod am pob arbrawf::
 
 	>>> average_waits_1 = []
 	>>> average_waits_2 = []
@@ -82,7 +87,7 @@ Now say we'd like to find the average waiting time at the reception, baby specia
 	...     average_waits_2.append(sum(waits2) / len(waits2))
 	...     average_waits_3.append(sum(waits3) / len(waits3))
 
-Now we can find the average wait over the trials::
+Nawr ffeindiwn yr amser aros cymedrig dros yr arbrofion::
 
 	>>> sum(average_waits_1) / len(average_waits_1)
 	0.244591...
@@ -93,5 +98,5 @@ Now we can find the average wait over the trials::
 	>>> sum(average_waits_3) / len(average_waits_3)
 	0.252556...
 
-These results imply that on average babies wait 0.6 of an hour, around 36 minutes for an appointment.
-This could then be used as a baseline measure against which to compare potential reconfigurations of the clinic.
+Mae'r canlyniadau yma yn dangos fod babanod yn aros 0.6 awr, tua 36 munud am apwyntiad.
+Gall hwn cael ei ddefnyddio fel mesur gwaelodlin i cymharu unrhyw ailgyfluniadau potensial i'r clinig.
