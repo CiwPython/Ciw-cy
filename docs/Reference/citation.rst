@@ -1,20 +1,20 @@
 .. _citation:
 
-Citing the Library
-==================
+Cyfeirio at y Llyfrgell
+=======================
 
-Please use the following to cite the latest version of the Ciw library::
+Defnyddiwch y canlynol i cyfeirio at fersiwn diweddara y llyfrgell Ciw::
 
     @misc{ciwpython,
-      author       = {{ {The Ciw library developers} }}
-      title        = {Ciw: <RELEASE TITLE>},
-      year         = <YEAR>,
-      doi          = {<DOI INFORMATION>},
-      url          = {http://dx.doi.org/10.5281/zenodo.<DOI NUMBER>}
+      author       = {{{The Ciw library developers}}},
+      title        = {Ciw: <TEITL RHYDDHAD>},
+      year         = <BLWYDDYN>,
+      doi          = {<GWYBODAETH DOI>},
+      url          = {http://dx.doi.org/10.5281/zenodo.<RHIF DOI>}
     }
 
-To check the details (RELEASE TITLE, YEAR, DOI INFORMATION and DOI NUMBER)
-please view the Zenodo page for the project. Click on the badge/link below:
+I wirio manylion (TEITL RHYDDHAD, BLWYDDYN, GWYBODAETH DOI and RHIF DOI)
+gwelwch y tudalen Zenodo ar gyfer y prosiect. Cliciwch y bathodyn/linc isod:
 
 .. raw:: html
     
