@@ -1,20 +1,20 @@
 .. _code-structure:
 
 ==============
-Code Structure
+Strwythr y Cod
 ==============
 
-Ciw is structured in an object orientated way:
+Mae Ciw wedi'i strwythuro mewn ffordd gwrthrych-gyfeiriadol:
 
 
 .. image:: ../_static/codestructure.svg
    :scale: 100 %
-   :alt: Code structure for Ciw.
+   :alt: Strwythr y cod ar gyfer Ciw.
    :align: center
 
-Ciw consists of 3 types of objects, Core, Input, and Optional:
+Mae gan Ciw tri math o gwrthrych, Craidd, Mewnbwn, ac Opsiynnol:
 
-Core:
+Craidd:
 
 - Simulation
 - Arrival Node
@@ -24,13 +24,13 @@ Core:
 - Individual
 - Data Record
 
-Input:
+Mewnbwn:
 
 - Network
 - Service Centre
 - Customer Classe
 
-Optional:
+Opsiynnol:
 
 - State Tracker
 - Deadlock Detector

@@ -1,55 +1,53 @@
 .. _ciw-mechanisms:
 
-=========================
-Notes on Ciw's Mechanisms
-=========================
+=============================
+Nodiadau ar Mecanweithiau Ciw
+=============================
 
-General
-~~~~~~~
+Cyffredinol
+~~~~~~~~~~~
 
-Ciw uses the *event scheduling* approach [SW14]_ , similar to the three phase approach.
-In the event scheduling approach, three types of event take place: **A Events** move the clock forward, **B Events** are pre scheduled events, and **C Events** are events that arise because a **B Event** has happened.
+Mae Ciw yn defnyddio dull *amserlenni digwiddiadau* (event scheduling) [SW14]_ , sy'n tebyg i'r dull tri cam.
+Yn y dull amserlenni digwyddiadau mae yna tri fath o digwyddiad: mae **Digwyddiadau-A** yn symud y cloc ymlaen, **Digwyddiadau-B** yw'r digwyddiadau a drefnwyd o flaen llaw, a **Digwyddiadau-C** yw'r digwyddiadau sy'n cael ei achosi oherwydd fod **Digwyddiadau-B** wedi digwydd.
 
-Here **A-events** correspond to moving the clock forward to the next **B-event**.
-**B-events** correspond to either an external arrival, a customer finishing service, or a server shift change.
-**C-events** correspond to a customer starting service, customer being released from a node, and being blocked or unblocked.
+Fan hyn mae **Digwyddiadau-A** yn cyfateb a symud y cloc ymlaen i'r **Digwyddiad-B** nesaf.
+Mae **Digwyddiadau-B** yn cyfateb a naill ai dyfodiad allanol, cwsmer yn gorffen gwasanaeth, neu newid sifft gweinydd.
+Mae **Digwyddiadau-C** yn cyfateb a cwsmer yn dechrau gwasanaeth, rhyddhau cwsmer o nod, a cwsmer yn cael ei flocio neu dadflocio.
 
-In event scheduling the following process occurs:
+Yn y dull amserlenni digwyddiadau, mae'r process canlynol yn digwydd:
 
-1. Initialise the simulation
-2. **A Phase**: move the clock to the next scheduled event
-3. Take a **B Event** scheduled for now, carry out the event
-4. Carry out all **C Events** that arose due to the event carried out in (3.)
-5. Repeat (3.) - (4.) until all **B Event** scheduled for that date have been carried out
-6. Repeat (2.) - (5.) until a terminating criteria has been satisfied
-
-
-Blocking Mechanism
-~~~~~~~~~~~~~~~~~~
-
-In Ciw, Type I blocking (blocking after service) is implemented for restricted networks.
-
-After service, a customer's next destination is sampled from the transition matrix.
-If there is space at the destination node, that customer will join the queue there.
-Else if the destination node's queueing capacity is full, then that customer will be blocked.
-That customer remains at that node, with its server, until space becomes available at the destination.
-This means the server that was serving that customer remains attached to that customer, being unable to serve anyone else until that customer is unblocked.
-
-At the time of blockage, information about this customer is added to the destination node's :code:`blocked_queue`, a virtual queue containing information about all the customers blocked to that node, and *the order in which they became blocked*.
-Thus, the sequence of unblockages happen in the order which customers were blocked.
-
-Circular blockages can lead to :ref:`deadlock <detect-deadlock>`.
+1. Ymgychwyn yr efelychiad
+2. **Cynfnod A**: symud y cloc ymlaen i'r digwyddiad nesaf
+3. Cymerwch **Digwyddiad-B** sydd wedi'i trefnu ar gyfer nawr, cario allan y digwyddiad hwnnw
+4. Cario allan holl **Digwyddiadau-C** a wnaeth cael eu achosi achos y digwyddiad yn (3.)
+5. Ailadroddwch (3.) - (4.) nes bod pob **Digwyddiad-B** sydd wedi'i trefnu ar gyfer nawr wedi'r cario allan
+6. Ailadroddwch (2.) - (5.) nes bodloni'r y meini prawf gorffen
 
 
+Mecanwaith Blocio
+~~~~~~~~~~~~~~~~~
 
-Simultaneous Events
-~~~~~~~~~~~~~~~~~~~
+Yn Ciw, gweithredir blocio o Fath I (blocio ar ôl gwasanaeth) ar gyfer rhwydweithiau cyfyngedig.
 
-In discrete event simulation, simultaneous event are inevitable.
-That is two or more events that are scheduled to happen at the same time.
-However due to the nature of discrete event simulation, these event cannot be carried out computationally at the same time, and the order at which these events are computed can greatly effect their eventual outcome.
-For example, if two customers are scheduled to arrive at an empty :ref:`M/M/1 <kendall-notation>` queue at the same date: which one should begin service and which one should wait?
+Ar ôl gwasanaeth mae cyrchfan nesaf y cwsmer wedi'i samplu o'r matrics trosglwyddo.
+Os oes lle yn y nod cyrchfan, bydd y cwsmer yn ymuno a'r nod yna ac yn dechrau ciwio yna.
+Fel arall os yw cynhwysydd ciwio'r nod cyrchfan yn llawn, yna bydd y cwsmer yn cael ei flocio.
+Mae'r cwsmer yn aros yn ei nod, gyda'r gweinydd, nes bod bod lle ar gael yn y cyrchfan.
+Golygir hwn fod y gweinydd a oedd yn gweinu'r cwsmer yna yn aros yn sownd i'r cwsmer, a ni all y gweinydd yna gweinu unrhyw cwsmer arall neu fod y cwsmer yna yn cael ei dadflocio.
 
-In Ciw, to prevent any bias, whenever more than one event is scheduled to happen simultaneously, the next event to be computed is uniformly randomly selected from the list of events to be undertaken.
+Ar amser y flocio ychwanegwyd gwybodaeth am y blocio i :code:`blocked_queue` y nod cyrchfan, ciw rhithwir sy'n cynnwys gwybodaeth am y cwsmeriaid sydd wedi blocio i'r nod yna, yn ogystal a'r *trefn a flociwyd hwy*
+Felly mae'r dilyniant dadflocio yn digwydd yn trefn a flociwyd y cwsmeriaid.
+
+Fe all blocio cylchol arwain at :ref:`llwyrglo <detect-deadlock>`.
 
 
+
+Digwyddiadau Cydamserol
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Mewn efelychu digwyddiadau arwahanol, mae digwyddiadau cydamserol yn anochel.
+Hynny yw dau neu fwy o digwyddiadau wedi'i trefnu i ddigwydd ar yr un pryd.
+Fodd bynnag, oherwydd natur efelychiadau digwyddiadau arwahanol, ni all cario allan y digwyddiadau hwn ar yr un pryd, a gall trefn a cariwyd allan y digwyddiadau yma effeithio'u canlyniadau yn fawr.
+Er enghraifft, os yw dau cwsmer yn cyrraedd system :ref:`M/M/1 <kendall-notation>` gwag ar yr un pryd: pa cwsmer ddylai dechrau gwasanaeth yn syth a pa cwsmer dylai aros?
+
+I atal unrhyw bias yn Ciw, pryd bynnag mae mwy nag un digwyddiad wedi'i trefnu i digwydd yn cydamserol, dewisir y digwyddiad nesaf ar hap yn unffyrf o'r rhestr digwyddiadau.

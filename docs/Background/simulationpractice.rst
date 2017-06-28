@@ -1,57 +1,55 @@
 .. _simulation-practice:
 
-===================
-Simulation Practice
-===================
+=================
+Arferion Efelychu
+=================
 
-Ensuring good practice when simulation modelling is important to get meaningful analyses from the models.
-This is shown in :ref:`Tutorial IV <tutorial-iv>`.
-A recommended resource on the subject is [SW14]_.
-This page will briefly summarise some important aspects of carrying out simulation model analysis.
+Mae sicrhau arferion da with modelu ac efelychu yn bwysig i cael modelau a dadansoddiadau ystyrlon.
+Dangosir hwn yn :ref:`Tiwtorial IV <tutorial-iv>`.
+Adnodd a argymhellir ar y pwnc yw [SW14]_.
+Fe fydd y tudalen yma yn crynhoi rhai agweddau pwysig.
 
--------------------------------
-Performing Multiple Repetitions
--------------------------------
+----------------------------
+Perfformio Arbrofion Lluosog
+----------------------------
 
-Users should not rely on the results of a single run of the simulation due to the intrinsic stochastic nature of simulation.
-When only running one repetition, users cannot know whether the behaviour of that run is typical, extreme or unusual.
-To counter this multiple replications must be performed, each using different random number streams.
-Then analyses on the distribution of results can be performed (for example taking mean values of key performance indicators).
+Ni ddylai defnyddwyr dibynnu ar canlyniadau rhediad sengl efelychiad oherwydd natur cynhenid stocastig efelychu.
+Pan yn rhedeg un arbrawf yn unig, ni all ddefnyddwyr gwybod os yw'r ymddygiad a ddangosir yn y rhediad yna yn nodweddiadol, eithafol neu'n anarferol.
+I goresgyn hyn mae angen perfformio nifer o arbrofio, pob un yn defnyddio gwahanol llifau haprhif.
+Yna, gall perfformio dadansoddiadau ar dosraniadau y canlyniadau (er enghraifft  cymryd gwerthoedd cymedrig fel dangosyddion perfformiad allweddol).
 
-In Ciw, the simplest way of implementing this is to create and run the simulation in a loop, using a different random seed every time.
+Yn Ciw y ffordd simplad o wneud hwn yw i creu a rhedeg efelychiadau mewn lŵp, gan ddefnyddio hedyn gwahanol pob tro.
 
-------------
-Warm-up Time
-------------
+-------------
+Amser Cynhesu
+-------------
 
-Simulation models often begin in unrealistic circumstances, that is they have unrealistic initial conditions.
-In Ciw, the default initial condition is an empty system.
-Of course there may be situations where collecting all results from an empty system is required, but in other situations, for example when analysing systems in equilibrium, these initial conditions cause unwanted bias.
-One standard method of overcoming this is to use a warm-up time.
-The simulation is run for a certain amount of time (the warm-up time) to get the system in an appropriate state before results are collected.
+Yn amal nid yw modelau efelychiad yn dechrau mewn amgylchiadau realistig, hynny yw mae ganddynt cyflwr dechreuol afrealistig
+Yn Ciw y cyflwr dechreuol yw system gwag.
+Wrth gwrs fe all fod sefyllfaoedd lle mae angen casglu canlyniadau o system gwag, ond mewn sefyllfaoedd arall, er enghraifft pan yn dadansoddi systemau mewn cydbwysedd, mae'r cyflwr dechreuol yn achosu bias digroeso.
+Un dull safonol o goresgyn hwn yw i ddefnyddio amser cynhesu.
+Rhedir yr efelychiad am cyfnod o amser (yr amser cynhesu) i sicrhau fod y system mewn cyflwr priodol cyn casglir canlyniadau.
 
-In Ciw, the simplest way of implementing this is to filter out records that were created before the warm-up time.
+Yn Ciw y ffordd simlaf o wneud hyn yw i hildo allan y canlyniadau a grëwyd yn ystod yr amser cynhesu.
 
+----------
+Amser Oeri
+----------
 
---------------
-Cool-down Time
---------------
+Mae'r method :code:`get_all_records` ond yn casglu cofnodion data gorffenedig.
+Efallai bod angen casglu gwybodaeth dyfodi neu aros ar cwsmeriaid sydd dal yn canol gwasnaeth.
+Yn Ciw, gallwn gwneud hyn trwy efelychu heibio diwedd y cyfnod arsylwi, ac yna ond casglu'r gwybodaeth priodol o'r cyfnod arsylwi.
 
-If collecting records using the :code:`get_all_records` method, then this will only collect completed records.
-There may be a need to collect arrival or waiting information of those individuals still in service.
-In Ciw, we can do this by simulating past the end of the observation period, and then only collect those relevant records that are in the observation period.
-
-In Ciw, the simplest way of implementing this is to filter out records that were created after the cool-down time began.
-
+Yn Ciw y ffordd simlaf o wneud hyn yw i hidlo allan y canlyniadau a grëwyd yn ystod yr amser oeri.
 
 
--------
-Example
--------
 
+----------
+Enghraifft
+----------
 
-The example below shows the simplest way to perform multiple replications, and use a warm-up and cool-down time, in Ciw.
-It shows how to find the average waiting time in an :ref:`M/M/1 <kendall-notation>` queue::
+Mae'r enghraifft isod yn dangos y ffordd simlaf o perfformio arbrofion lluosog, a ddefnyddio amser cynhesu ac amser oeri yn Ciw.
+Mae'n dangos sut i ffeindio'r amser aros cymedrig mewn ciw :ref:`M/M/1 <kendall-notation>`::
 
     >>> import ciw
     >>> N = ciw.create_network(

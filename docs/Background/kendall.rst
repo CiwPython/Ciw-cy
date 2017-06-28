@@ -1,68 +1,68 @@
 .. _kendall-notation:
 
-==================
-Kendall's Notation
-==================
+===============
+Nodiant Kendall
+===============
 
-Kendall's notation is used as shorthand to denote single node queueing systems [WS09]_.
+Defnyddir nodiant Kendall yn i dynodi system ciwio node sengl yn llawfer [WS09]_.
 
-A queue is characterised by:
+Nodweddwyd ciw gan:
 
 .. math::
 
     A/B/C/X/Y/Z
 
-where:
+lle mae:
 
-+ :math:`A` denotes the distribution of inter-arrival times
-+ :math:`B` denotes the distribution of service times
-+ :math:`C` denotes the number of servers
-+ :math:`X` denotes the queueing capacity
-+ :math:`Y` denotes the size of the population of customers
-+ :math:`Z` denotes the queueing discipline
++ :math:`A` yn dynodi dosraniad yr amseroedd rhwng-dyfodiad
++ :math:`B` yn dynodi dosraniad yr amseroedd gwasanaeth
++ :math:`C` yn dynodi dosraniad nifer o weinyddion
++ :math:`X` yn dynodi y cynhwysedd ciwio
++ :math:`Y` yn dynodi maint y poblogaeth y cwsmeriaid
++ :math:`Z` yn dynodi y disgybleth ciwio
 
-For the parameters :math:`A` and :math:`B`, a number of shorthand notation is available. For example:
+Ar gyfer y paramedrau :math:`A` a :math:`B` mae yna nifer o nodiannau llwfer ar gael. Er enghraifft:
 
-+ :math:`M`: Markovian or Exponential distribution
-+ :math:`E`: Erlang distribution (a special case of the Gamma distribution)
-+ :math:`C_k`: Coxian distribution of order :math:`k`
-+ :math:`D`: Deterministic distribution
-+ :math:`G` / :math:`GI`: General / General independent distribution
++ :math:`M`: dosraniad Markovaidd neu Esbonyddol
++ :math:`E`: dosraniad Erlang (achos arbennig o'r dosraniad Gama)
++ :math:`C_k`: dosraniad Coxaidd o drefn :math:`k`
++ :math:`D`: dosraniad Penderfynedig
++ :math:`G` / :math:`GI`: dosraniad Cyffredinol / Cyffredinol annibynnol
 
-The parameters :math:`X`, :math:`Y` and :math:`Z` are optional, and are assumed to be :math:`\infty`, :math:`\infty`, and First In First Out (FIFO) respectively.
-Other options for the queueing schedule :math:`Z` may be SIRO (Service In Random Order), LIFO (Last In first Out), and PS (Process Sharing).
+MAe'r paramedrau :math:`X`, :math:`Y` a :math:`Z` yn opsiynnol, a cymerwn yn ganiataol eu fod yn :math:`\infty`, :math:`\infty`, a Cyntaf Mewn Cyntaf Allan (FIFO) yn ol eu drefn.
+Opsiynnau arall ar gyfer y disgyblaeth ciwio :math:`Z` yw SIRO (Gwasanaeth Mewn Trefn Ar Hap), LIFO (Olaf Mewn Cyntaf Allan), a PS (Rhannu Prosessau).
 
-Some examples:
+Rhai enghraifftiau:
 
 + :math:`M/M/1`:
-   + Exponential inter-arrival times
-   + Exponential service times
-   + 1 server
-   + Infinite queueing capacity
-   + Infinite population
-   + First in first out
+   + Amseroedd rhwng-dyfodiad Esbonyddol
+   + Amseroedd gwasanaeth Esbonyddol
+   + 1 gweinydd
+   + Cynhwysedd ciwio anfeidraidd
+   + Poblogaeth anfeidraidd
+   + Cyntaf mewn cyntaf allan
 
 + :math:`M/D/\infty/\infty/1000`:
-   + Exponential inter-arrival times
-   + Deterministic service times
-   + Infinite servers
-   + Infinite queueing capacity
-   + Population of 1000 customers
-   + First in first out
+   + Amseroedd rhwng-dyfodiad Esbonyddol
+   + Amseroedd gwasanaeth Penderfynnol
+   + Nifer anfeidraidd o weinyddion
+   + Cynhwysedd ciwio anfeidraidd
+   + Poblogaeth o 1000 cwsmer
+   + Cyntaf mewn cyntaf allan
 
 + :math:`G/G/1/\infty/\infty/\text{SIRO}`:
-   + General distribution for inter-arrival times
-   + General distribution for service times
-   + 1 server
-   + Infinite queueing capacity
-   + Infinite population
-   + Service in random order
+   + Amseroedd rhwng-dyfodiad Cyffredinol
+   + Amseroedd gwasanaeth Cyffredinol
+   + 1 gweinydd
+   + Cynhwysedd ciwio anfeidraidd
+   + Poblogaeth anfeidraidd
+   + Gwasanaeth mewn trefn ar hap
 
 + :math:`M/M/4/5`:
-   + Exponential inter-arrival times
-   + Exponential service times
-   + 4 servers
-   + Queueing capacity of 5
-   + Infinite population
-   + First in first out
+   + Amseroedd rhwng-dyfodiad Esbonyddol
+   + Amseroedd gwasanaeth Esbonyddol
+   + 4 gweinydd
+   + Cyhwysedd ciwio o 5
+   + Poblogaeth anfeidraidd
+   + Cyntaf mewn cyntaf allan
 
