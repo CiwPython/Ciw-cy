@@ -1,28 +1,28 @@
 .. _server-schedule:
 
-===========================
-How to Set Server Schedules
-===========================
+=================================
+Sut i Osod Amserlenni Gweinyddion
+=================================
 
-Ciw allows users to assign cyclic work schedules to servers at each service centre.
-An example cyclic work schedule is shown in the table below:
+Gyda Ciw fe allwch aseinio amserlenni gwaith cylchol i'r gweinyddion ym mhob gorsaf gwasanaeth.
+Dangosir amserlen gwaith cylchol enghreifftiol yn y tabl isod:
 
-    +-------------------+---------+--------+--------+
-    |    Shift Times    |    0-10 |  10-30 | 30-100 |
-    +-------------------+---------+--------+--------+
-    | Number of Servers |       2 |      0 |      1 |
-    +-------------------+---------+--------+--------+
+    +--------------------+--------+--------+--------+
+    |     Amser Sifft    |   0-10 |  10-30 | 30-100 |
+    +--------------------+--------+--------+--------+
+    | Nifer o Weinyddion |      2 |      0 |      1 |
+    +--------------------+--------+--------+--------+
 
-This schedule is cyclic, therefore after the last shift (30-100), schedule begins again with the shift (0-10).
-The cycle length for this schedule is 100. Let's call this schedule :code:`schedule`.
-This is defines by a list of lists indicating the number of servers that should be on duty during that shift, and the end date of that shift::
+Mae'r amserlen yn cylchol, yna ar ôl y sifft olaf (30-100), mae'r amserlen yn dechrau eto gyda'r sifft (0-10).
+Hyd y cylchred ar gyfer yr amserlen yma yw 100.
+Diffinir hwn gan rhestr o rhestrau yn dynodi nifer o weinyddion dylai for ar ddyletswydd yn ystod y sifft yna, a dyddiad diwedd y sifft::
 
     [[2, 10], [0, 30], [1, 100]]
 
-Here we are saying that there will be 2 servers scheduled between times 0 and 10, 0 between 10 and 30, etc.
-This fully defines the cyclic work schedule.
+Fan hyn dywedwn no fe fydd 2 gweinydd ar ddyletswydd rhwng amseroedd 0 a 10, 0 rhwng 10 a 30, ayyb.
+Mae hwn yn diffinio'r amserlen gwaith cylchol yn llawn.
 
-To tell Ciw to use this schedule for a given node, in the :code:`Number_of_servers` keyword we replace an integer with the schedule::
+I dweud wrth Ciw i defnyddio'r amserlen yma ar gyfer nod penodol, yn :code:`Number_of_servers` amnewidiwch y cyfanrif gyda'r amserlen::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -31,7 +31,7 @@ To tell Ciw to use this schedule for a given node, in the :code:`Number_of_serve
     ...     Number_of_servers=[[[2, 10], [0, 30], [1, 100]]]
     ... )
 
-Simulating this system, we'll see that no services begin between dates 10 and 30, nor between dates 110 and 130::
+Ar ôl efelychu'r system, gwelwn nad oes unrhyw gwasanaethau yn dechrau rhwng dyddiadau 10 a 30, na rhwng dyddiadau 110 a 130::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -43,28 +43,28 @@ Simulating this system, we'll see that no services begin between dates 10 and 30
     >>> [r for r in recs if 110 < r.service_start_date < 130]
     []
 
-**Note that currently server schedules are incompatible with infinite servers**, and so a schedule cannot include infinite servers.
+**Nodwch ar hyn o bryd mae amserleni gwaith yn anghydnaws gyda nifer anfeidraidd o weinyddion**, ac felly ni all amserlen cynnwys nifer anfeidraidd o weinyddion.
 
 
 
-Pre-emption
------------
+Rhagdarfiadau
+-------------
 
-When a server is due to go off duty during a customer's service, there are two options of what may happen.
+Pan mae gweinydd angen mynd oddi ar ddyletswydd yng nghanol gwasanaeth cwsmer, mae yna dau opsiwn o beth gall ddigwydd.
 
-+ During a pre-emptive schedule, that server will immediately stop service and leave. Whenever more servers come on duty, they will prioritise the interrupted customers and continue their service. However those customers' service times are re-sampled.
++ Yn ystod amserlen rhagdarfiedig, fe fydd gweinydd yn stopio ar unwaith ac yn gadael. Pan mae gweinyddion newydd yn dod ar ddyletswydd fe fydden nhw’n blaenoriaethu’r cwsmeriaid a gafodd ei darfu. Ond mae amser gwasanaeth y cwsmeriaid yma yn cael ei ail-samplu.
 
-+ During a non-pre-emptive schedule, customers cannot be interrupted. Therefore servers finish the current customer's service before disappearing. This of course may mean that when new servers arrive the old servers are still there.
++ Yn ystod amserlen anrhagdarfiedig, nid yw gwasanaethau cwsmeriaid yn cael ei darfu. Felly, mae gweinydd yn gorffen gwasanaeth y cwsmer presennol cyn diflannu. Mae hwn wrth gwrs yn golygu, pan mae gweinyddion newydd yn cyrraedd, efallai bydd yr hen weinyddion dal yna yn gorffen gwasanaeth y cwsmeriaid gwreiddiol.
 
-In order to implement pre-emptive or non-pre-emptive schedules, put the schedule in a tuple with a :code:`True` or a :code:`False` as the second term, indicating pre-emptive or non-pre-emptive interruptions. For example::
+Er mwyn gweithredu amserlennu rhagdarfiedig neu anrhagdarfiedig, rhaid rhoi’r amserlen mewn tuple, gyda :code:`True` neu :code:`False` fel yr ail derm, yn dynodi tarfiadau rhagdarfiedig neu anrhagdarfiedig.
+Er enghraifft:
 
-    Number_of_servers=[([[2, 10], [0, 30], [1, 100]], True)] # preemptive
+    Number_of_servers=[([[2, 10], [0, 30], [1, 100]], True)] # rhagdarfiedig
 
-And::
+Ac::
 
-    Number_of_servers=[([[2, 10], [0, 30], [1, 100]], False)] # non-preemptive
+    Number_of_servers=[([[2, 10], [0, 30], [1, 100]], False)] # anrhagdarfiedig
 
-Ciw defaults to non-pre-emptive schedules, and so the following code implies a non-pre-emptive schedule::
+Mae Ciw yn defnyddio amserlennu anrhagdarfiedig fel yr opsiwn diofyn, felly mae’r cod isod yn awgrymu amserlen anrhagdarfiedig:
 
-    Number_of_servers=[[[2, 10], [0, 30], [1, 100]]] # non-preemptive
-
+    Number_of_servers=[[[2, 10], [0, 30], [1, 100]]] # anrhagdarfiedig

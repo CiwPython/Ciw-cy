@@ -1,19 +1,19 @@
 .. _behaviour-nodes:
 
-================================
-How to Get More Custom Behaviour
-================================
+=============================
+Sut i Cael Ymddygiad Bwrpasol
+=============================
 
-Custom behaviour can be obtained by writing new :code:`Node` and :code:`ArrivalNode` classes, that inherit from the original :code:`ciw.Node` and :code:`ciw.ArrivalNode` classes, that introduce new beahviour into the system.
-The classes that can be overwitten are:
+Gall cael ymddygiad bwrpasol gan ysgrifennu dosbarthiadau :code:`Node` a :code:`ArrivalNode` newydd, sy'n etifeddu o'r dosbarthau :code:`ciw.Node` d :code:`ciw.ArrivalNode` gwreiddiol, ac sy'n cyflwyno ymddygiad newydd i'r system.
+Y dosbarthau a gall cael eu droysgrifio yw:
 
-- :code:`Node`: the main node class used to represent a service centre.
-- :code:`ArrivalNode`: the node class used to generate individuals and route them to a specific :code:`Node`.
+- :code:`Node`: y prif dosbarth nod sy'n cynrychioli gorsaf gwasanaeth.
+- :code:`ArrivalNode`: y dosbarth nod a ddefnddir i generadu unigolion a'u drosglwyddo i :code:`Node` penodol.
 
-These new Node and Arrival Node classes can be used with the Simulation class by using the keyword arugments :code:`node_class` and :code:`arrival_node_class`.
+Gall ddefnyddio'r dosbarthau Node ac Arrival Node newydd hyn yn y dosbarth Simulation gan defnyddio'r allweddeiriau :code:`node_class` a :code:`arrival_node_class`.
 
-Consider the following two node network, where arrivals only occur at the first node, and there is a queueing capacity of 10.
-The second node is redundent in this scenario::
+Ystyriwch y rhwydwaith dau nod canlynol, lle mae dyfodiadau ond yn digwydd yn y nod cyntaf, ac mae yna cynhwysedd ciwio o 10.
+Mae'r ail nod yn segur yn y sefyllfa yma::
 
 	>>> import ciw
 	>>> from collections import Counter
@@ -26,7 +26,7 @@ The second node is redundent in this scenario::
 	...     Queue_capacities=[10, 'Inf']
 	... )
 
-Now we run the system for 100 time units, and see that we get 484 services at the first node, and none at the second node::
+NAwr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi digwydd wrth y nod cyntaf, a dim wrth yr ail nod::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)
@@ -36,8 +36,8 @@ Now we run the system for 100 time units, and see that we get 484 services at th
 	>>> Counter(service_nodes)
 	Counter({1: 484})
 
-We will now create a new :code:`CustomArrivalNode` such that any customers who arrive when the first node has 10 or more customers present will be sent to the second node.
-First create the :code:`CustomArrivalNode` that inherits from :code:`ciw.ArrivalNode`, and overwrites the :code:`send_individual` method::
+Nawr crëwn :code:`CustomArrivalNode` newydd felly anfonir unrhyw cwsmeriaid sy'n cyrraedd pan mae'r gan y nod cyntaf 10 neu fwy o cwsmeriaid i'r ail nod.
+Yn gyntaf crëwch y :code:`CustomArrivalNode` sy;n etifeddu o'r :code:`ciw.ArrivalNode`, a troysgrifwch y dull :code:`send_individual`::
 
 	>>> class CustomArrivalNode(ciw.ArrivalNode):
 	...     def send_individual(self, next_node, next_individual):
@@ -50,7 +50,7 @@ First create the :code:`CustomArrivalNode` that inherits from :code:`ciw.Arrival
 	...         else:
 	...             self.simulation.nodes[2].accept(next_individual, self.next_event_date)
 
-To run the same system, we need to remove the keyword :code:`'Queue_capacities'` when creating a network, so that customers are not rejected before reaching the :code:`send_individual` method::
+I rhedeg yr un system, rhaid i ni hepgor yr allweddair :code:`'Queue_capacities'` felly ni wrthodir cwsmeriaid cyn cyrraedd y dull :code:`send_individual`::
 
 	>>> N = ciw.create_network(
 	...     Arrival_distributions=[['Exponential', 6.0], 'NoArrivals'],
@@ -59,8 +59,8 @@ To run the same system, we need to remove the keyword :code:`'Queue_capacities'`
 	...     Number_of_servers=[1, 1]
 	... )
 
-Now rerun the same system, telling Ciw to use the new :code:`arrival_node_class` to use.
-We'll see that the same amount of services take place at Node 1, however rejected customers now have services taking place at Node 2::
+Nawr fe ail-rhedwn y system, yn dweud wrth Ciw i defnyddio'r :code:`arrival_node_class` newydd.
+Gwelwn fod yr un nifer o gwasanaethau wedi digwydd wrth Nod 1, ond nawr mae'r cwsmeriaid a chafodd eu wrthod nawr yn cael gwasanaethau wrth Nod 2::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N, arrival_node_class=CustomArrivalNode)

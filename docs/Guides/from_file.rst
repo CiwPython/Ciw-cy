@@ -1,16 +1,18 @@
 .. _from-file:
 
-================================
-How to Read & Write to/from File
-================================
+====================================
+Sut i Darllen ac Ygrifennu o/i Ffeil
+====================================
 
-When running experiments, it may be useful to read in parameters from a file, and to export data records to file. This can be done easily in Ciw. Parameter dictionaries can be represented as :code:`.yml` files, and results can be output as :code:`.csv` files.
+Tra'n rhedeg arbrofion, fe all fod yn ddefnyddiol o darllen mewn paramedrau o ffeil, ac i all allforio cofnodion data i ffeil.
+Gallwch wneud hwn yn hawdd gyda Ciw.
+Fe all cynrychioli geiriaduron o paramedrau fel ffeiliau :code:`.yml`, a gall allforio canlyniadau fel ffeiliau :code:`.csv`.
 
-Parameter Files
-~~~~~~~~~~~~~~~
 
-Consider the following Network::
+Ffeiliau Paramedrau
+~~~~~~~~~~~~~~~~~~~
 
+Ystyriwch y rhwydwaith canlynol::
 
     >>> import ciw
 	>>> N = ciw.create_network(
@@ -21,7 +23,7 @@ Consider the following Network::
 	...     Queue_capacities=['Inf', 4]
 	... )
 
-This can be represented by the :code:`.yml` file below::
+Cynrychiolir hwn fel ffeil :code:`.yml` isod::
 
 	parameters.yml
 
@@ -50,23 +52,24 @@ This can be represented by the :code:`.yml` file below::
 	- "Inf"
 	- 4
 
-This can then be created into a Network object using the :code:`ciw.create_network_from_yml` function::
+Gallwch troi hwn mewn i gwrthrych Network yn defnyddio'r ffwythiant :code:`ciw.create_network_from_yml`::
 
 	>>> import ciw # doctest:+SKIP
 	>>> N = ciw.create_network_from_yml('<path_to_file>') # doctest:+SKIP
 	>>> Q = ciw.Simulation(N) # doctest:+SKIP
 
 
-Exporting Results
-~~~~~~~~~~~~~~~~~
+Allforio Canlyniadau
+~~~~~~~~~~~~~~~~~~~~
 
-Once a simulation has been run, all data records can be exported to file using the :code:`write_records_to_file` method of the Simulation object.
-This method writes all results that are obtained by the :code:`get_all_records` method (see :ref:`here <refs-results>` for more information) to a :code:`.csv` file, where each row is an observation ad each column a variable::
+Unwaith bod efelychiad wedi'i rhedeg, gall ysgrifennu'r holl cofnodion data i ffeil gan ddefnyddio dull :code:`write_records_to_file` y gwrthrych Simulation.
+Mae'r dull yma yn ysgrifenny'r holl canlyniadau a gafwyd gan y dull :code:`get_all_records` (gwelwch :ref:`fan hyn <refs-results>` am mwy o wybodaeth) i ffeil :code:`.csv`, lle mae pob rhes yw arsylwad a pob colofn yr newidyn::
 
 	>>> Q.write_records_to_file('<path_to_file>') # doctest:+SKIP
 
-This method also takes the optional keyword argument :code:`header`.
-If this is set to :code:`True` then the first row of the :code:`.csv` file will be the variable names. The default value is True, set to False is a row of variable names are not needed::
+Mae'r dull yma hefyd yn cymryd yr allweddair opsiynnol :code:`header`.
+Os osodwyd hwn i :code:`True` yna bydd y rhes cyntaf yn cynnwys enwau'r newidynnau.
+Yr opsiwn diofyn yw :code:`True`, gosodwch i :code:`False` os nad oes angen rhain::
 
 	>>> Q.write_records_to_file('<path_to_file>', headers=True) # doctest:+SKIP
 	>>> Q.write_records_to_file('<path_to_file>', headers=False) # doctest:+SKIP
