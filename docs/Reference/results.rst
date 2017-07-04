@@ -1,11 +1,11 @@
 .. _refs-results:
 
-=========================
-List of Available Results
-=========================
+==================
+Rhestr Canlyniadau
+==================
 
-Each time an individual completes service at a service station, a data record of that service is kept.
-The records should look something like the table below:
+Pob tro mae unigolyn yn yn cwblhau gwasanaeth wrth gorsaf wasanaeth, cadwyd cofnod data o'r wasanaeth hwnna.
+Dylai'r cofnodion yma edrych yn tebyg i'r tabl isod:
 
     +--------+-------+------+--------------+-----------+--------------------+--------------+------------------+--------------+-----------+-------+-----------------------+-----------------------+
     | I.D    | Class | Node | Arrival Date | Wait Time | Service Start Date | Service Time | Service End Date | Time Blocked | Exit Date | Dest. | Queue Size at Arrival | Queue Size at Depart. |
@@ -19,35 +19,35 @@ The records should look something like the table below:
     | ...    | ...   | ...  | ...          | ...       | ...                | ...          | ...              | ...          | ...       | ...   | ...                   | ...                   |
     +--------+-------+------+--------------+-----------+--------------------+--------------+------------------+--------------+-----------+-------+-----------------------+-----------------------+
 
-You may access these records as a list of named tuples, using the Simulation's :code:`get_all_records` method:
+Fe allwch cael mynediad i'r cofnodion yma fel rhestr o tuples enwedig, yn defnyddio method :code:`get_all_records` y gwrthrych Simulation.
 
     >>> recs = Q.get_all_records() # doctest:+SKIP
 
-The data records contained in this list are named tuples with the following variable names:
+Tuples enwedig yw'r cofondion data sydd wedi cynnwys yn y rhestr yma, gyda'r enwau newidynnau canlynol:
 
     - :code:`id_number`
-       - The unique identification number for that customer.
+       - Rhif adnabod unigryw y cwsmer yna.
     - :code:`customer_class`
-       - The number of that customer's customer class. If dynamic customer classes are used, this is the customer's previous class, before a new customer class is sampled after service.
+       - Rhif dosbarth cwsmer y cwsmer yna. Os defnyddir dosbarthau cwsmer deinamig, hwn yw dobarth cwsmer blaenorol y cwsmer, cyn samplwyd dosbarth cwsmer newydd.
     - :code:`node`
-       - The number of the node at which the service took place.
+       - Rhif y nod lle digwyddodd y gwasanaeth.
     - :code:`arrival_date`
-       - The date of arrival to that node, the date which the customer joined the queue.
+       - Y dyddiad a wnaeth y cwsmer cyrraedd y nod, y dyddiad gwnaeth y cwsmer ymuno a'r ciw.
     - :code:`waiting_time`
-       - The amount of time the customer spent waiting for service at that node.
+       - Faint o amser arhosodd y cwsmer am gwasanaeth wrth y nod yma.
     - :code:`service_start_date`
-       - The date at which service began at that node.
+       - Y dyddiad a ddechreuodd gwasanaeth wrth y nod yna.
     - :code:`service_time`
-       - The amount of time spent in service at that node.
+       - Faint o amser gwariodd y cwsmer yn gwasanaeth wrth y nod yna.
     - :code:`service_end_date`
-       - The date which the customer finished theor service at that node.
+       - Y dyddiad gorffenodd y gwasanaeth wrth y nod yna.
     - :code:`time_blocked`
-       - The amount of time spent blocked at that node. That is the time between finishing service at exiting the node.
+       - Fain o amser gwariodd y cwsmer wedi'i flocio wrth y nod yna. Hynny yw r amser rhwng gorffen gwasanaeth a gadael y nod.
     - :code:`exit_date`
-       - The date which the customer exited the node. This may be immediatly after service if no blocking occured, or after some period of being blocked.
+       - Y dyddiad gadawodd y cwsmer y nod. Gall hyn fod yn syth ar ol i gwasanaeth gorffen os nad oedd blocio, neu ar ol rhyw cyfnod o flocio.
     - :code:`destination`
-       - The number of the customer's destination, that is the next node the customer will join after leaving the current node. If the customer leaves the system, this will be -1.
+       - Rhif cyrchfan y cwsmer, hynny yw y nod nesaf fyd y cwsmer yn ymuno ar ol gadael y nod presennol. Os yw'r cwsmer yn gadael y system, -1 fydd hwn.
     - :code:`queue_size_at_arrival`
-       - The size of the queue at the customer's arrival date. Does not include the individual themselves.
+       - Hyd y ciw ar dyddiad dyfodi'r cwsmer. Nid yw'n cynnwys yr unigolyn ei hun.
     - :code:`queue_size_at_departure`
-       - The size of the queue at the customer's exit date. Does not include the individual themselves.
+       - Hyd y ciw ar dyddiad gadael y cwsmer. Nid yw'n cynnwys yr unigolyn ei hun.

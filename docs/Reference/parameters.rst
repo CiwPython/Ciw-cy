@@ -1,30 +1,31 @@
 .. _refs-params:
 
-==================
-List of Parameters
-==================
+=================
+Rhestr Paramedrau
+=================
 
-Below is a full list of the parameters that the :code:`create_network` function can take, along with a description of the values required.
-If using a parameters file then here are the arguments and values of the required :code:`.yml` file.
+Isod rhestrwyd holl paramedra mae'r ffwythiant :code:`create_network` yn cymryd, ynghyd â ddisgrifiadau o'r gwerthoedd a cymerwyd.
+Os ddefnyddir ffeil paramedrau, yna dyma ddadleuon a gwerthoedd sydd angen yn y ffeil :code:`.yml`.
+
 
 Arrival_distributions
 ~~~~~~~~~~~~~~~~~~~~~
 
-*Required*
+*Angenrheidiol*
 
-Describes the inter-arrival distributions for each node and customer class.
-This is a dictionary, with keys as customer classes, and values are lists describing the inter-arrival distributions for each node.
-If only one class of customer is required it is sufficient to simply enter a list of inter-arrival distributions.
-For more details on inputting distributions, see :ref:`set-dists`.
+Mae'n disgrifio'r dosraniadau rhwng-dyfodiad ar gyfer pob nod a pob dosbarth cwsmer.
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestrau yn disgrifio dosraniadau rhwng-dyfodiad pob nod fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi rhestr dosraniadau rhwng-dyfodiad yn unig.
+Am fwy o wybodaeth ar mewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
-An example is shown::
+Dangosir esiampl::
 
     Arrival_distributions={'Class 0': [['Exponential', 2.4],
                                        ['Uniform', 0.3, 0.5]],
                            'Class 1': [['Exponential', 3.0],
                                        ['Deterministic', 0.8]]}
 
-An example where only one class of customer is required::
+Esiampl lle mae ond un dosbarth cwsmer::
 
     Arrival_distributions=[['Exponential', 2.4],
                            ['Exponential', 2.0]]
@@ -33,14 +34,14 @@ An example where only one class of customer is required::
 Baulking_functions
 ~~~~~~~~~~~~~~~~~~
 
-*Optional*
+*Opsiynnol*
 
-A dictionary of baulking functions for each customer class and each node.
-It describes the baulking mechanism of the customers.
-For more details see :ref:`baulking-functions`.
-If left out, then bo baulking occurs.
+Geiriadur o ffwythiannau balcio ar gyfer pob dosbarth cwsmer a pob nod.
+Mae'n disgrifio mecanweithiau balcio cwsmeriaid.
+Am fwy o wybodaeth gwelwch :ref:`baulking-functions`.
+Os hepgorwyd, yna ni balciwyd cwsmeriaid.
 
-Example::
+Esiampl::
 
     Baulking_functions={'Class 0': [probability_of_baulking]}
 
@@ -49,12 +50,12 @@ Example::
 Class_change_matrices
 ~~~~~~~~~~~~~~~~~~~~~
 
-*Optional*
+*Opsiynnol*
 
-A dictionary of class change matrices for each node.
-For more details see :ref:`dynamic-classes`.
+Geiriadur o matricsau newid dosbarth ar gyfer pob node.
+Am fwy o wybodaeth gwelwch :ref:`dynamic-classes`.
 
-An example for a two node network with two classes of customer::
+Esiampl o rhywdwaith dau nod gyda dau dosbarth cwsmer::
 
     Class_change_matrices={'Node 0': [[0.3, 0.4, 0.3],
                                       [0.1, 0.9, 0.0],
@@ -64,43 +65,17 @@ An example for a two node network with two classes of customer::
                                       [0.2, 0.2, 0.6]]}
 
 
-Number_of_classes
-~~~~~~~~~~~~~~~~~
-
-*Optional*
-
-Denotes the number of customer classes in the simulation.
-If not included, Ciw works this out from the :code:`Arrival_distributions` argument.
-
-Example::
-
-    Number_of_classes=3
-
-
-Number_of_nodes
-~~~~~~~~~~~~~~~
-
-*Optional*
-
-Denotes the number of nodes in the queueing network.
-If not included, Ciw works this out from the :code:`Number_of_servers` argument.
-
-Example::
-
-    Number_of_nodes=6
-
-
 Number_of_servers
 ~~~~~~~~~~~~~~~~~
 
-*Required*
+*Angenrheidiol*
 
-A list of the number of parallel servers at each node.
-If a server schedule is used, the name of the schedule is given instead of a number.
-For more details on server schedules, see :ref:`server-schedule`.
-A value of 'Inf' may be given is infinite servers are required.
+Rhestr o nifer o gweinyddion paralel wrth pob nod.
+Os ddefnyddir amserlen gweinydd, rhowch yr amserlen yn lle rhif.
+Am fwy o wybodaeth ar amserlenni gweinyddion, gwelwch :ref:`server-schedule`.
+Ar gyfer nifer anfeidraidd o weinyddion gall rhoi 'Inf'.
 
-Example::
+Esiampl::
 
     Number_of_servers=[1, 2, 'Inf', 1, 'schedule']
 
@@ -108,13 +83,13 @@ Example::
 Priority_classes
 ~~~~~~~~~~~~~~~~
 
-*Optional*
+*Opsiynnol*
 
-A dictionary mapping customer classes to priorities.
-For more information see :ref:`priority-custs`.
-If left out, no priorities are used, that is all customers have equal priorities.
+Geiriadur sy'n mapio dosbarthau cwsmer i flaenoriaethau.
+Am fwy o wybodaeth, gwelwch :ref:`priority-custs`.
+Os hepgorwyd, ni ddefnyddir blaenoriath, hynny yw mae gan pob cwsmer blaenoriaeth hafal.
 
-Example::
+Esiampl::
 
     Priority_classes={'Class 0': 0,
                       'CLass 1': 1,
@@ -125,12 +100,12 @@ Example::
 Queue_capacities
 ~~~~~~~~~~~~~~~~
 
-*Optional*
+*Opsiynnol*
 
-A list of maximum queue capacities at each node.
-If ommitted, default values of 'Inf' for every node are given.
+Rhestr o cynhwysedd ciw macsimwm wrth pob nod.
+Os hepgorwyd, y gwerthoedd diofyn yw 'Inf' ar gyfer pob nod.
 
-Example::
+Esiampl::
 
     Queue_capacities=[5, 'Inf', 'Inf', 10]
 
@@ -138,21 +113,21 @@ Example::
 Service_distributions
 ~~~~~~~~~~~~~~~~~~~~~
 
-*Required*
+*Angenrheidiol*
 
-Describes the service distributions for each node and customer class.
-This is a dictionary, with keys as customer classes, and values are lists describing the service distributions for each node.
-If only one class of customer is required it is sufficient to simply enter a list of service distributions.
-For more details on inputting distributions, see :ref:`set-dists`.
+Mae'n disgrifio'r dosraniadau gwasanaeth ar gyfer pob nod a pob dosbarth cwsmer.
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestrau yn disgrifio dosraniadau gwasanaeth pob nod fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi rhestr dosraniadau rhwng-dyfodiad yn unig.
+Am fwy o wybodaeth ar mewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
-An example is shown::
+Dangosir esiample::
 
     Service_distributions={'Class 0': [['Exponential', 4.4],
                                        ['Uniform', 0.1, 0.9]],
                            'Class 1': [['Exponential', 6.0],
                                        ['Lognormal', 0.5, 0.6]]}
 
-An example where only one class of customer is required::
+Esiampl lle mae ond un dosbarth cwsmer::
 
     Service_distributions=[['Exponential', 4.8],
                            ['Exponential', 5.2]]
@@ -166,22 +141,22 @@ Transition_matrices
 
 *Optional for 1 node*
 
-Describes the transition matrix for each customer class.
-This is a dictionary, with keys as customer classes, and values are lists of lists (matrices) containing the transition probabilities.
-If only one class of customer is required it is sufficient to simply enter single transition matrix (a list of lists).
+Mae'n disgrifio'r matrics trosglwyddo ar gyfer pob dosbarth cwsmer.
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestr o rhestrau (matricsau) yn cynnwys y tebygolrwyddau trosglwyddo fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi un matrics trosglwyddo yn unig (rhestr o rhestrau).
 
-An example is shown::
+Dangosir esiample::
 
     Transition_matrices={'Class 0': [[0.1, 0.3],
                                      [0.0, 0.8]],
                          'Class 1': [[0.0, 1.0],
                                      [0.0, 0.0]]}
 
-An example where only one class of customer is required::
+Esiampl lle mae ond un dosbarth cwsmer::
 
     Transition_matrices=[[0.5, 0.3],
                          [0.2, 0.6]]
 
-If using only one node, the default value is::
+Os ddefnyddir un nod yn unig, y gwerth diofyn yw::
 
     Transition_matrices={'Class 0': [[0.0]]}

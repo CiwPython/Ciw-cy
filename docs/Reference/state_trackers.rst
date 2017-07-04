@@ -1,10 +1,10 @@
 .. _refs-statetrackers:
 
-=========================================================
-List of Implemented State Trackers for Deadlock Detection
-=========================================================
+==============================================
+Rhestr Tracwyr Cyflwr ar Gyfer Canfod Llwyrglo
+==============================================
 
-Currently Ciw has the following state trackers:
+Ar hyn o bryd mae gan Ciw y tracwyr cyflwr canlynol:
 
 - :ref:`naive`
 - :ref:`matrix`
@@ -12,33 +12,33 @@ Currently Ciw has the following state trackers:
 
 .. _naive:
 
------------------
-The Naive Tracker
------------------
+--------------
+Y Traciwr Naïf
+--------------
 
-The Naive Tracker records the number of customers at each node, and how many of those customers are currently blocked.
-An example for a four node queueing network is shown below::
+Mae'r Traciwr Naïf yn recordio nifer of cwsmeriaid wrth pob nod, a faint o'r cwsmeriaid yna sydd wedi'i flocio'n presennol.
+Dangosir enhraifft o rhwydwaith ciwio pedwar nod::
 
     ((3, 0), (1, 4), (10, 0), (8, 1))
 
-This denotes 3 customers at the first node, 0 of which are blocked; 5 customers at the second node, 4 of which are blocked; 10 customers at the third node, 0 of which are blocked; and 9 customers at the fourth node, 1 of which are blocked.
+Dynodir hwn 3 cwsmer wrth y nod cyntaf, mae 0 o rhain wedi'i flocio; 5 cwsmer wrth yr ail nod, mae 4 o rhain wedi'i flocio; 10 cwsmer wrth y trydydd nod, mae 0 o rhain wedi'i flocio; a 9 cwsmer wrth y pedwerydd nod, mae 1 o rhain wedi'i flocio.
 
-The Simulation object takes in the optional argument :code:`tracker` used as follows::
+Mae'r gwrthrych Simulation yn cymryd y ddadl opsiynnol :code:`tracker`::
 
     >>> Q = ciw.Simulation(N, tracker='Naive') # doctest:+SKIP
 
 
 .. _matrix:
 
-------------------
-The Matrix Tracker
-------------------
+-----------------
+Y Traciwr Matrics
+-----------------
 
-The Matrix Tracker records the order and destination of blockages in the form of a matrix.
-Alongside this the number of customers at each node is tracked.
-The first component, a matrix, lists the blockages from row node to column node.
-The entries are lists of all blockages of this type, and the numbers within denote the order at which these become blocked.
-An example for a four node queueing network is shown below::
+Mae'r Traciwr Matrics yn cofnodi'r trefn a cyrchfannau y cwsmeriaid a flociwyd mewn ffyrdd matrics.
+Wrth ochr hwn cofnodir nifer o cwsmeriaid wrth pob nod.
+Mae'r cydran cyntaf, matrics, yn rhestru'r cwsmeriaid a flociwyd o'r nod rhes i'r nod colofn.
+Rhestrau o holl cwsmeriaid a flociwyd o'r math yma yw'r cofnodion, ac mae'r rhifau yn dynodi'r trefn a flociwyd y cwsmeriaid.
+Dangosir esiampl o rhwydwaith pedwar nod::
 
     ( ( ( (),  (),     (), ()  ),
         ( (),  (1, 4), (), (2) ),
@@ -46,20 +46,20 @@ An example for a four node queueing network is shown below::
         ( (3), (),     (), ()  ) ),
       (3, 5, 10, 9) )
 
-This denotes:
+Mae hwn yn cymrychiolu:
 
-+ 3 customers at the first node
-+ 5 customers at the second node
-+ 10 customers at the third node
-+ 9 customers at the fourth node
++ 3 cwsmer wrth y nod cyntaf
++ 5 cwsmer wrth yr ail nod
++ 10 cwsmer wrth y trydydd nod
++ 9 cwsmer wrth y pedwerydd nod
 
-It also tells us the order and destination of the blockages:
+Mae hefyd yn dangos trefn a cyrchfannu'r cwsmeriaid a flociwyd:
 
-+ Of the customers blocked, the first to be blocked was at node 2 to node 2
-+ The second was at node 2 to node 4
-+ The third was at node 4 to node 1
-+ The fourth was at node 2 to node 2.
++ Allan o'r holl cwsmeriaid a flociwyd, y cyntaf oedd o nod 2 i nod 2
++ Yr ail oedd o nod 2 i nod 4
++ Y trydydd oedd o nod 4 i nod 1
++ Y pedwerydd oedd o nod 2 i nod 2.
 
-The Simulation object takes in the optional argument :code:`tracker` used as follows::
+Mae'r gwrthrych Simulation yn cymryd y ddadl opsiynnol :code:`tracker`::
 
     >>> Q = ciw.Simulation(N, tracker='Matrix') # doctest:+SKIP
