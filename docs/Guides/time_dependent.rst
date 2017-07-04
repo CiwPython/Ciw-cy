@@ -1,14 +1,14 @@
 .. _timedependent-dists:
 
-==========================================
-How to Define Time Dependent Distributions
-==========================================
+=========================================
+Sut i Diffinio Dosraniadau Amser Dibynnol
+=========================================
 
-In Ciw we can get a time dependent distribution, that is a service time or inter-arrival time distribution that changes as the simulation time progresses.
-In order to do this a time dependent function, that returns a sampled time, must be defined.
-This must take in a time variable `t`.
+Yn Ciw gallwn diffinio dosraniadau amser dibynnol, hynny yw dosraniadau amser gwasanaeth neu rhwng-dyfodiad sy'n newid wrth i amser yr efelychiad symyd ymlaen.
+I wneud hwn mae angen diffinio ffwythiant amser dibynnol, sy'n rhoi'r amser a samplwyd.
+Rhaid i hwn cymryd y newidyn amser `t`.
 
-For example, say we wish to have arrivals once every 30 minutes in the morning, every 15 minutes over lunch, every 45 minutes in the afternoon, and every 90 minutes throughout the night::
+Er enghraifft, os ydyn ni eisiau dyfodiadau pob 30 munud yn y bore, pob 15 munud amser cinio, pob 45 munud yn y prynhawn, a pob 90 munud trwy'r nos::
 
     >>> def time_dependent_function(t):
     ...     if t % 24 < 12.0:
@@ -19,9 +19,9 @@ For example, say we wish to have arrivals once every 30 minutes in the morning, 
     ...         return 0.75
     ...     return 1.5
 
-This function returns inter-arrival times of 0.5 hrs between midnight (0) and 12, 0.25 hrs between 12 and 14, 0.75 hrs between 14 and 20, and 1.5 hrs between 20 and midnight (24).
-Then repeats.
-Testing this function we see::
+Mae'r ffwythiant yma yn rhoi amseroedd rhwng dyfodi o 0.5 awr rhwng canol nos (0) a 13, 0.25 awr rhwng 12 a 14, 0.75 awr rhwng 14 a 20, a 1.5 awr rhwng 20 a canol nos (24).
+Yna mae'n ailadrodd.
+I profi'r ffwythiant::
 
     >>> time_dependent_function(9.5)
     0.5
@@ -33,10 +33,10 @@ Testing this function we see::
     0.75
     >>> time_dependent_function(22.0)
     1.5
-    >>> time_dependent_function(33.2) # half 9 the next day
+    >>> time_dependent_function(33.2) # hanner wedi 9 y diwrnod nesaf
     0.5
 
-Let's implement this into a one node infinite server queue::
+Gadewch i ni weithredu hwn mewn ciw un nod gyda nifer anfeidraidd o weinyddion::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -45,9 +45,9 @@ Let's implement this into a one node infinite server queue::
     ...     Number_of_servers=['Inf']
     ... )
 
-We'll then simulate this for 1 day.
-We would expect 24 arrivals in the morning (12 hours, one every half an hour); 8 arrivals over lunch (2 hours, one every 15 minutes), 8 arrivals in the afternoon (6 hours, one every 45 mins); and 2 arrivals in the night (4 hours, one every hour and a half).
-Therefore a total of 42 customers passed through the system::
+Yna efelychwn am un diwrnod.
+Rydym yn disgwyl 24 dyfodiad yn y bore (12 awr, un pob hanner awr); 8 dyfodiad amser cinio (2 awr, un pob 15 munud); 8 dyfodiad yn y prynhawn (6 awr, un pob 45 munud); a 2 dyfodiad yn y nos (4 awr, un pob awr a hanner).
+Felly, disgwylir cyfanswm o 42 cwsmer pasio trwy'r system::
 
    >>> Q = ciw.Simulation(N)
    >>> Q.simulate_until_max_time(24.0)

@@ -1,19 +1,19 @@
 .. _baulking-functions:
 
-==================================
-How to Simulate Baulking Customers
-==================================
+=====================================
+Sut i Efelychu Cwsmeriaid Sy'n Balcio
+=====================================
 
-Ciw allows customer's to baulk (decide not join the queue) upon arrival, according to baulking functions.
-These functions take in a parameter :code:`n`, the number of individuals at the node, and returns a probability of baulking.
+Mae Ciw yn gadael i cwsmeriaid balcio (dewis peidio ymuno a ciw) pan maent yn dyfodi, yn ôl ffwythiannau balcio.
+Mae'r ffwythiannay yma yn cymryd paramedr :code:`n`, nifer o unigolion wrth y nod, ac yn rhoi tebygolrwydd o'r cwsmer balcio.
 
-For example, say we have an :ref:`M/M/1 <kendall-notation>` system where customers:
+Er enghraifft, mae ganddyn system :ref:`M/M/1 <kendall-notation>` lle mae cwsmeriaid:
 
-+ Never baulk if there are less than 3 customers in the system
-+ Have probability 0.5 of baulking if there are between 3 and 6 customers in the system
-+ Always baulk if there are more than 6 customers in the system
++ Byth yn balcio os oes llai na 3 cwsmer yn y system
++ Yn cael tebygolrwydd 0.5 o balcio os oes rhwng 3 a 6 cwsmer yn y system
++ Trwy'r amser yn balcio os oes mwy na 6 cwsmer yn y system
 
-We can define the following baulking function::
+Fe allwn diffinio'r ffwythiant balcio canlynol::
 
     >>> def probability_of_baulking(n):
     ...     if n < 3:
@@ -22,7 +22,7 @@ We can define the following baulking function::
     ...         return 0.5
     ...     return 1.0
 
-When creating the Network object we tell Ciw which node and customer class this function applies to with the :code:`Baulking_functions` keyword::
+Tra'n creu'r gwrthrych Network, rydym yn dweud wrth Ciw pa nod a dosbarth cwsmer mae'r ffwythiant yma yn berthnasol ar gyfer, gyda'r allweddair :code:`Baulking_functions`::
 	
 	>>> import ciw
 	>>> N = ciw.create_network(
@@ -32,9 +32,9 @@ When creating the Network object we tell Ciw which node and customer class this 
 	...      Number_of_servers=[1]
 	... )
 
-When the system is simulated, the baulked customers are recorded in the Simulation object's :code:`baulked_dict`.
-This is a dictionary, that maps node numbers to dictionaries.
-These dictionaries map customer class numbers to a list of dates at which customers baulked::
+Pan mae'r system wedi gorffen efelychu, cofnodwyd y cwsmeriaid a wnaeth balcio yn :code:`baulked_dict` y gwrthrych Simulation.
+Geiriadur yw hwn sy'n mapio rhifau nod i geiriaduron.
+Mae'r geiriaduron yma yn mapio rhifau dosbarthau cwsmer i rhestr o dyddiadau lle wnaeth cwsmer balcio::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)
@@ -42,8 +42,7 @@ These dictionaries map customer class numbers to a list of dates at which custom
 	>>> Q.baulked_dict
 	{1: {0: [21.1040..., 42.2023..., 43.7558..., 43.7837..., 44.2266...]}}
 
-Note that baulking works and behaves differently to simply setting a queue capacity.
-Filling a queue's capacity results in arriving customers begin *rejected* (and recorded in the :code:`rejection_dict`), and transitioning customers to be blocked.
-Baulking on the other hand does not effect transitioning customers, and customer who have baulked are recorded in the :code:`baulked_dict`.
-This means that if you set a deterministic baulking threshold of 5, but do not set a queue capacity, then the number of individuals at that node may exceed 5, due to customers transitioning from other nodes ignoring the baulking threshold.
-This also means you can use baulking and limited capacities in conjunction with one another.
+Nodwch fod balcio yn gweithio ac yn ymddwyn yn wahanol i setio cynhwysedd ciwio.
+Mae llenwi cynhwysedd ciwio nod yn arwain at dyfodiadau newydd yn cael eu *wrthod** (a cofnodwyd rhain yn y :code:`rejection_dict`), a cwsmeriaid sy'n trosglwyddo o nod arall yn cael eu flocio.
+Ar y llaw arall nid yw balcio yn effeithio cwsmeriaid sy'n trosglwyddo o nod arall, a cofnodwyd cwsmeriaid a wnaeth balcio yn y :code:`baulked_dict`.
+Mae hwn yn golygu os osodwyd trothwy balcio penderfynedig o 5, ond ni osodwyd cynhwysedd ciwio, yna gall nifer o unigolion wrth y nod yna bod yn fwy na 5, ohwrwydd bod cwsmeriaid sy'n trosglwyddo o nodau arall yn anwybyddu'r trothwy balcio.

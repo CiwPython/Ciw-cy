@@ -1,9 +1,9 @@
-Guides
-======
+Canllawiau
+==========
 
-This selection of How-to guides will give a tour of some of the features that Ciw has to offer.
+Mae'r adran yma o canllawiau Sut-i yn rhoi blas ar priodweddau a cynnigir Ciw.
 
-Contents:
+Cynnwys:
 
 .. toctree::
    :maxdepth: 2

@@ -1,21 +1,22 @@
 .. _until-numcusts:
 
-=================================================
-How to Simulate For a Certain Number of Customers
-=================================================
+=============================================
+Sut i Efelychu Nes Nifer o Gwsmeriaid Penodol
+=============================================
 
-A simulation run may be terminated once a certain number of customers have passed through.
-This can be done using the :code:`simulate_until_max_customers` method.
-The method takes in a variable :code:`max_customers`.
-There are three methods of counting customers:
+Gall terfynnu rhediad efelychiad pan mae nifer penodol o cwsmeriaid wedi pasio trwyddo.
+Gall wneud hwn gyda'r dull :code:`simulate_until_max_customers`.
+Mae'r dull yn cymryd y dadl :code:`max_customers`.
+Mae yna tri ffordd o cyrfi cwsmeriaid:
 
- - :code:`'Finish'`: Simulates until :code:`max_customers` has reached the Exit Node.
- - :code:`'Arrive'`: Simulates until :code:`max_customers` have spawned at the Arrival Node.
- - :code:`'Accept'`: Simulates until :code:`max_customers` have been spawned and accepted (not rejected) at the Arrival Node.
+ - :code:`'Finish'`: Efelychu nes bod :code:`max_customers` wedi cyrraedd yr Exit Node.
+ - :code:`'Arrive'`: Efelychu nes bod :code:`max_customers` wedi'i creu yn yr Arrival Node.
+ - :code:`'Accept'`: Efelychu nes bod :code:`max_customers` wedi'i creu ac wedi'i derbyn and accepted (heb wedi'i wrthod) yn yr Arrival Node.
 
-The method of counting customers is specified with the optional keyword argument :code:`method`. The default value is is :code:`'Finish'`.
+Pennir y dull cyfri cwsmeriaid gyda'r dadl opsiynol :code:`method`.
+Y gwerth diofyn yw :code:`'Finish'`.
 
-Consider an :ref:`M/M/1/3 <kendall-notation>` queue::
+Ystyriwch system ciwio :ref:`M/M/1/3 <kendall-notation>`::
 
 	>>> import ciw
 	>>> N = ciw.create_network(
@@ -25,7 +26,7 @@ Consider an :ref:`M/M/1/3 <kendall-notation>` queue::
 	...     Queue_capacities=[3]
 	... )
 
-To simulate until 30 customers have finished service::
+I efelychu nes bod 30 cwsmer wedi gorffen gwasanaeth::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)
@@ -33,7 +34,7 @@ To simulate until 30 customers have finished service::
 	>>> len(Q.nodes[-1].all_individuals)
 	30
 
-To simulate until 30 customers have arrived::
+I efelychu nes bod 30 cwsmer wedi cyrraedd::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)
@@ -41,7 +42,7 @@ To simulate until 30 customers have arrived::
 	>>> len(Q.nodes[-1].all_individuals), len(Q.nodes[1].all_individuals), len(Q.rejection_dict[1][0])
 	(13, 3, 14)
 
-To simulate until 30 customers have been accepted::
+I efelychu nes bod 30 cwsmer wedi'i derbyn::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)

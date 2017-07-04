@@ -1,18 +1,18 @@
 .. _set-seed:
 
-=================
-How to Set a Seed
-=================
+================
+Sut i Osod Hedyn
+================
 
-To ensure reproducibility of results users can set a seed for all the random number streams that Ciw uses.
-This can be done using the Ciw functon :code:`ciw.seed`::
+I sicrhau ailgynhyrchioldeb canlyniadau gall defnyddwyr gosod hedyn ar gyfer holl llifau haprif mae Ciw yn denfyddio.
+Gallwch gwneud hwn gan ddefynddio'r ffwythiant :code:`ciw.seed`::
     
     >>> import ciw
     >>> ciw.seed(5)
 
-Note that due to sampling on initialisation, the seed will need to be set **before** the :code:`ciw.Simulation` object is created.
+Nodwch oherwydd samplo wrth ymgychwyn, mae angen gosod yr hedyn **cyn** creu'r gwrthrych :code:`ciw.Simulation`.
 
-As an example, take the following network::
+Fel enghraifft, cymerwch y rhwydwaith canlynol::
 
     >>> N = ciw.create_network(
     ...     Arrival_distributions=[['Exponential', 5]],
@@ -20,7 +20,7 @@ As an example, take the following network::
     ...     Number_of_servers=[1]
     ... )
 
-Now let's run the system for 20 time units, using a seed of 1, and get the average waiting time::
+Rhedwch y system am 20 uned amser, yn defnyddio hedyn o 1, a ffeindiwch yr amser aros cymedrig::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -29,7 +29,7 @@ Now let's run the system for 20 time units, using a seed of 1, and get the avera
     >>> sum(waits)/len(waits)
     0.0544115013161...
 
-Using the same seed again, the exact same average waiting time result will occur::
+Yn defnyddio'r un hedyn eto, mae'r union un amser aros cymedrig yn achosu'r union un canlyniad::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -38,7 +38,7 @@ Using the same seed again, the exact same average waiting time result will occur
     >>> sum(waits)/len(waits)
     0.0544115013161...
 
-Now using a different seed, a different result will occur::
+Nawr, yn defnyddio hedyn gwahanol, fe geir canlyniad gwahanol::
 
     >>> ciw.seed(2)
     >>> Q = ciw.Simulation(N)

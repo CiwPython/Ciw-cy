@@ -1,29 +1,28 @@
 .. _priority-custs:
 
-===========================
-How to Set Priority Classes
-===========================
+=========================
+Sut i Osod Blaenoriaethau
+=========================
 
-Ciw has the capability to assign priorities to the customer classes.
-This is done by mapping customer classes to priority classes, included as a keyword when creating the Network object.
-An example is shown::
+Gall Ciw aseinio blaenoriaethau i dosbarthau cwsmer.
+I wenud hwn rydym yn mapio dosbarthau cwsmer i dosbarthau blaenoriaeth, gan ychwanegu hwn fel allweddair wrth creu gwrthrych Network.
+Dangosir enghraifft::
 
     Priority_classes={'Class 0': 0,
                       'Class 1': 1,
                       'Class 2': 1}
 
-This shows a mapping from three customer classes to two priority classes.
-Customers in class 0 have the highest priority and are placed in priority class 0.
-Customers in class 1 and class 2 are both placed in priority class 1; they have the same priority as each other but less that those customers in class 0.
+Mae hwn yn dangos mapiad o tri dosbarth cwsmer i dau dosbarth blaenoriaeth.
+Mae gan cwsmeriaid dosbarth 0 y flaenoriaeth mwyaf, a'i rhoddir yn nosbarth blaenoriaeth 0.
+Rhoddir cwsmeriaid dosbarth 1 a 2 yn dosbarth blaenoriaeth 1; mae ganddynt yr un flaenoriaeth a'i gilydd, ond llai o flaenoriaeth na cwsmeriaid dosbarth 0.
 
-Note:
+Nodwch:
 
-* The lower the priority class number, the higher the priority. Customers in priority class 0 have higher priority than those with in priority class 1, who have higher priority than those in priority class 2, etc.
-* Priority classes are essentially Python indices, therefore if there are a total of 5 priority classes, priorities **must** be labelled 0, 1, 2, 3, 4. Skipping a priority class, or naming priority classes anything other than increasing integers from 0 will cause an error.
-* The priority discipline used is non-preemptive. Customers always finish their service and are not interrupted by higher priority customers.
+* Po leifaf yw rhif y dosbarth blaenoriaeth, po fwyad yw'r blaenoriaeth. Mae gan cwsmeriaid yn nosbarth blaenoriaeth 0 mwy o flaenoriaeth na cwsmeriaid yn nosbarth blaenoriaeth 1, sydd a fwy o flaenoriaieth na cwsmeriaid yn nosbarth blaenoriaeth 2, ayyb.
+* Indecsiau Python yw dosbarthau blaenoriaeth, felly os oes 5 dosbarth blaenoriaeth **rhaid** eu labelu 0, 1, 2, 3, 4. Fe fydd hepgor rhif, new enwi dosbarthau blaenoriaeth unrhywbeth arall heblaw cyfanrifau cynyddol o 0, yn achosu gwall.
+* Mae disgybliaeth blaenoriaeth yn anrhagdarfiedig. Mae cwsmeriaid pob amser yn gorffen eu wasanaeth a nid yw'n cael eu darfu gan cwsmeriaid gyda blaenoriaeth uwch.
 
-
-To implement this, create the Network object with the :code:`Priority_classes` option included with the mapping::
+I weithredu hwn, crëwch gwrthrych Network gan ychwanegu'r allweddair :code:`Priority_classes` gyda'r mapiad::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -35,7 +34,8 @@ To implement this, create the Network object with the :code:`Priority_classes` o
     ...     Number_of_servers=[1]
     ... )
 
-Now let's run the simulation, comparing the waiting times for Class 0 and Class 1 customers, those with higher priority should have lower average wait than those with lower priority::
+Rhedwn yr efelychiad, yn cymharu'r amseroedd aros cwsmeriaid dosbarth 0 a dosbarth 1.
+Dylai cwsmeriaid gyda mwy o flaenoriaeth cael amser aros cymedrig llai na'r cwsmeriaid gyda llai o flaenoriaeth::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
