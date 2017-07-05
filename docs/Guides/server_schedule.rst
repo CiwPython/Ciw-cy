@@ -13,16 +13,16 @@ Dangosir amserlen gwaith cylchol enghreifftiol yn y tabl isod:
     | Nifer o Weinyddion |      2 |      0 |      1 |
     +--------------------+--------+--------+--------+
 
-Mae'r amserlen yn cylchol, yna ar ôl y sifft olaf (30-100), mae'r amserlen yn dechrau eto gyda'r sifft (0-10).
+Mae'r amserlen yn gylchol, yna ar ôl y sifft olaf (30-100), mae'r amserlen yn dechrau eto gyda'r sifft (0-10).
 Hyd y cylchred ar gyfer yr amserlen yma yw 100.
-Diffinir hwn gan rhestr o rhestrau yn dynodi nifer o weinyddion dylai for ar ddyletswydd yn ystod y sifft yna, a dyddiad diwedd y sifft::
+Diffinnir hwn gan restr o restrau yn dynodi nifer o weinyddion dylai fod ar ddyletswydd yn ystod y sifft yna, a dyddiad diwedd y sifft::
 
     [[2, 10], [0, 30], [1, 100]]
 
-Fan hyn dywedwn no fe fydd 2 gweinydd ar ddyletswydd rhwng amseroedd 0 a 10, 0 rhwng 10 a 30, ayyb.
+Fan hyn dywedwn ni fe fydd 2 gweinydd ar ddyletswydd rhwng amseroedd 0 a 10, 0 rhwng 10 a 30, ayyb.
 Mae hwn yn diffinio'r amserlen gwaith cylchol yn llawn.
 
-I dweud wrth Ciw i defnyddio'r amserlen yma ar gyfer nod penodol, yn :code:`Number_of_servers` amnewidiwch y cyfanrif gyda'r amserlen::
+I ddweud wrth Ciw am ddefnyddio'r amserlen yma ar gyfer nod penodol, yn :code:`Number_of_servers` amnewidiwch y cyfanrif gyda'r amserlen::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -31,7 +31,7 @@ I dweud wrth Ciw i defnyddio'r amserlen yma ar gyfer nod penodol, yn :code:`Numb
     ...     Number_of_servers=[[[2, 10], [0, 30], [1, 100]]]
     ... )
 
-Ar ôl efelychu'r system, gwelwn nad oes unrhyw gwasanaethau yn dechrau rhwng dyddiadau 10 a 30, na rhwng dyddiadau 110 a 130::
+Ar ôl efelychu'r system, gwelwn nad oes unrhyw wasanaethau yn dechrau rhwng dyddiadau 10 a 30, na rhwng dyddiadau 110 a 130::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -43,7 +43,7 @@ Ar ôl efelychu'r system, gwelwn nad oes unrhyw gwasanaethau yn dechrau rhwng dy
     >>> [r for r in recs if 110 < r.service_start_date < 130]
     []
 
-**Nodwch ar hyn o bryd mae amserleni gwaith yn anghydnaws gyda nifer anfeidraidd o weinyddion**, ac felly ni all amserlen cynnwys nifer anfeidraidd o weinyddion.
+**Nodwch ar hyn o bryd mae amserlenni gwaith yn anghydnaws gyda nifer anfeidraidd o weinyddion**, ac felly ni all amserlen cynnwys nifer anfeidraidd o weinyddion.
 
 
 

@@ -1,8 +1,8 @@
 Tiwtorialau - Rhan 2
 ====================
 
-Fe fydd Rhan 2 o tiwtorialau Ciw yn ymdrin â priodweddau craidd arall y llyfrgell.
-Mae'n ymdrin â rhwydweithiau o ciwiau, y marics trosglwyddo, blocio, a dosbarthau cwsmer lluosog.
+Fe fydd Rhan 2 o diwtorialau Ciw yn ymdrin â phriodweddau craidd arall y llyfrgell.
+Mae'n ymdrin â rhwydweithiau o giwiau, y matrics trosglwyddo, blocio, a dosbarthau cwsmer lluosog.
 
 Cynnwys:
 

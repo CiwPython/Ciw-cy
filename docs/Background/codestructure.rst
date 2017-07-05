@@ -1,18 +1,18 @@
 .. _code-structure:
 
-==============
-Strwythr y Cod
-==============
+===============
+Strwythur y Cod
+===============
 
 Mae Ciw wedi'i strwythuro mewn ffordd gwrthrych-gyfeiriadol:
 
 
 .. image:: ../_static/codestructure.svg
    :scale: 100 %
-   :alt: Strwythr y cod ar gyfer Ciw.
+   :alt: Strwythur y cod ar gyfer Ciw.
    :align: center
 
-Mae gan Ciw tri math o gwrthrych, Craidd, Mewnbwn, ac Opsiynnol:
+Mae gan Ciw tri math o wrthrych, Craidd, Mewnbwn, ac Opsiynol:
 
 Craidd:
 
@@ -30,7 +30,7 @@ Mewnbwn:
 - Service Centre
 - Customer Classe
 
-Opsiynnol:
+Opsiynol:
 
 - State Tracker
 - Deadlock Detector

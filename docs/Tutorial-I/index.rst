@@ -1,7 +1,7 @@
 Tiwtorialau - Rhan 1
 ====================
 
-Fe fydd Rhan 1 o tiwtorial Ciw yn mynd dros beth yw efelychiad, a pan rydym yn efelychu.
+Fe fydd Rhan 1 o diwtorial Ciw yn mynd dros beth yw efelychiad, a pan rydym yn efelychu.
 
 Cynnwys:
 

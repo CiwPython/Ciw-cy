@@ -2,14 +2,14 @@ Croeso i ddogfennaeth Ciw!
 ==========================
 
 Geirdarddiad: **Ciw**
-    *enw* Y gair Cyrmraeg ar gyfer 'queue'. *ll.* ciwiau.
+    *enw* Y gair Cymraeg ar gyfer 'queue'. *ll.* ciwiau.
 
-Llyfrgell ar gyfer efelychu rhwydweithiau o ciwiau yw Ciw.
-Ei nodweddion craidd yw'r gallu i efelychu rhwydweithiau o ciwiau, dosbarthiadau cwsmer lluosog, a blocio o Fath I yn rhwydweithiau cyfyngedig.
-Mae nifer o nodweddion arall wedi'i weithredu hefyd, gan gynnwys blaenoriaeth, balcio, amserlenni gwaith, a canfod llwyrglo.
+Llyfrgell ar gyfer efelychu rhwydweithiau o giwiau yw Ciw.
+Ei nodweddion craidd yw'r gallu i efelychu rhwydweithiau o giwiau, dosbarthiadau cwsmer lluosog, a blocio o Fath I yn rhwydweithiau cyfyngedig.
+Mae nifer o nodweddion arall wedi'i weithredu hefyd, gan gynnwys blaenoriaeth, balcio, amserlenni gwaith, a chanfod llwyrglo.
 
-Nodwch, ar hyn o bryd mae gan Ciw cymorth ar gyfer, ac wedi’i profi’n rheolaidd am fersiynau Python 2.7, 3.4, 3.5 a 3.6.
-(Er, ar gyfer y dogfannaeth rydym yn cymryd a ddefnyddir Python 3 yn ganiataol.)
+Nodwch, ar hyn o bryd mae gan Ciw cymorth ar gyfer, ac wedi’i phrofi’n rheolaidd am fersiynau Python 2.7, 3.4, 3.5 a 3.6.
+(Er, ar gyfer y ddogfennaeth rydym yn cymryd a ddefnyddir Python 3 yn ganiataol.)
 
 Cynnwys:
 

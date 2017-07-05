@@ -4,7 +4,7 @@
 Rhestr Paramedrau
 =================
 
-Isod rhestrwyd holl paramedra mae'r ffwythiant :code:`create_network` yn cymryd, ynghyd â ddisgrifiadau o'r gwerthoedd a cymerwyd.
+Isod rhestrwyd holl baramedrau mae'r ffwythiant :code:`create_network` yn cymryd, ynghyd â disgrifiadau o'r gwerthoedd a chymerwyd.
 Os ddefnyddir ffeil paramedrau, yna dyma ddadleuon a gwerthoedd sydd angen yn y ffeil :code:`.yml`.
 
 
@@ -16,7 +16,7 @@ Arrival_distributions
 Mae'n disgrifio'r dosraniadau rhwng-dyfodiad ar gyfer pob nod a pob dosbarth cwsmer.
 Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestrau yn disgrifio dosraniadau rhwng-dyfodiad pob nod fel gwerthoedd.
 Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi rhestr dosraniadau rhwng-dyfodiad yn unig.
-Am fwy o wybodaeth ar mewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
+Am fwy o wybodaeth ar fewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
 Dangosir esiampl::
 
@@ -34,7 +34,7 @@ Esiampl lle mae ond un dosbarth cwsmer::
 Baulking_functions
 ~~~~~~~~~~~~~~~~~~
 
-*Opsiynnol*
+*Opsiynol*
 
 Geiriadur o ffwythiannau balcio ar gyfer pob dosbarth cwsmer a pob nod.
 Mae'n disgrifio mecanweithiau balcio cwsmeriaid.
@@ -50,12 +50,12 @@ Esiampl::
 Class_change_matrices
 ~~~~~~~~~~~~~~~~~~~~~
 
-*Opsiynnol*
+*Opsiynol*
 
-Geiriadur o matricsau newid dosbarth ar gyfer pob node.
+Geiriadur o fatricsau newid dosbarth ar gyfer pob nod.
 Am fwy o wybodaeth gwelwch :ref:`dynamic-classes`.
 
-Esiampl o rhywdwaith dau nod gyda dau dosbarth cwsmer::
+Esiampl o rwydwaith dau nod gyda dau ddosbarth cwsmer::
 
     Class_change_matrices={'Node 0': [[0.3, 0.4, 0.3],
                                       [0.1, 0.9, 0.0],
@@ -70,7 +70,7 @@ Number_of_servers
 
 *Angenrheidiol*
 
-Rhestr o nifer o gweinyddion paralel wrth pob nod.
+Rhestr o nifer o weinyddion paralel wrth bob nod.
 Os ddefnyddir amserlen gweinydd, rhowch yr amserlen yn lle rhif.
 Am fwy o wybodaeth ar amserlenni gweinyddion, gwelwch :ref:`server-schedule`.
 Ar gyfer nifer anfeidraidd o weinyddion gall rhoi 'Inf'.
@@ -83,11 +83,11 @@ Esiampl::
 Priority_classes
 ~~~~~~~~~~~~~~~~
 
-*Opsiynnol*
+*Opsiynol*
 
 Geiriadur sy'n mapio dosbarthau cwsmer i flaenoriaethau.
 Am fwy o wybodaeth, gwelwch :ref:`priority-custs`.
-Os hepgorwyd, ni ddefnyddir blaenoriath, hynny yw mae gan pob cwsmer blaenoriaeth hafal.
+Os hepgorwyd, ni ddefnyddir blaenoriaeth, hynny yw mai gan bob cwsmer blaenoriaeth hafal.
 
 Esiampl::
 
@@ -100,9 +100,9 @@ Esiampl::
 Queue_capacities
 ~~~~~~~~~~~~~~~~
 
-*Opsiynnol*
+*Opsiynol*
 
-Rhestr o cynhwysedd ciw macsimwm wrth pob nod.
+Rhestr o gynhwysedd ciw macsimwm wrth bob nod.
 Os hepgorwyd, y gwerthoedd diofyn yw 'Inf' ar gyfer pob nod.
 
 Esiampl::
@@ -118,9 +118,9 @@ Service_distributions
 Mae'n disgrifio'r dosraniadau gwasanaeth ar gyfer pob nod a pob dosbarth cwsmer.
 Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestrau yn disgrifio dosraniadau gwasanaeth pob nod fel gwerthoedd.
 Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi rhestr dosraniadau rhwng-dyfodiad yn unig.
-Am fwy o wybodaeth ar mewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
+Am fwy o wybodaeth ar fewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
-Dangosir esiample::
+Dangosir esiampl::
 
     Service_distributions={'Class 0': [['Exponential', 4.4],
                                        ['Uniform', 0.1, 0.9]],
@@ -137,15 +137,15 @@ Esiampl lle mae ond un dosbarth cwsmer::
 Transition_matrices
 ~~~~~~~~~~~~~~~~~~~
 
-*Required for more than 1 node*
+*Angenrheidiol ar gyfer mwy nag un nod*
 
-*Optional for 1 node*
+*Opsiynol ar gyfer un nod*
 
 Mae'n disgrifio'r matrics trosglwyddo ar gyfer pob dosbarth cwsmer.
-Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestr o rhestrau (matricsau) yn cynnwys y tebygolrwyddau trosglwyddo fel gwerthoedd.
-Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi un matrics trosglwyddo yn unig (rhestr o rhestrau).
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestr o restrau (matricsau) yn cynnwys y tebygolrwyddau trosglwyddo fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi un matrics trosglwyddo yn unig (rhestr o restrau).
 
-Dangosir esiample::
+Dangosir esiampl::
 
     Transition_matrices={'Class 0': [[0.1, 0.3],
                                      [0.0, 0.8]],

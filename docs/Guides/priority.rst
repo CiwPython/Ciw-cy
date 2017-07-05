@@ -4,25 +4,25 @@
 Sut i Osod Blaenoriaethau
 =========================
 
-Gall Ciw aseinio blaenoriaethau i dosbarthau cwsmer.
-I wenud hwn rydym yn mapio dosbarthau cwsmer i dosbarthau blaenoriaeth, gan ychwanegu hwn fel allweddair wrth creu gwrthrych Network.
+Gall Ciw aseinio blaenoriaethau i ddosbarthau cwsmer.
+I wneud hwn rydym yn mapio dosbarthau cwsmer i ddosbarthau blaenoriaeth, gan ychwanegu hwn fel allweddair wrth greu gwrthrych Network.
 Dangosir enghraifft::
 
     Priority_classes={'Class 0': 0,
                       'Class 1': 1,
                       'Class 2': 1}
 
-Mae hwn yn dangos mapiad o tri dosbarth cwsmer i dau dosbarth blaenoriaeth.
-Mae gan cwsmeriaid dosbarth 0 y flaenoriaeth mwyaf, a'i rhoddir yn nosbarth blaenoriaeth 0.
-Rhoddir cwsmeriaid dosbarth 1 a 2 yn dosbarth blaenoriaeth 1; mae ganddynt yr un flaenoriaeth a'i gilydd, ond llai o flaenoriaeth na cwsmeriaid dosbarth 0.
+Mae hwn yn dangos mapiad o dri dosbarth cwsmer i ddau ddosbarth blaenoriaeth.
+Mae gan gwsmeriaid dosbarth 0 y flaenoriaeth fwyaf, a'i rhoddir yn nosbarth blaenoriaeth 0.
+Rhoddir cwsmeriaid dosbarth 1 a 2 yn ddosbarth blaenoriaeth 1; mae ganddynt yr un flaenoriaeth a'i gilydd, ond llai o flaenoriaeth na chwsmeriaid dosbarth 0.
 
 Nodwch:
 
-* Po leifaf yw rhif y dosbarth blaenoriaeth, po fwyad yw'r blaenoriaeth. Mae gan cwsmeriaid yn nosbarth blaenoriaeth 0 mwy o flaenoriaeth na cwsmeriaid yn nosbarth blaenoriaeth 1, sydd a fwy o flaenoriaieth na cwsmeriaid yn nosbarth blaenoriaeth 2, ayyb.
-* Indecsiau Python yw dosbarthau blaenoriaeth, felly os oes 5 dosbarth blaenoriaeth **rhaid** eu labelu 0, 1, 2, 3, 4. Fe fydd hepgor rhif, new enwi dosbarthau blaenoriaeth unrhywbeth arall heblaw cyfanrifau cynyddol o 0, yn achosu gwall.
-* Mae disgybliaeth blaenoriaeth yn anrhagdarfiedig. Mae cwsmeriaid pob amser yn gorffen eu wasanaeth a nid yw'n cael eu darfu gan cwsmeriaid gyda blaenoriaeth uwch.
+* Po leiaf yw rhif y dosbarth blaenoriaeth, po fwyaf yw'r flaenoriaeth. Mae gan gwsmeriaid yn nosbarth blaenoriaeth 0 mwy o flaenoriaeth na chwsmeriaid yn nosbarth blaenoriaeth 1, sydd a fwy o flaenoriaeth na chwsmeriaid yn nosbarth blaenoriaeth 2, ayyb.
+* Indecsau Python yw dosbarthau blaenoriaeth, felly os oes 5 dosbarth blaenoriaeth **rhaid** eu labelu 0, 1, 2, 3, 4. Fe fydd hepgor rhif, neu enwi dosbarthau blaenoriaeth unrhyw beth arall heblaw cyfanrifau cynyddol o 0, yn achosi gwall.
+* Mae disgyblaeth blaenoriaeth yn anrhagdarfiedig. Mae cwsmeriaid pob amser yn gorffen eu gwasanaeth ac nid yw'n cael eu darfu gan gwsmeriaid gyda blaenoriaeth uwch.
 
-I weithredu hwn, crëwch gwrthrych Network gan ychwanegu'r allweddair :code:`Priority_classes` gyda'r mapiad::
+I weithredu hwn, crëwch wrthrych Network gan ychwanegu'r allweddair :code:`Priority_classes` gyda'r mapiad::
 
     >>> import ciw
     >>> N = ciw.create_network(

@@ -4,7 +4,7 @@
 Nodiant Kendall
 ===============
 
-Defnyddir nodiant Kendall yn i dynodi system ciwio node sengl yn llawfer [WS09]_.
+Defnyddir nodiant Kendall yn i ddynodi system ciwio nod sengl yn llaw-fer [WS09]_.
 
 Nodweddwyd ciw gan:
 
@@ -17,11 +17,11 @@ lle mae:
 + :math:`A` yn dynodi dosraniad yr amseroedd rhwng-dyfodiad
 + :math:`B` yn dynodi dosraniad yr amseroedd gwasanaeth
 + :math:`C` yn dynodi dosraniad nifer o weinyddion
-+ :math:`X` yn dynodi y cynhwysedd ciwio
-+ :math:`Y` yn dynodi maint y poblogaeth y cwsmeriaid
-+ :math:`Z` yn dynodi y disgybleth ciwio
++ :math:`X` yn dynodi'r cynhwysedd ciwio
++ :math:`Y` yn dynodi maint y boblogaeth y cwsmeriaid
++ :math:`Z` yn dynodi'r ddisgyblaeth ciwio
 
-Ar gyfer y paramedrau :math:`A` a :math:`B` mae yna nifer o nodiannau llwfer ar gael. Er enghraifft:
+Ar gyfer y paramedrau :math:`A` a :math:`B` mae yna nifer o nodiannau llaw-fer ar gael. Er enghraifft:
 
 + :math:`M`: dosraniad Markovaidd neu Esbonyddol
 + :math:`E`: dosraniad Erlang (achos arbennig o'r dosraniad Gama)
@@ -29,10 +29,10 @@ Ar gyfer y paramedrau :math:`A` a :math:`B` mae yna nifer o nodiannau llwfer ar 
 + :math:`D`: dosraniad Penderfynedig
 + :math:`G` / :math:`GI`: dosraniad Cyffredinol / Cyffredinol annibynnol
 
-MAe'r paramedrau :math:`X`, :math:`Y` a :math:`Z` yn opsiynnol, a cymerwn yn ganiataol eu fod yn :math:`\infty`, :math:`\infty`, a Cyntaf Mewn Cyntaf Allan (FIFO) yn ol eu drefn.
-Opsiynnau arall ar gyfer y disgyblaeth ciwio :math:`Z` yw SIRO (Gwasanaeth Mewn Trefn Ar Hap), LIFO (Olaf Mewn Cyntaf Allan), a PS (Rhannu Prosessau).
+Mae'r paramedrau :math:`X`, :math:`Y` a :math:`Z` yn opsiynol, a chymerwn yn ganiataol eu bod yn :math:`\infty`, :math:`\infty`, a Cyntaf Mewn Cyntaf Allan (FIFO) yn ôl eu trefn.
+Opsiynau arall ar gyfer y ddisgyblaeth ciwio :math:`Z` yw SIRO (Gwasanaeth Mewn Trefn Ar Hap), LIFO (Olaf Mewn Cyntaf Allan), a PS (Rhannu Prosesau).
 
-Rhai enghraifftiau:
+Rhai enghreifftiau:
 
 + :math:`M/M/1`:
    + Amseroedd rhwng-dyfodiad Esbonyddol
@@ -44,7 +44,7 @@ Rhai enghraifftiau:
 
 + :math:`M/D/\infty/\infty/1000`:
    + Amseroedd rhwng-dyfodiad Esbonyddol
-   + Amseroedd gwasanaeth Penderfynnol
+   + Amseroedd gwasanaeth Penderfynol
    + Nifer anfeidraidd o weinyddion
    + Cynhwysedd ciwio anfeidraidd
    + Poblogaeth o 1000 cwsmer
@@ -62,7 +62,7 @@ Rhai enghraifftiau:
    + Amseroedd rhwng-dyfodiad Esbonyddol
    + Amseroedd gwasanaeth Esbonyddol
    + 4 gweinydd
-   + Cyhwysedd ciwio o 5
+   + Cynhwysedd ciwio o 5
    + Poblogaeth anfeidraidd
    + Cyntaf mewn cyntaf allan
 

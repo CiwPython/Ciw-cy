@@ -3,7 +3,7 @@
 Cyfeirio at y Llyfrgell
 =======================
 
-Defnyddiwch y canlynol i cyfeirio at fersiwn diweddara y llyfrgell Ciw::
+Defnyddiwch y canlynol i gyfeirio at fersiwn diweddara'r llyfrgell Ciw::
 
     @misc{ciwpython,
       author       = {{{The Ciw library developers}}},
@@ -13,7 +13,7 @@ Defnyddiwch y canlynol i cyfeirio at fersiwn diweddara y llyfrgell Ciw::
       url          = {http://dx.doi.org/10.5281/zenodo.<RHIF DOI>}
     }
 
-I wirio manylion (TEITL RHYDDHAD, BLWYDDYN, GWYBODAETH DOI and RHIF DOI)
+I wirio manylion (TEITL RHYDDHAD, BLWYDDYN, GWYBODAETH DOI a RHIF DOI)
 gwelwch y tudalen Zenodo ar gyfer y prosiect. Cliciwch y bathodyn/linc isod:
 
 .. raw:: html

@@ -6,15 +6,15 @@ Sut i Ddefnyddio Rhifyddeg Union
 
 Oherwydd y `problemau a chyfyngiadau <https://docs.python.org/2/tutorial/floatingpoint.html>`_ sy'n codi wrth delio gyda rhifau pwynt arnawf, mae Ciw yn cynnig opsiwn rhifyddef union.
 Cymerwch ofal, fodd bynnag, mae defnyddio hwn yn effeithio cyflymder, ac felly dylai ond cael ei ddefnyddio os yw problemau rhifyddeg arnawf yn effeithio eith canlyniadau.
-Gall hwn ddigwydd, er enghraifft, tra'n cyfuno defnydd dosraniadau penderynedig ac amserlenni gweinyddion.
+Gall hwn ddigwydd, er enghraifft, wrth gyfuno defnydd dosraniadau penderfynedig ac amserlenni gweinyddion.
 
-I weithredu rhifyddeg union, ychwanegwch y ddadl canlynol pan yn creu gwrthrych Simulation::
+I weithredu rhifyddeg union, ychwanegwch y ddadl ganlynol wrth greu gwrthrych Simulation::
 
     >>> Q = ciw.Simulation(N, exact=26) # doctest:+SKIP
 
 Mae'r ddadl :code:`exact` yn dynodi'r lefel trachywiredd.
 
-Edrychwn ar esiample::
+Edrychwn ar esiampl::
     
     >>> import ciw
     >>> N = ciw.create_network(
@@ -34,7 +34,7 @@ Heb ddefnyddio rhifyddeg union, gwelwn defnyddir rhifau pwynt arnawf trwy gydol 
     >>> type(waits[-1])
     <class 'float'>
 
-Os ddefnyddiwn rhifyddeg union, defnyddir mathau :code:`decimal.Decimal` trwy gydol y rhediad::
+Os ddefnyddiwn rifyddeg union, defnyddir mathau :code:`decimal.Decimal` trwy gydol y rhediad::
 
     >>> ciw.seed(2)
     >>> Q = ciw.Simulation(N, exact=26)

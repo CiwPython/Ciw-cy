@@ -1,18 +1,18 @@
 .. _behaviour-nodes:
 
 =============================
-Sut i Cael Ymddygiad Bwrpasol
+Sut i Gael Ymddygiad Pwrpasol
 =============================
 
-Gall cael ymddygiad bwrpasol gan ysgrifennu dosbarthiadau :code:`Node` a :code:`ArrivalNode` newydd, sy'n etifeddu o'r dosbarthau :code:`ciw.Node` d :code:`ciw.ArrivalNode` gwreiddiol, ac sy'n cyflwyno ymddygiad newydd i'r system.
-Y dosbarthau a gall cael eu droysgrifio yw:
+Gall cael ymddygiad pwrpasol gan ysgrifennu dosbarthiadau :code:`Node` a :code:`ArrivalNode` newydd, sy'n etifeddu o'r dosbarthau :code:`ciw.Node` d :code:`ciw.ArrivalNode` gwreiddiol, ac sy'n cyflwyno ymddygiad newydd i'r system.
+Y dosbarthau a gall cael eu drosysgrifio yw:
 
-- :code:`Node`: y prif dosbarth nod sy'n cynrychioli gorsaf gwasanaeth.
-- :code:`ArrivalNode`: y dosbarth nod a ddefnddir i generadu unigolion a'u drosglwyddo i :code:`Node` penodol.
+- :code:`Node`: y prif ddosbarth nod sy'n cynrychioli gorsaf gwasanaeth.
+- :code:`ArrivalNode`: y dosbarth nod a ddefnyddir i eneradu unigolion a'u drosglwyddo i :code:`Node` penodol.
 
-Gall ddefnyddio'r dosbarthau Node ac Arrival Node newydd hyn yn y dosbarth Simulation gan defnyddio'r allweddeiriau :code:`node_class` a :code:`arrival_node_class`.
+Gall ddefnyddio'r dosbarthau Node ac Arrival Node newydd hyn yn y dosbarth Simulation gan ddefnyddio'r allweddeiriau :code:`node_class` a :code:`arrival_node_class`.
 
-Ystyriwch y rhwydwaith dau nod canlynol, lle mae dyfodiadau ond yn digwydd yn y nod cyntaf, ac mae yna cynhwysedd ciwio o 10.
+Ystyriwch y rhwydwaith dau nod canlynol, lle mae dyfodiadau ond yn digwydd yn y nod cyntaf, ac mae yna gynhwysedd ciwio o 10.
 Mae'r ail nod yn segur yn y sefyllfa yma::
 
 	>>> import ciw
@@ -26,7 +26,7 @@ Mae'r ail nod yn segur yn y sefyllfa yma::
 	...     Queue_capacities=[10, 'Inf']
 	... )
 
-NAwr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi digwydd wrth y nod cyntaf, a dim wrth yr ail nod::
+Nawr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi digwydd wrth y nod cyntaf, a dim wrth yr ail nod::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N)
@@ -36,8 +36,8 @@ NAwr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi di
 	>>> Counter(service_nodes)
 	Counter({1: 484})
 
-Nawr crëwn :code:`CustomArrivalNode` newydd felly anfonir unrhyw cwsmeriaid sy'n cyrraedd pan mae'r gan y nod cyntaf 10 neu fwy o cwsmeriaid i'r ail nod.
-Yn gyntaf crëwch y :code:`CustomArrivalNode` sy;n etifeddu o'r :code:`ciw.ArrivalNode`, a troysgrifwch y dull :code:`send_individual`::
+Nawr crëwn :code:`CustomArrivalNode` newydd felly anfonir unrhyw gwsmeriaid sy'n cyrraedd pan mae'r gan y nod cyntaf 10 neu fwy o gwsmeriaid i'r ail nod.
+Yn gyntaf crëwch y :code:`CustomArrivalNode` sy'n etifeddu o'r :code:`ciw.ArrivalNode`, a throsysgrifwch y dull :code:`send_individual`::
 
 	>>> class CustomArrivalNode(ciw.ArrivalNode):
 	...     def send_individual(self, next_node, next_individual):
@@ -50,7 +50,7 @@ Yn gyntaf crëwch y :code:`CustomArrivalNode` sy;n etifeddu o'r :code:`ciw.Arriv
 	...         else:
 	...             self.simulation.nodes[2].accept(next_individual, self.next_event_date)
 
-I rhedeg yr un system, rhaid i ni hepgor yr allweddair :code:`'Queue_capacities'` felly ni wrthodir cwsmeriaid cyn cyrraedd y dull :code:`send_individual`::
+I redeg yr un system, rhaid i ni hepgor yr allweddair :code:`'Queue_capacities'` felly ni wrthodir cwsmeriaid cyn cyrraedd y dull :code:`send_individual`::
 
 	>>> N = ciw.create_network(
 	...     Arrival_distributions=[['Exponential', 6.0], 'NoArrivals'],
@@ -59,8 +59,8 @@ I rhedeg yr un system, rhaid i ni hepgor yr allweddair :code:`'Queue_capacities'
 	...     Number_of_servers=[1, 1]
 	... )
 
-Nawr fe ail-rhedwn y system, yn dweud wrth Ciw i defnyddio'r :code:`arrival_node_class` newydd.
-Gwelwn fod yr un nifer o gwasanaethau wedi digwydd wrth Nod 1, ond nawr mae'r cwsmeriaid a chafodd eu wrthod nawr yn cael gwasanaethau wrth Nod 2::
+Nawr fe ail-rhedwn y system, yn dweud wrth Ciw am ddefnyddio'r :code:`arrival_node_class` newydd.
+Gwelwn fod yr un nifer o wasanaethau wedi digwydd wrth Nod 1, ond nawr mae'r cwsmeriaid a chafodd eu gwrthod nawr yn cael gwasanaethau wrth Nod 2::
 
 	>>> ciw.seed(1)
 	>>> Q = ciw.Simulation(N, arrival_node_class=CustomArrivalNode)

@@ -1,11 +1,11 @@
 .. _other-stuff:
 
-========================================
-Opsiynnau Efelychiad Cyfrifiadurol Arall
-========================================
+=======================================
+Opsiynau Efelychiad Cyfrifiadurol Arall
+=======================================
 
-Ond un ffordd o efelychu rhwydweithiau o ciwiau yw Ciw.
-Fan hyn mae rhestr o opsiynnau arall gall fod o ddiddordeb, opsiynnau masnachol a ffynhonell agored:
+Ond un ffordd o efelychu rhwydweithiau o giwiau yw Ciw.
+Fan hyn mae rhestr o opsiynau arall gall fod o ddiddordeb, opsiynau masnachol a ffynhonnell agored:
 
 - `SimPy <https://simpy.readthedocs.org/en/latest/>`_
 - `SIMUL8 <http://www.simul8.com/>`_

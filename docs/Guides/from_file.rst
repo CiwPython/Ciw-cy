@@ -1,12 +1,12 @@
 .. _from-file:
 
-====================================
-Sut i Darllen ac Ygrifennu o/i Ffeil
-====================================
+======================================
+Sut i Ddarllen ac Ysgrifennu o/i Ffeil
+======================================
 
-Tra'n rhedeg arbrofion, fe all fod yn ddefnyddiol o darllen mewn paramedrau o ffeil, ac i all allforio cofnodion data i ffeil.
+Wrth redeg arbrofion, fe all fod yn ddefnyddiol o ddarllen mewn paramedrau o ffeil, ac i all allforio cofnodion data i ffeil.
 Gallwch wneud hwn yn hawdd gyda Ciw.
-Fe all cynrychioli geiriaduron o paramedrau fel ffeiliau :code:`.yml`, a gall allforio canlyniadau fel ffeiliau :code:`.csv`.
+Fe all cynrychioli geiriaduron o baramedrau fel ffeiliau :code:`.yml`, a gall allforio canlyniadau fel ffeiliau :code:`.csv`.
 
 
 Ffeiliau Paramedrau
@@ -52,7 +52,7 @@ Cynrychiolir hwn fel ffeil :code:`.yml` isod::
 	- "Inf"
 	- 4
 
-Gallwch troi hwn mewn i gwrthrych Network yn defnyddio'r ffwythiant :code:`ciw.create_network_from_yml`::
+Gallwch droi hwn mewn i wrthrych Network yn defnyddio'r ffwythiant :code:`ciw.create_network_from_yml`::
 
 	>>> import ciw # doctest:+SKIP
 	>>> N = ciw.create_network_from_yml('<path_to_file>') # doctest:+SKIP
@@ -62,14 +62,14 @@ Gallwch troi hwn mewn i gwrthrych Network yn defnyddio'r ffwythiant :code:`ciw.c
 Allforio Canlyniadau
 ~~~~~~~~~~~~~~~~~~~~
 
-Unwaith bod efelychiad wedi'i rhedeg, gall ysgrifennu'r holl cofnodion data i ffeil gan ddefnyddio dull :code:`write_records_to_file` y gwrthrych Simulation.
-Mae'r dull yma yn ysgrifenny'r holl canlyniadau a gafwyd gan y dull :code:`get_all_records` (gwelwch :ref:`fan hyn <refs-results>` am mwy o wybodaeth) i ffeil :code:`.csv`, lle mae pob rhes yw arsylwad a pob colofn yr newidyn::
+Unwaith bod efelychiad wedi'i rhedeg, gall ysgrifennu'r holl gofnodion data i ffeil gan ddefnyddio dull :code:`write_records_to_file` y gwrthrych Simulation.
+Mae'r dull yma yn ysgrifennu'r holl ganlyniadau a gafwyd gan y dull :code:`get_all_records` (gwelwch :ref:`fan hyn <refs-results>` am fwy o wybodaeth) i ffeil :code:`.csv`, lle mae pob rhes yw arsylwad a pob colofn y newidyn::
 
 	>>> Q.write_records_to_file('<path_to_file>') # doctest:+SKIP
 
-Mae'r dull yma hefyd yn cymryd yr allweddair opsiynnol :code:`header`.
-Os osodwyd hwn i :code:`True` yna bydd y rhes cyntaf yn cynnwys enwau'r newidynnau.
-Yr opsiwn diofyn yw :code:`True`, gosodwch i :code:`False` os nad oes angen rhain::
+Mae'r dull yma hefyd yn cymryd yr allweddair opsiynol :code:`header`.
+Os osodwyd hwn i :code:`True` yna bydd y rhes gyntaf yn cynnwys enwau'r newidynnau.
+Yr opsiwn diofyn yw :code:`True`, gosodwch i :code:`False` os nad oes angen y rhain::
 
 	>>> Q.write_records_to_file('<path_to_file>', headers=True) # doctest:+SKIP
 	>>> Q.write_records_to_file('<path_to_file>', headers=False) # doctest:+SKIP

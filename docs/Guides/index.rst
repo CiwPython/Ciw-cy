@@ -1,7 +1,7 @@
 Canllawiau
 ==========
 
-Mae'r adran yma o canllawiau Sut-i yn rhoi blas ar priodweddau a cynnigir Ciw.
+Mae'r adran yma o ganllawiau Sut-i yn rhoi blas ar briodweddau a chynigir Ciw.
 
 Cynnwys:
 

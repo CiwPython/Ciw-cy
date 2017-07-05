@@ -1,10 +1,10 @@
 .. _timedependent-dists:
 
-=========================================
-Sut i Diffinio Dosraniadau Amser Dibynnol
-=========================================
+==========================================
+Sut i Ddiffinio Dosraniadau Amser Dibynnol
+==========================================
 
-Yn Ciw gallwn diffinio dosraniadau amser dibynnol, hynny yw dosraniadau amser gwasanaeth neu rhwng-dyfodiad sy'n newid wrth i amser yr efelychiad symyd ymlaen.
+Yn Ciw gallwn ddiffinio dosraniadau amser dibynnol, hynny yw dosraniadau amser gwasanaeth neu rhwng-dyfodiad sy'n newid wrth i amser yr efelychiad symud ymlaen.
 I wneud hwn mae angen diffinio ffwythiant amser dibynnol, sy'n rhoi'r amser a samplwyd.
 Rhaid i hwn cymryd y newidyn amser `t`.
 
@@ -19,9 +19,9 @@ Er enghraifft, os ydyn ni eisiau dyfodiadau pob 30 munud yn y bore, pob 15 munud
     ...         return 0.75
     ...     return 1.5
 
-Mae'r ffwythiant yma yn rhoi amseroedd rhwng dyfodi o 0.5 awr rhwng canol nos (0) a 13, 0.25 awr rhwng 12 a 14, 0.75 awr rhwng 14 a 20, a 1.5 awr rhwng 20 a canol nos (24).
+Mae'r ffwythiant yma yn rhoi amseroedd rhwng dyfodi o 0.5 awr rhwng canol nos (0) a 13, 0.25 awr rhwng 12 a 14, 0.75 awr rhwng 14 a 20, a 1.5 awr rhwng 20 a chanol nos (24).
 Yna mae'n ailadrodd.
-I profi'r ffwythiant::
+I brofi'r ffwythiant::
 
     >>> time_dependent_function(9.5)
     0.5

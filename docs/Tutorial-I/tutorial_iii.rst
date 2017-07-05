@@ -4,7 +4,7 @@
 Tiwtorial III: Casglu Canlyniadau
 =================================
 
-Yn y tiwtorialau dwethaf gwnaethon ni diffinio ac efelychu banc am diwrnod, a gwelon ni sut i mynedu rhannau o'r injan efelychu::
+Yn y tiwtorialau diwethaf gwnaethon ni diffinio ac efelychu banc am ddiwrnod, a gwelon ni sut i mynedu rhannau o'r injan efelychu::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -16,12 +16,12 @@ Yn y tiwtorialau dwethaf gwnaethon ni diffinio ac efelychu banc am diwrnod, a gw
     >>> Q = ciw.Simulation(N)
     >>> Q.simulate_until_max_time(1440)
 
-Yn gloi, gallwn ni cael rhestr o'r holl confnodion data a casglwyd gan holl cwsmeriaida gorffenodd o leia un gwasanaeth, gan ddefnyddio'r method :code:`get_all_records` o'r gwrthrych Simulation::
+Yn cloi, gallwn ni cael rhestr o'r holl gofnodion data a chasglwyd gan holl gwsmeriaid a gorffennodd o leiaf un gwasanaeth, gan ddefnyddio'r dull :code:`get_all_records` o'r gwrthrych Simulation::
 
     >>> recs = Q.get_all_records()
 
 Mae hwn yn rhoi rhestr o tuples enwedig.
-Mae pob tuple yn cynnwys y gwybodaeth canlynol:
+Mae pob tuple yn cynnwys y wybodaeth ganlynol:
 
     - :code:`id_number`
     - :code:`customer_class`
@@ -37,11 +37,11 @@ Mae pob tuple yn cynnwys y gwybodaeth canlynol:
     - :code:`queue_size_at_arrival`
     - :code:`queue_size_at_departure`
 
-Roddir mwy o wybodaeth ar pob un o rhain yn :ref:`refs-results`.
+Roddir mwy o wybodaeth ar bob un o rain yn :ref:`refs-results`.
 
-Gan defnyddio list comprehension, gallwn ni cael rhestrau o pa bynnag ystadegyn a hoffwn::
+Gan ddefnyddio list comprehension, gallwn ni cael rhestrau o ba bynnag ystadegyn a hoffwn::
 
-    >>> # Rhestr o ameroedd wasanaeth
+    >>> # Rhestr o amseroedd wasanaeth
     >>> servicetimes = [r.service_time for r in recs]
     >>> servicetimes
     [2.94463..., 5.96912..., 0.28757..., ..., 10.46244...]
@@ -51,7 +51,7 @@ Gan defnyddio list comprehension, gallwn ni cael rhestrau o pa bynnag ystadegyn 
     >>> waits
     [0.0, 0.0, 0.20439..., ..., 5.63781...]
 
-Nawr fe allwn cael ystadegau cryno trwy trin y rhestrau yma::
+Nawr fe allwn gael ystadegau cryno trwy drin y rhestrau yma::
 
     >>> mean_service_time = sum(servicetimes) / len(servicetimes)
     >>> mean_service_time
@@ -61,13 +61,13 @@ Nawr fe allwn cael ystadegau cryno trwy trin y rhestrau yma::
     >>> mean_waiting_time
     1.688541...
 
-Rydym nawr yn gwbod y amser aros cymedrig y cwsmeriaid!
-Yn y tiwtorial nesaf fe fyddwn yn dangos sut i cael canlyniadau mwy cynrychioliadol (oherwydd fe efelychon ni am un diwrnod penodol yn unig fan hyn).
+Rydym nawr yn gwybod yr amser aros cymedrig y cwsmeriaid!
+Yn y tiwtorial nesaf fe fyddwn yn dangos sut i gael canlyniadau mwy cynrychioliadol (oherwydd fe efelychon ni am un diwrnod penodol yn unig fan hyn).
 
-Gan defnyddio llyfrgelloedd arall gallwn derbyn ystadegau cryno pellach.
-Rydyn ni yn awrymu `numpy <http://www.numpy.org/>`_, `pandas <http://pandas.pydata.org/>`_ a `matplotlib <http://matplotlib.org/>`_. 
-Mae rhain yn rhoi'r gallu i archwilio ystadegau arall, a plotio.
-Crëwyd y histogram o ameroess aros isod gan defnyddio matplotlib, yn defnyddio'r cod canlynol::
+Gan ddefnyddio llyfrgelloedd arall gallwn dderbyn ystadegau cryno pellach.
+Rydyn ni yn awgrymu `numpy <http://www.numpy.org/>`_, `pandas <http://pandas.pydata.org/>`_ a `matplotlib <http://matplotlib.org/>`_. 
+Mae'r rhain yn rhoi'r gallu i archwilio ystadegau arall, a phlotio.
+Crëwyd yr histogram o amseroedd aros isod gan ddefnyddio matplotlib, yn defnyddio'r cod canlynol::
 
     >>> import matplotlib.pyplot as plt # doctest:+SKIP
     >>> plt.hist(waits); # doctest:+SKIP
@@ -77,12 +77,12 @@ Crëwyd y histogram o ameroess aros isod gan defnyddio matplotlib, yn defnyddio'
    :alt: Histogram o amseroedd aros ar gyfer Tiwtorial III.
    :align: center
 
-Os hoffwch chi gweld pa mor brysur neu segur mae'r gweinyddion wedi bod trwy rhediad yr efelychiad, gallwn edrych ar :code:`server_utilisation` y nod.
-Hwn yw defnydd cymedrig pob gweinydd, sy'n hafal i faint o amser roedd y gweinydd yn brysur (gyda cwsmer), wedi rhannu gyda cyfanswm yr amser roedd y gweinydd ar ddyletswydd::
+Os hoffwch chi weld pa mor brysur neu segur mae'r gweinyddion wedi bod trwy rediad yr efelychiad, gallwn edrych ar :code:`server_utilisation` y nod.
+Hwn yw defnydd cymedrig pob gweinydd, sy'n hafal i faint o amser roedd y gweinydd yn brysur (gyda chwsmer), wedi rhannu gyda chyfanswm yr amser roedd y gweinydd ar ddyletswydd::
 
     >>> Q.transitive_nodes[0].server_utilisation
     0.60517...
 
-Felly yn ein banc, ar gyfartaledd roedd y weinyddion yn brysur 60.5% o'r amser.
+Felly yn ein banc, ar gyfartaledd roedd y gweinyddion yn brysur 60.5% o'r amser.
 
-Yn y tiwtorial nesaf dangoswn ni sut i defnyddio Ciw i cael canlyniadau dibynadwy, ac o'r diwedd ffeindio'r amser aros cymedrig ar gyfer y banc.
+Yn y tiwtorial nesaf dangoswn ni sut i ddefnyddio Ciw i gael canlyniadau dibynadwy, ac o'r diwedd ffeindio'r amser aros cymedrig ar gyfer y banc.

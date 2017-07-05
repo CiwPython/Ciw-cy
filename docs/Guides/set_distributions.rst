@@ -1,17 +1,17 @@
 .. _set-dists:
 
-=========================================
-Sut i Osod Dosraniadau Dyfodi a Wasanaeth
-=========================================
+==========================================
+Sut i Osod Dosraniadau Dyfodi a Gwasanaeth
+==========================================
 
-Mae Ciw yn cynnig amrywiaeth o dosraniadau amser rhwng-dyfodiad a gwasanaeth.
-Ffeindiwch rhestr llawn :ref:`fan hyn <refs-dists>`.
-Diffinir wrth creu gwrthrych Network gyda'r allweddeiriau :code:`'Arrival_distributions'` a :code:`'Service_distributions'`.
+Mae Ciw yn cynnig amrywiaeth o ddosraniadau amser rhwng-dyfodiad a gwasanaeth.
+Ffeindiwch restr lawn :ref:`fan hyn <refs-dists>`.
+Diffinnir wrth greu gwrthrych Network gyda'r allweddeiriau :code:`'Arrival_distributions'` a :code:`'Service_distributions'`.
 
-+ :code:`'Arrival_distributions'`: Dyma'r dosraniad a samplwyd amseroedd rhwng-dyfodiad. Hynny yw yr amser rhwng dau dyfodiad olynol. Mae'n penodol ar gyfer nodau a dosbarthau cwsmer spesifig.
-+ :code:`'Service_distributions'`: Dyma'r dosraniad a samplwyd amseroedd gwasanaeth. Hynny yw faint o amser mae cwsmer yn gwario gyda gweinydd (yn annibynnol o faint o gweinyddion sydd yno). Mae'n penodol ar gyfer nodau a dosbarthau cwsmer spesifig.
++ :code:`'Arrival_distributions'`: Dyma'r dosraniad a samplwyd amseroedd rhwng-dyfodiad. Hynny yw yr amser rhwng dau ddyfodiad olynol. Mae'n benodol ar gyfer nodau a dosbarthau cwsmer spesifig.
++ :code:`'Service_distributions'`: Dyma'r dosraniad a samplwyd amseroedd gwasanaeth. Hynny yw faint o amser mae cwsmer yn gwario gyda gweinydd (yn annibynnol o faint o weinyddion sydd yno). Mae'n benodol ar gyfer nodau a dosbarthau cwsmer spesifig.
 
-Mae'r enghraifft canlynol, gyda dau nod a dau dosbarth cwsmer, y defnyddio wyth gwahanol dosraniad dyfodi a gwasanaeth::
+Mae'r enghraifft ganlynol, gyda dau nod a dau ddosbarth cwsmer, y defnyddio wyth gwahanol ddosraniad dyfodi a gwasanaeth::
 
     >>> import ciw
     >>> N = ciw.create_network(
@@ -55,7 +55,7 @@ Mae'r system yn defnyddio'r wyth dosraniad canlynol:
 + :code:`['Triangular', 0.2, 0.7, 0.3]`:
    + Samplu o'r dosraniad `trionglog <https://en.wikipedia.org/wiki/Triangular_distribution>`_ gyda modd 0.3, terfyn isaf 0.2 a terfyn uchaf 0.7. Cymedr disgwyliedig o 0.4.
 
-O'r holl cofnodion data, casglwch yr amseroedd gwasanaeth a'r dyddiadau dyfodi ar gyfer pob nod a pob dosbarth cwsmer::
+O'r holl gofnodion data, casglwch yr amseroedd gwasanaeth a'r dyddiadau dyfodi ar gyfer pob nod a pob dosbarth cwsmer::
 
     >>> servicetimes_n1c0 = [r.service_time for r in recs if r.node==1 and r.customer_class==0]
     >>> servicetimes_n2c0 = [r.service_time for r in recs if r.node==2 and r.customer_class==0]

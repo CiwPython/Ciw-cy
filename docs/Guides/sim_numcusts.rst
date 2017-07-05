@@ -4,16 +4,16 @@
 Sut i Efelychu Nes Nifer o Gwsmeriaid Penodol
 =============================================
 
-Gall terfynnu rhediad efelychiad pan mae nifer penodol o cwsmeriaid wedi pasio trwyddo.
+Gall terfynu rhediad efelychiad pan mae nifer penodol o gwsmeriaid wedi pasio trwyddo.
 Gall wneud hwn gyda'r dull :code:`simulate_until_max_customers`.
-Mae'r dull yn cymryd y dadl :code:`max_customers`.
-Mae yna tri ffordd o cyrfi cwsmeriaid:
+Mae'r dull yn cymryd y ddadl :code:`max_customers`.
+Mae yna tair ffordd o gyfri cwsmeriaid:
 
  - :code:`'Finish'`: Efelychu nes bod :code:`max_customers` wedi cyrraedd yr Exit Node.
- - :code:`'Arrive'`: Efelychu nes bod :code:`max_customers` wedi'i creu yn yr Arrival Node.
- - :code:`'Accept'`: Efelychu nes bod :code:`max_customers` wedi'i creu ac wedi'i derbyn and accepted (heb wedi'i wrthod) yn yr Arrival Node.
+ - :code:`'Arrive'`: Efelychu nes bod :code:`max_customers` wedi'i chreu yn yr Arrival Node.
+ - :code:`'Accept'`: Efelychu nes bod :code:`max_customers` wedi'i chreu ac wedi'i derbyn (heb ei wrthod) yn yr Arrival Node.
 
-Pennir y dull cyfri cwsmeriaid gyda'r dadl opsiynol :code:`method`.
+Pennir y dull cyfri cwsmeriaid gyda'r ddadl opsiynol :code:`method`.
 Y gwerth diofyn yw :code:`'Finish'`.
 
 Ystyriwch system ciwio :ref:`M/M/1/3 <kendall-notation>`::

@@ -4,8 +4,8 @@
 Sut i Osod Hedyn
 ================
 
-I sicrhau ailgynhyrchioldeb canlyniadau gall defnyddwyr gosod hedyn ar gyfer holl llifau haprif mae Ciw yn denfyddio.
-Gallwch gwneud hwn gan ddefynddio'r ffwythiant :code:`ciw.seed`::
+I sicrhau ailgynhyrchioldeb canlyniadau gall defnyddwyr gosod hedyn ar gyfer holl lifoedd haprif mae Ciw yn defnyddio.
+Gallwch wneud hwn gan ddefnyddio’r ffwythiant :code:`ciw.seed`::
     
     >>> import ciw
     >>> ciw.seed(5)
@@ -29,7 +29,7 @@ Rhedwch y system am 20 uned amser, yn defnyddio hedyn o 1, a ffeindiwch yr amser
     >>> sum(waits)/len(waits)
     0.0544115013161...
 
-Yn defnyddio'r un hedyn eto, mae'r union un amser aros cymedrig yn achosu'r union un canlyniad::
+Yn defnyddio'r un hedyn eto, mae'r union un amser aros cymedrig yn achosi’r union un canlyniad::
 
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)

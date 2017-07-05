@@ -49,7 +49,7 @@ Geirfa
       Y dosraniad a deilliwyd amseroedd gwasanaeth nod. (**service distribution**)
 
    dwysedd traffig
-      Mesur o pa mor brysur yw'r system yw'r dwysedd traffig. Ar gyfer nod penodol diffiniwyd dwysedd traffig fel cymhareb amseroedd gwasanaeth cymedrig a'r amseroedd rhwng-dyfodiad cymedrig. (**traffic intensity**)
+      Mesur o ba mor brysur yw'r system yw'r dwysedd traffig. Ar gyfer nod penodol diffiniwyd dwysedd traffig fel cymhareb amseroedd gwasanaeth cymedrig a'r amseroedd rhwng-dyfodiad cymedrig. (**traffic intensity**)
 
    dyfodiad
       Y digwyddiad lle mae cwsmer yn mynychu nod. (**arrival**)
@@ -69,7 +69,7 @@ Geirfa
    llwyrglo
       Cyflwr o flocio cilyddol lle all is-set o gwsmeriaid byth symud oherwydd blocio cylchol. (**deadlock**)
 
-   matrics trosglwyddiadau
+   matrics trosglwyddo
       Matrics o debygolrwyddau trosglwyddo. Mae'r cofnod yn rhes `i` o golofn `j`, :math:`r_{ij}`, yw'r tebygolrwydd o drosglwyddo i nod `j` ar ôl gorffen gwasanaeth yn nod `i`. (**transition matrix**)
 
    nod
