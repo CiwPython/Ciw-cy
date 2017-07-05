@@ -41,6 +41,7 @@ Felly mae'r dilyniant dadflocio yn digwydd yn drefn a flociwyd y cwsmeriaid.
 Fe all blocio cylchol arwain at :ref:`llwyrglo <detect-deadlock>`.
 
 
+.. _simultaneous_events:
 
 Digwyddiadau Cydamserol
 ~~~~~~~~~~~~~~~~~~~~~~~

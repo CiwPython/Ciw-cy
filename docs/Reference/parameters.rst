@@ -31,6 +31,30 @@ Esiampl lle mae ond un dosbarth cwsmer::
                            ['Exponential', 2.0]]
 
 
+Batching_distributions
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Opsiynol*
+
+Mae hwn yn disgrifio dosraniadau maint y swp-dyfodiadau ar gyfer pob nod a dosbarth cwsmer.
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestrau yn disgrifio dosraniadau swp-dyfodiad pob nod fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi rhestr dosraniadau swp-dyfodiad yn unig.
+Am fwy o wybodaeth ar swp-dyfodiadau, gwelwch :ref:`batch-arrivals`.
+
+Dangosir esiampl::
+
+    Batching_distributions={'Class 0': [['Deterministic', 1],
+                                        ['Sequential', [1, 1, 2]]],
+                            'Class 1': [['Deterministic', 3],
+                                        ['Deterministic', 2]]}
+
+Esiampl lle mae ond un dosbarth cwsmer::
+
+    Batching_distributions=[['Deterministic', 2],
+                            ['Deterministic', 1]]
+
+
+
 Baulking_functions
 ~~~~~~~~~~~~~~~~~~
 

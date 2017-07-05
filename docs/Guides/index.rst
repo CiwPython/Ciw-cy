@@ -15,6 +15,7 @@ Cynnwys:
    set_distributions.rst
    time_dependent.rst
    priority.rst
+   batching.rst
    baulking.rst
    server_schedule.rst
    dynamic_customerclasses.rst
