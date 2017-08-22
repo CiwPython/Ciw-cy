@@ -59,7 +59,7 @@ author = u'Geraint Palmer'
 # built documents.
 #
 # The short X.Y version.
-version = '1.1.2'
+version = '1.1.3'
 # The full version, including alpha/beta/rc tags.
 release = version
 

@@ -22,7 +22,6 @@ Craidd:
 - Node
 - Server
 - Individual
-- Data Record
 
 Mewnbwn:
 
