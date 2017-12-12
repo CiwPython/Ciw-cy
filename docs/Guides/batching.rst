@@ -46,6 +46,42 @@ Nodwch:
      + :code:`Empirical`
      + :code:`Custom`
      + :code:`Sequential`
+     + :code:`TimeDependent`
   + Os hepgorwyd yr allweddair :code:`Batching_distributions` ni fyd unrhyw swp-dyfodi. Hynny yw ond un cwsmer bydd yn cyrraedd pob tro. Mae hwn yn cyfateb i :code:`['Deterministic', 1]`.
   + Os oes angen swp-dyfodiadau ar rhai nodau/dosbarthau cwsmer, ond fod angen swp-dyfodiadau ar rai, defnyddiwch :code:`['Deterministic', 1]`.
   + Fe all swp-dyfodiadau arwain at :ref:`digwyddiadau cydamserol <simultaneous_events>`, cymerwch ofal.
+
+----------------------------------------
+Sut i Osod Swp-Dyfodiadau Amser Dibynnol
+----------------------------------------
+
+Mae Ciw yn caniatáu swp-dyfodiadau amser dibynnol.
+Hynny yw mae maint y swp-dyfodiad, y nifer o cwsmeriaid sy'n cyrraedd ar yr un pryd, wedi'i samplu o dosraniad sy'n newid gydag amser.
+
+Dangoswn esiampl, hoffwn cael 2 cwsmeriaid yn cyrraedd ar yr un pryd am y 10 uned amser cyntaf, ond 1 cwsmer yn unig yn cyrraedd ar yr un pryd wedi hynny.
+Diffiniwn dosraniad swp-dyfodiadau amser dibynnol::
+
+    >>> def time_dependent_batches(t):
+    ...     if t < 10.0:
+    ...         return 2
+    ...     return 1
+
+Nawr defnyddiwn nu hwn i diffinio rhwydwaith:
+
+    >>> import ciw
+    >>> N = ciw.create_network(
+    ...     Arrival_distributions=[['Deterministic', 3.0]],
+    ...     Service_distributions=[['Deterministic', 0.5]],
+    ...     Batching_distributions=[['TimeDependent', time_dependent_batches]],
+    ...     Number_of_servers=[1]
+    ... )
+
+Efelychwn ni hwn am 16 uned amser.
+Ar amserau 3, 6, a 9 rydym yn disgwyl 2 cwsmer cyrraedd (cyfanswm o 6).
+Ar amserau 12 ac 15 rydym yn disgwyl i 1 cwsmer cyrraedd (cyfanswm o 2).
+Felly 8 cwsmer i gyd sy'n gorffen gwasanaeth::
+
+    >>> Q = ciw.Simulation(N)
+    >>> Q.simulate_until_max_time(16.0)
+    >>> len(Q.nodes[-1].all_individuals)
+    8
