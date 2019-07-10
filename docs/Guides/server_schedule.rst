@@ -26,9 +26,9 @@ I ddweud wrth Ciw am ddefnyddio'r amserlen yma ar gyfer nod penodol, yn :code:`N
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 5]],
-    ...     Service_distributions=[['Exponential', 10]],
-    ...     Number_of_servers=[[[2, 10], [0, 30], [1, 100]]]
+    ...     arrival_distributions=[ciw.dists.Exponential(5)],
+    ...     service_distributions=[ciw.dists.Exponential(10)],
+    ...     number_of_servers=[[[2, 10], [0, 30], [1, 100]]]
     ... )
 
 Ar ôl efelychu'r system, gwelwn nad oes unrhyw wasanaethau yn dechrau rhwng dyddiadau 10 a 30, na rhwng dyddiadau 110 a 130::

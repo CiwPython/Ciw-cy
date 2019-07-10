@@ -22,9 +22,9 @@ Gadwech i ni ddiffinio ein banc trwy greu gwrthrych Network::
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.2]],
-    ...     Service_distributions=[['Exponential', 0.1]],
-    ...     Number_of_servers=[3]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.2)],
+    ...     service_distributions=[ciw.dists.Exponential(0.1)],
+    ...     number_of_servers=[3]
     ... )
 
 Am symlrwydd, fe fyddwn â diddordeb ffeindio'r amser aros cymedrig yn unig.
@@ -45,23 +45,23 @@ Fe fydd y rhestr :code:`average_waits` yn cynnwys deg rhif, yr amser aros cymedr
 Sylwch fe osodon ni hedyn gwahanol pob tro, fel bydd pob arbrawf yn rhoi canlyniadau gwahanol::
 
     >>> average_waits
-    [3.23439..., 1.67172..., 3.81397..., 2.49197..., 4.53303..., 5.08311..., 3.64789..., 7.46596..., 7.12032..., 3.28304...]
+    [3.91950..., 4.34163..., 4.61779..., 5.33537..., 5.06224..., 2.90274..., 4.93209..., 17.95093128538666, 4.06136..., 3.14126...]
 
 Gwelwn fod ystod yr amseroedd aros yn uchel, rhwng 1.6 a 7.5.
 Dangosir hyn ni fydd rhedeg un arbrawf yn unig yn rhoi ateb hyderus.
 Fe allwn gymryd cymedr y canlyniadau dros yr arbrofion i gael ateb mwy hyderus::
 
     >>> sum(average_waits) / len(average_waits)
-    4.23454...
+    5.62649...
 
-Gan ddefnyddio Ciw, rydym wedi ffeindio fod cwsmeriaid yn aros 4.23 munud ar gyfartaledd mewn ciw yn y banc.
+Gan ddefnyddio Ciw, rydym wedi ffeindio fod cwsmeriaid yn aros 5.62 munud ar gyfartaledd mewn ciw yn y banc.
 Beth fydd yn digwydd os ychwanegwn weinydd arall?
 Ail-adroddwch y dadansoddiad gyda 4 gweinydd::
 
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.2]],
-    ...     Service_distributions=[['Exponential', 0.1]],
-    ...     Number_of_servers=[4]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.2)],
+    ...     service_distributions=[ciw.dists.Exponential(0.1)],
+    ...     number_of_servers=[4]
     ... )
 
     >>> average_waits = []
@@ -75,8 +75,8 @@ Ail-adroddwch y dadansoddiad gyda 4 gweinydd::
     ...     average_waits.append(mean_wait)
 
     >>> sum(average_waits) / len(average_waits)
-    0.87878...
+    0.79868...
 
-Trwy ychwanegu gweinydd arall fe allwn leihau'r amser aros cymedrig o 4.23 munud i 0.88 munud!
+Trwy ychwanegu gweinydd arall fe allwn leihau'r amser aros cymedrig o 5.62 munud i 0.79 munud!
 Da iawn, rydych chi wedi rhedeg eich senario beth-os cyntaf!
 Mae senarios beth-os yn galluogi defnyddio efelychiad i weld os fydd newidiadau drud yn fuddiol i'r system, heb weithredu'r newidiadau drud hynny yn y system go iawn.

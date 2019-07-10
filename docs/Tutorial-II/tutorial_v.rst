@@ -50,16 +50,16 @@ Felly mae Network y caffi yn edrych fel hyn::
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.3],
-    ...                            ['Exponential', 0.2],
-    ...                            'NoArrivals'],
-    ...     Service_distributions=[['Exponential', 1.0],
-    ...                            ['Exponential', 0.4],
-    ...                            ['Exponential', 0.5]],
-    ...     Transition_matrices=[[0.0, 0.3, 0.7],
-    ...                          [0.0, 0.0, 1.0],
-    ...                          [0.0, 0.0, 0.0]],
-    ...     Number_of_servers=[1, 2, 2]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.3),
+    ...                            ciw.dists.Exponential(0.2),
+    ...                            ciw.dists.NoArrivals()],
+    ...     service_distributions=[ciw.dists.Exponential(1.0),
+    ...                            ciw.dists.Exponential(0.4),
+    ...                            ciw.dists.Exponential(0.5)],
+    ...     routing=[[0.0, 0.3, 0.7],
+    ...              [0.0, 0.0, 1.0],
+    ...              [0.0, 0.0, 0.0]],
+    ...     number_of_servers=[1, 2, 2]
     ... )
 
 Sylwch y dosraniadau dyfodi:
@@ -87,6 +87,6 @@ I ffeindio'r nifer cymedrig o gwsmeriaid sy'n pasio trwy'r system, gallwn gyfri'
 Nawr gallwn gael nifer cymedrig o gwsmeriaid sydd wedi pasio trwy'r system::
 
     >>> sum(completed_custs) / len(completed_custs)
-    83.0
+    81.9
 
-Felly rydym wedi defnyddio Ciw i ffeindio fod y caffi medru weini nifer cyfartaledd o 83 cwsmer mewn sifft amser cinio o dair awr.
+Felly rydym wedi defnyddio Ciw i ffeindio fod y caffi medru weini nifer cyfartaledd o 81.9 cwsmer mewn sifft amser cinio o dair awr.

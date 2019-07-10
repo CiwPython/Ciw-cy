@@ -8,9 +8,9 @@ Yn y tiwtorialau diwethaf gwnaethon ni diffinio ac efelychu banc am ddiwrnod, a 
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.2]],
-    ...     Service_distributions=[['Exponential', 0.1]],
-    ...     Number_of_servers=[3]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.2)],
+    ...     service_distributions=[ciw.dists.Exponential(0.1)],
+    ...     number_of_servers=[3]
     ... )
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -39,27 +39,27 @@ Mae pob tuple yn cynnwys y wybodaeth ganlynol:
 
 Roddir mwy o wybodaeth ar bob un o rain yn :ref:`refs-results`.
 
-Gan ddefnyddio list comprehension, gallwn ni cael rhestrau o ba bynnag ystadegyn a hoffwn::
+Gan ddefnyddio cyfansoddiad rhestrau, gallwn ni cael rhestrau o ba bynnag ystadegyn a hoffwn::
 
     >>> # Rhestr o amseroedd wasanaeth
     >>> servicetimes = [r.service_time for r in recs]
     >>> servicetimes
-    [2.94463..., 5.96912..., 0.28757..., ..., 10.46244...]
+    [2.94463..., 5.96912..., 18.80156..., ..., 33.18376...]
 
     >>> # Rhestr o'r amseroedd aros
     >>> waits = [r.waiting_time for r in recs]
     >>> waits
-    [0.0, 0.0, 0.20439..., ..., 5.63781...]
+    [0.0, 0.0, 0.0, 0.20439..., ..., 0.0]
 
 Nawr fe allwn gael ystadegau cryno trwy drin y rhestrau yma::
 
     >>> mean_service_time = sum(servicetimes) / len(servicetimes)
     >>> mean_service_time
-    9.543928...
+    10.647482...
 
     >>> mean_waiting_time = sum(waits) / len(waits)
     >>> mean_waiting_time
-    1.688541...
+    4.230543...
 
 Rydym nawr yn gwybod yr amser aros cymedrig y cwsmeriaid!
 Yn y tiwtorial nesaf fe fyddwn yn dangos sut i gael canlyniadau mwy cynrychioliadol (oherwydd fe efelychon ni am un diwrnod penodol yn unig fan hyn).
@@ -81,8 +81,8 @@ Os hoffwch chi weld pa mor brysur neu segur mae'r gweinyddion wedi bod trwy redi
 Hwn yw defnydd cymedrig pob gweinydd, sy'n hafal i faint o amser roedd y gweinydd yn brysur (gyda chwsmer), wedi rhannu gyda chyfanswm yr amser roedd y gweinydd ar ddyletswydd::
 
     >>> Q.transitive_nodes[0].server_utilisation
-    0.60517...
+    0.75288...
 
-Felly yn ein banc, ar gyfartaledd roedd y gweinyddion yn brysur 60.5% o'r amser.
+Felly yn ein banc, ar gyfartaledd roedd y gweinyddion yn brysur 75.3% o'r amser.
 
 Yn y tiwtorial nesaf dangoswn ni sut i ddefnyddio Ciw i gael canlyniadau dibynadwy, ac o'r diwedd ffeindio'r amser aros cymedrig ar gyfer y banc.

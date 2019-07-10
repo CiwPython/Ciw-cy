@@ -8,9 +8,9 @@ Yn y tiwtorial diwethaf, diffinion ac efelychon ni ein banc am ddiwrnod::
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.2]],
-    ...     Service_distributions=[['Exponential', 0.1]],
-    ...     Number_of_servers=[3]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.2)],
+    ...     service_distributions=[ciw.dists.Exponential(0.1)],
+    ...     number_of_servers=[3]
     ... )
     >>> ciw.seed(1)
     >>> Q = ciw.Simulation(N)
@@ -46,13 +46,13 @@ Felly, mae’r gwrthrych Simulation ei hun yn gallu rhoi gwybodaeth ynglŷn â b
 Mae'r :code:`Exit Node` yn cynnwys holl gwsmeriaid gwnaeth gorffen gwasanaeth yn y banc, yn y drefn a wnaethon nhw adael y system::
 
     >>> Q.nodes[-1].all_individuals
-    [Individual 2, Individual 3, Individual 5, ..., Individual 272]
+    [Individual 2, Individual 3, Individual 5, ..., Individual 300]
 
 Mae'r nod gwasanaeth hefyd yn cynnwys cwsmeriaid, rheina sydd dal yn aros neu yn derbyn gwasanaeth ar yr union amser gwnaeth rhediad yr efelychiad gorffen.
-Yn y rhediad yma, roedd yna un cwsmer ar ôl yn y banc ar ddiwedd y dydd::
+Yn y rhediad yma, roedd yna tri cwsmer ar ôl yn y banc ar ddiwedd y dydd::
 
     >>> Q.nodes[1].all_individuals
-    [Individual 274]
+    [Individual 304, Individual 306, Individual 307]
 
 Gadewch i ni edrych ar yr unigolyn cyntaf i orffen gwasanaeth, :code:`Individual 2`.
 Mae unigolion yn cario cofnodion data, sy'n cynnwys gwybodaeth fel dyddiad dyfodi, amser aros, a'r dyddiad gadael::

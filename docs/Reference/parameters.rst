@@ -8,7 +8,7 @@ Isod rhestrwyd holl baramedrau mae'r ffwythiant :code:`create_network` yn cymryd
 Os ddefnyddir ffeil paramedrau, yna dyma ddadleuon a gwerthoedd sydd angen yn y ffeil :code:`.yml`.
 
 
-Arrival_distributions
+arrival_distributions
 ~~~~~~~~~~~~~~~~~~~~~
 
 *Angenrheidiol*
@@ -20,18 +20,18 @@ Am fwy o wybodaeth ar fewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
 Dangosir esiampl::
 
-    Arrival_distributions={'Class 0': [['Exponential', 2.4],
-                                       ['Uniform', 0.3, 0.5]],
-                           'Class 1': [['Exponential', 3.0],
-                                       ['Deterministic', 0.8]]}
+    arrival_distributions={'Class 0': [ciw.dists.Exponential(2.4),
+                                       ciw.dists.Uniform(0.3, 0.5)],
+                           'Class 1': [ciw.dists.Exponential(3.0),
+                                       ciw.dists.Deterministic(0.8)]}
 
 Esiampl lle mae ond un dosbarth cwsmer::
 
-    Arrival_distributions=[['Exponential', 2.4],
-                           ['Exponential', 2.0]]
+    arrival_distributions=[ciw.dists.Exponential(2.4),
+                           ciw.dists.Exponential(2.0)]
 
 
-Batching_distributions
+batching_distributions
 ~~~~~~~~~~~~~~~~~~~~~~
 
 *Opsiynol*
@@ -43,19 +43,19 @@ Am fwy o wybodaeth ar swp-dyfodiadau, gwelwch :ref:`batch-arrivals`.
 
 Dangosir esiampl::
 
-    Batching_distributions={'Class 0': [['Deterministic', 1],
-                                        ['Sequential', [1, 1, 2]]],
-                            'Class 1': [['Deterministic', 3],
-                                        ['Deterministic', 2]]}
+    batching_distributions={'Class 0': [ciw.dists.Deterministic(1),
+                                        ciw.dists.Sequential([1, 1, 2])],
+                            'Class 1': [ciw.dists.Deterministic(3),
+                                        ciw.dists.Deterministic(2)]}
 
 Esiampl lle mae ond un dosbarth cwsmer::
 
-    Batching_distributions=[['Deterministic', 2],
-                            ['Deterministic', 1]]
+    batching_distributions=[ciw.dists.Deterministic(2),
+                            ciw.dists.Deterministic(1)]
 
 
 
-Baulking_functions
+baulking_functions
 ~~~~~~~~~~~~~~~~~~
 
 *Opsiynol*
@@ -67,11 +67,11 @@ Os hepgorwyd, yna ni balciwyd cwsmeriaid.
 
 Esiampl::
 
-    Baulking_functions={'Class 0': [probability_of_baulking]}
+    baulking_functions={'Class 0': [probability_of_baulking]}
 
 
 
-Class_change_matrices
+xlass_change_matrices
 ~~~~~~~~~~~~~~~~~~~~~
 
 *Opsiynol*
@@ -81,7 +81,7 @@ Am fwy o wybodaeth gwelwch :ref:`dynamic-classes`.
 
 Esiampl o rwydwaith dau nod gyda dau ddosbarth cwsmer::
 
-    Class_change_matrices={'Node 0': [[0.3, 0.4, 0.3],
+    class_change_matrices={'Node 0': [[0.3, 0.4, 0.3],
                                       [0.1, 0.9, 0.0],
                                       [0.5, 0.1, 0.4]],
                            'Node 1': [[1.0, 0.0, 0.0],
@@ -89,7 +89,7 @@ Esiampl o rwydwaith dau nod gyda dau ddosbarth cwsmer::
                                       [0.2, 0.2, 0.6]]}
 
 
-Number_of_servers
+number_of_servers
 ~~~~~~~~~~~~~~~~~
 
 *Angenrheidiol*
@@ -97,14 +97,14 @@ Number_of_servers
 Rhestr o nifer o weinyddion paralel wrth bob nod.
 Os ddefnyddir amserlen gweinydd, rhowch yr amserlen yn lle rhif.
 Am fwy o wybodaeth ar amserlenni gweinyddion, gwelwch :ref:`server-schedule`.
-Ar gyfer nifer anfeidraidd o weinyddion gall rhoi 'Inf'.
+Ar gyfer nifer anfeidraidd o weinyddion gall rhoi :code;`float('inf')`.
 
 Esiampl::
 
-    Number_of_servers=[1, 2, 'Inf', 1, 'schedule']
+    number_of_servers=[1, 2, float('inf'), 1, 'schedule']
 
 
-Priority_classes
+priority_classes
 ~~~~~~~~~~~~~~~~
 
 *Opsiynol*
@@ -115,7 +115,7 @@ Os hepgorwyd, ni ddefnyddir blaenoriaeth, hynny yw mai gan bob cwsmer blaenoriae
 
 Esiampl::
 
-    Priority_classes={'Class 0': 0,
+    priority_classes={'Class 0': 0,
                       'CLass 1': 1,
                       'Class 2': 1}
 
@@ -127,14 +127,50 @@ Queue_capacities
 *Opsiynol*
 
 Rhestr o gynhwysedd ciw macsimwm wrth bob nod.
-Os hepgorwyd, y gwerthoedd diofyn yw 'Inf' ar gyfer pob nod.
+Os hepgorwyd, y gwerthoedd diofyn yw :code:`float('inf')` ar gyfer pob nod.
 
 Esiampl::
 
-    Queue_capacities=[5, 'Inf', 'Inf', 10]
+    queue_capacities=[5, float('inf'), float('inf'), 10]
 
 
-Service_distributions
+routing
+~~~~~~~
+
+*Angenrheidiol ar gyfer mwy nag un nod*
+
+*Opsiynol ar gyfer un nod*
+
+Mae'n disgrifio'r ffordd y mae pob dosbarth cwsmer yn teithio o gwmpas y system.
+Gall hyn fod yn matrics trosglwyddo ar gyfer pob dosbarth cwsmer, neu ffwythiant teithio ar gyfer efelychiadau wedi'u weilio ar brosesau, gweler :ref:`process-based`.
+
+Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestr o restrau (matricsau) yn cynnwys y tebygolrwyddau trosglwyddo fel gwerthoedd.
+Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi un matrics trosglwyddo yn unig (rhestr o restrau).
+
+Dangosir esiampl::
+
+    routing={'Class 0': [[0.1, 0.3],
+                         [0.0, 0.8]],
+             'Class 1': [[0.0, 1.0],
+                         [0.0, 0.0]]}
+
+Esiampl lle mae ond un dosbarth cwsmer::
+
+    routing=[[0.5, 0.3],
+             [0.2, 0.6]]
+
+Os ddefnyddir un nod yn unig, y gwerth diofyn yw::
+
+    routing={'Class 0': [[0.0]]}
+
+Fel arall defnyddiwch ffwythiant teithio::
+
+    routing=[routing_function]
+
+
+
+
+service_distributions
 ~~~~~~~~~~~~~~~~~~~~~
 
 *Angenrheidiol*
@@ -146,41 +182,12 @@ Am fwy o wybodaeth ar fewnbynnu dosraniadau, gwelwch :ref:`set-dists`.
 
 Dangosir esiampl::
 
-    Service_distributions={'Class 0': [['Exponential', 4.4],
-                                       ['Uniform', 0.1, 0.9]],
-                           'Class 1': [['Exponential', 6.0],
-                                       ['Lognormal', 0.5, 0.6]]}
+    service_distributions={'Class 0': [ciw.dists.Exponential(4.4),
+                                       ciw.dists.Uniform(0.1, 0.9)],
+                           'Class 1': [ciw.dists.Exponential(6.0),
+                                       ciw.dists.Lognormal(0.5, 0.6)]}
 
 Esiampl lle mae ond un dosbarth cwsmer::
 
-    Service_distributions=[['Exponential', 4.8],
-                           ['Exponential', 5.2]]
-
-
-
-Transition_matrices
-~~~~~~~~~~~~~~~~~~~
-
-*Angenrheidiol ar gyfer mwy nag un nod*
-
-*Opsiynol ar gyfer un nod*
-
-Mae'n disgrifio'r matrics trosglwyddo ar gyfer pob dosbarth cwsmer.
-Geiriadur yw hwn gyda dosbarthiadau cwsmer fel allweddau, a rhestr o restrau (matricsau) yn cynnwys y tebygolrwyddau trosglwyddo fel gwerthoedd.
-Os ond un dosbarth cwsmer sydd angen, mae'n ddigonol rhoi un matrics trosglwyddo yn unig (rhestr o restrau).
-
-Dangosir esiampl::
-
-    Transition_matrices={'Class 0': [[0.1, 0.3],
-                                     [0.0, 0.8]],
-                         'Class 1': [[0.0, 1.0],
-                                     [0.0, 0.0]]}
-
-Esiampl lle mae ond un dosbarth cwsmer::
-
-    Transition_matrices=[[0.5, 0.3],
-                         [0.2, 0.6]]
-
-Os ddefnyddir un nod yn unig, y gwerth diofyn yw::
-
-    Transition_matrices={'Class 0': [[0.0]]}
+    service_distributions=[ciw.dists.Exponential(4.8),
+                           ciw.dists.Exponential(5.2)]

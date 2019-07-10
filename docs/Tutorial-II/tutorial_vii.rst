@@ -28,29 +28,29 @@ Aseiniwn ymddygiad gwahanol i ddosbarthau cwsmer gwahanol trwy amnewid gwerthoed
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions={'Class 0': [['Exponential', 1.0],
-    ...                                        'NoArrivals',
-    ...                                        'NoArrivals'],
-    ...                            'Class 1': [['Exponential', 2.0],
-    ...                                        'NoArrivals',
-    ...                                        'NoArrivals']},
-    ...     Service_distributions={'Class 0': [['Exponential', 4.0],
-    ...                                        ['Exponential', 1.0],
-    ...                                        ['Deterministic', 0.0]],
-    ...                            'Class 1': [['Exponential', 6.0],
-    ...                                        ['Deterministic', 0.0],
-    ...                                        ['Exponential', 1.0]]},
-    ...     Transition_matrices={'Class 0': [[0.0, 1.0, 0.0],
-    ...                                      [0.0, 0.0, 0.0],
-    ...                                      [0.0, 0.0, 0.0]],
-    ...                          'Class 1': [[0.0, 0.0, 1.0],
-    ...                                      [0.0, 0.0, 0.0],
-    ...                                      [0.0, 0.0, 0.0]]}, 
+    ...     Arrival_distributions={'Class 0': [ciw.dists.Exponential(1.0)],
+    ...                                        ciw.dists.NoArrivals(),
+    ...                                        ciw.dists.NoArrivals()],
+    ...                            'Class 1': [ciw.dists.Exponential(2.0),
+    ...                                        ciw.dists.NoArrivals(),
+    ...                                        ciw.dists.NoArrivals()]}
+    ...     Service_distributions={'Class 0': [ciw.dists.Exponential(4.0)],
+    ...                                        ciw.dists.Exponential(1.0)],
+    ...                                        ciw.dists.Deterministic(0.0)],
+    ...                            'Class 1': [ciw.dists.Exponential(6.0)],
+    ...                                        ciw.dists.Deterministic(0.0)],
+    ...                                        ciw.dists.Exponential(1.0)]]},
+    ...     routing={'Class 0': [[0.0, 1.0, 0.0],
+    ...                          [0.0, 0.0, 0.0],
+    ...                          [0.0, 0.0, 0.0]],
+    ...              'Class 1': [[0.0, 0.0, 1.0],
+    ...                          [0.0, 0.0, 0.0],
+    ...                          [0.0, 0.0, 0.0]]}, 
     ...     Number_of_servers=[1, 2, 3],
     ... )
 
 Sylwch er rydym yn gwybod ni fydd dosbarthau cwsmer penodol angen gwasanaeth (er enghraifft ni fydd angen gweld arbenigwr plant ar fabanod: bydd cwsmeriaid Class 0 byth angen gwasanaeth yn Nod 3) mae dal angen mewnbynnu dosraniad gwasanaeth.
-Dewiswn y dosraniad ffug :code:`['Deterministic', 0.0]`.
+Dewiswn y dosraniad ffug :code:`ciw.dists.Deterministic(0.0)`.
 
 Efelychwch y clinig am 9 awr::
 
@@ -90,13 +90,13 @@ Casglwn yr amseroedd aros cymedrig wrth bob nod am bob arbrawf::
 Nawr ffeindiwn yr amser aros cymedrig dros yr arbrofion::
 
 	>>> sum(average_waits_1) / len(average_waits_1)
-	0.244591...
+    0.274301...
 
 	>>> sum(average_waits_2) / len(average_waits_2)
-	0.604267...
+    0.268752...
 
 	>>> sum(average_waits_3) / len(average_waits_3)
-	0.252556...
+    0.284763...
 
 Mae'r canlyniadau yma yn dangos fod babanod yn aros 0.6 awr, tua 36 munud am apwyntiad.
 Gall hwn cael ei ddefnyddio fel mesur gwaelodlin i gymharu unrhyw ailgyfluniadau potensial i'r clinig.

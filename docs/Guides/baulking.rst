@@ -26,10 +26,10 @@ Wrth greu'r gwrthrych Network, rydym yn dweud wrth Ciw pa nod a dosbarth cwsmer 
 	
 	>>> import ciw
 	>>> N = ciw.create_network(
-	...      Arrival_distributions={'Class 0': [['Exponential', 5]]},
-	...      Service_distributions={'Class 0': [['Exponential', 10]]},
-	...      Baulking_functions={'Class 0': [probability_of_baulking]},
-	...      Number_of_servers=[1]
+	...      arrival_distributions={'Class 0': [ciw.dists.Exponential(5)]},
+	...      service_distributions={'Class 0': [ciw.dists.Exponential(10)]},
+	...      baulking_functions={'Class 0': [probability_of_baulking]},
+	...      number_of_servers=[1]
 	... )
 
 Pan mae'r system wedi gorffen efelychu, cofnodwyd y cwsmeriaid a wnaeth balcio yn :code:`baulked_dict` y gwrthrych Simulation.
@@ -40,7 +40,7 @@ Mae'r geiriaduron yma yn mapio rhifau dosbarthau cwsmer i restr o ddyddiadau lle
 	>>> Q = ciw.Simulation(N)
 	>>> Q.simulate_until_max_time(45.0)
 	>>> Q.baulked_dict
-	{1: {0: [21.1040..., 42.2023..., 43.7558..., 43.7837..., 44.2266...]}}
+	{1: {0: [9.4589..., 12.8633..., 16.3374..., 18.7384..., 37.8363..., 38.2962...]}}
 
 Nodwch fod balcio yn gweithio ac yn ymddwyn yn wahanol i setio cynhwysedd ciwio.
 Mae llenwi cynhwysedd ciwio nod yn arwain at dyfodiadau newydd yn cael eu *wrthod** (a chofnodwyd y rhain yn y :code:`rejection_dict`), a chwsmeriaid sy'n trosglwyddo o nod arall yn cael eu blocio.

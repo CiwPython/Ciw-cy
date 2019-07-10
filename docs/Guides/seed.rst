@@ -15,9 +15,9 @@ Nodwch oherwydd samplo wrth ymgychwyn, mae angen gosod yr hedyn **cyn** creu'r g
 Fel enghraifft, cymerwch y rhwydwaith canlynol::
 
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 5]],
-    ...     Service_distributions=[['Exponential', 10]],
-    ...     Number_of_servers=[1]
+    ...     arrival_distributions=[ciw.dists.Exponential(5)],
+    ...     service_distributions=[ciw.dists.Exponential(10)],
+    ...     number_of_servers=[1]
     ... )
 
 Rhedwch y system am 20 uned amser, yn defnyddio hedyn o 1, a ffeindiwch yr amser aros cymedrig::
@@ -27,7 +27,7 @@ Rhedwch y system am 20 uned amser, yn defnyddio hedyn o 1, a ffeindiwch yr amser
     >>> Q.simulate_until_max_time(20)
     >>> waits = [r.waiting_time for r in Q.get_all_records()]
     >>> sum(waits)/len(waits)
-    0.0544115013161...
+    0.0824058654563...
 
 Yn defnyddio'r un hedyn eto, mae'r union un amser aros cymedrig yn achosi’r union un canlyniad::
 
@@ -36,7 +36,7 @@ Yn defnyddio'r un hedyn eto, mae'r union un amser aros cymedrig yn achosi’r un
     >>> Q.simulate_until_max_time(20)
     >>> waits = [r.waiting_time for r in Q.get_all_records()]
     >>> sum(waits)/len(waits)
-    0.0544115013161...
+    0.0824058654563...
 
 Nawr, yn defnyddio hedyn gwahanol, fe geir canlyniad gwahanol::
 
@@ -45,4 +45,4 @@ Nawr, yn defnyddio hedyn gwahanol, fe geir canlyniad gwahanol::
     >>> Q.simulate_until_max_time(20)
     >>> waits = [r.waiting_time for r in Q.get_all_records()]
     >>> sum(waits)/len(waits)
-    0.0832990490158...
+    0.1691349404558...

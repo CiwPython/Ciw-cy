@@ -30,18 +30,21 @@ Paramedrau::
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...    Arrival_distributions=[['Exponential', 6.0]],
-    ...    Service_distributions=[['Exponential', 5.0]],
-    ...    Transition_matrices=[[0.5]],
-    ...    Number_of_servers=[1],
-    ...    Queue_capacities=[3]
+    ...    arrival_distributions=[ciw.dists.Exponential(6.0)],
+    ...    service_distributions=[ciw.dists.Exponential(5.0)],
+    ...    routing=[[0.5]],
+    ...    number_of_servers=[1],
+    ...    queue_capacities=[3]
     ... )
 
 Rhedeg nes cyrraedd llwyrglo::
 
     >>> import ciw
     >>> ciw.seed(1)
-    >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph')
+    >>> Q = ciw.Simulation(N,
+    ...     deadlock_detector=ciw.deadlock.StateDigraph(),
+    ...     tracker=ciw.trackers.NaiveTracker()
+    ... )
     >>> Q.simulate_until_deadlock()
     >>> Q.times_to_deadlock # doctest:+SKIP
     {((0, 0),): 0.94539784..., ((1, 0),): 0.92134933..., ((2, 0),): 0.68085451..., ((3, 0),): 0.56684471..., ((3, 1),): 0.0, ((4, 0),): 0.25332344...}
@@ -67,15 +70,18 @@ Yn efelychu nes cyrraedd llwyrglo, bydd y geiriadur :code:`times_to_deadlock` yn
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...    Arrival_distributions=[['Exponential', 6.0]],
-    ...    Service_distributions=[['Exponential', 5.0]],
-    ...    Transition_matrices=[[0.5]],
-    ...    Number_of_servers=[2],
-    ...    Queue_capacities=[1]
+    ...    arrival_distributions=[ciw.dists.Exponential(6.0)],
+    ...    service_distributions=[ciw.dists.Exponential(5.0)],
+    ...    routing=[[0.5]],
+    ...    number_of_servers=[2],
+    ...    queue_capacities=[1]
     ... )
 
     >>> ciw.seed(1)
-    >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph', tracker='Naive')
+    >>> Q = ciw.Simulation(N,
+    ...     deadlock_detector=ciw.deadlock.StateDigraph(),
+    ...     tracker=ciw.trackers.NaiveTracker()
+    ... )
     >>> Q.simulate_until_deadlock()
     >>> Q.times_to_deadlock # doctest:+SKIP
     {((0, 0),): 1.3354..., ((1, 0),): 1.3113..., ((1, 2),): 0.0, ((2, 0),): 1.0708..., ((2, 1),): 0.9353..., ((3, 0),): 0.9568...}
@@ -85,7 +91,10 @@ Yn efelychu nes cyrraedd llwyrglo, bydd y geiriadur :code:`times_to_deadlock` yn
 Os defnyddir Traciwr Matrics disgwylir y cyflyrau canlynol: ((()), (0)), ((()), (1)), ((()), (2)), ((()), (3)), (((1)), (3)), (((1, 2)), (3)).
 
     >>> ciw.seed(1)
-    >>> Q = ciw.Simulation(N, deadlock_detector='StateDigraph', tracker='Matrix')
+    >>> Q = ciw.Simulation(N,
+    ...     deadlock_detector=ciw.deadlock.StateDigraph(),
+    ...     tracker=ciw.trackers.MatrixTracker()
+    ... )
     >>> Q.simulate_until_deadlock()
     >>> Q.times_to_deadlock # doctest:+SKIP
     {((((),),), (0,)): 1.3354..., ((((),),), (1,)): 1.3113..., ((((),),), (2,)): 1.0708..., ((((),),), (3,)): 0.9568..., ((((1,),),), (3,)): 0.9353..., ((((1, 2),),), (3,)): 0.0}

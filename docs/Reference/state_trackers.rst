@@ -25,7 +25,7 @@ Dynodir hwn 3 cwsmer wrth y nod cyntaf, mae 0 o rain wedi'i flocio; 5 cwsmer wrt
 
 Mae'r gwrthrych Simulation yn cymryd y ddadl opsiynol :code:`tracker`::
 
-    >>> Q = ciw.Simulation(N, tracker='Naive') # doctest:+SKIP
+    >>> Q = ciw.Simulation(N, tracker=ciw.trackers.NaiveTracker()) # doctest:+SKIP
 
 
 .. _matrix:
@@ -62,4 +62,4 @@ Mae hefyd yn dangos trefn a chyrchfannau’r cwsmeriaid a flociwyd:
 
 Mae'r gwrthrych Simulation yn cymryd y ddadl opsiynol :code:`tracker`::
 
-    >>> Q = ciw.Simulation(N, tracker='Matrix') # doctest:+SKIP
+    >>> Q = ciw.Simulation(N, tracker=ciw.trackers.MatrixTracker()) # doctest:+SKIP

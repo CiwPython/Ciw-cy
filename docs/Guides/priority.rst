@@ -8,7 +8,7 @@ Gall Ciw aseinio blaenoriaethau i ddosbarthau cwsmer.
 I wneud hwn rydym yn mapio dosbarthau cwsmer i ddosbarthau blaenoriaeth, gan ychwanegu hwn fel allweddair wrth greu gwrthrych Network.
 Dangosir enghraifft::
 
-    Priority_classes={'Class 0': 0,
+    priority_classes={'Class 0': 0,
                       'Class 1': 1,
                       'Class 2': 1}
 
@@ -26,12 +26,12 @@ I weithredu hwn, crëwch wrthrych Network gan ychwanegu'r allweddair :code:`Prio
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions={'Class 0': [['Exponential', 5]],
-    ...                            'Class 1': [['Exponential', 5]]},
-    ...     Service_distributions={'Class 0': [['Exponential', 10]],
-    ...                            'Class 1': [['Exponential', 10]]},
-    ...     Priority_classes={'Class 0': 0, 'Class 1': 1},
-    ...     Number_of_servers=[1]
+    ...     arrival_distributions={'Class 0': [ciw.dists.Exponential(5)],
+    ...                            'Class 1': [ciw.dists.Exponential(5)]},
+    ...     service_distributions={'Class 0': [ciw.dists.Exponential(10)],
+    ...                            'Class 1': [ciw.dists.Exponential(10)]},
+    ...     priority_classes={'Class 0': 0, 'Class 1': 1},
+    ...     number_of_servers=[1]
     ... )
 
 Rhedwn yr efelychiad, yn cymharu'r amseroedd aros cwsmeriaid dosbarth 0 a dosbarth 1.
@@ -44,8 +44,8 @@ Dylai cwsmeriaid gyda mwy o flaenoriaeth cael amser aros cymedrig llai na'r cwsm
 
     >>> waits_0 = [r.waiting_time for r in recs if r.customer_class==0]
     >>> sum(waits_0)/len(waits_0)
-    0.1529189...
+    0.1866109...
 
     >>> waits_1 = [r.waiting_time for r in recs if r.customer_class==1]
     >>> sum(waits_1)/len(waits_1)
-    3.5065047...
+    7.6103100...

@@ -20,10 +20,10 @@ Ystyriwch system ciwio :ref:`M/M/1/3 <kendall-notation>`::
 
 	>>> import ciw
 	>>> N = ciw.create_network(
-	...     Arrival_distributions=[['Exponential', 10]],
-	...     Service_distributions=[['Exponential', 5]],
-	...     Number_of_servers=[1],
-	...     Queue_capacities=[3]
+	...     arrival_distributions=[ciw.dists.Exponential(10)],
+	...     service_distributions=[ciw.dists.Exponential(5)],
+	...     number_of_servers=[1],
+	...     queue_capacities=[3]
 	... )
 
 I efelychu nes bod 30 cwsmer wedi gorffen gwasanaeth::
@@ -48,4 +48,4 @@ I efelychu nes bod 30 cwsmer wedi'i derbyn::
 	>>> Q = ciw.Simulation(N)
 	>>> Q.simulate_until_max_customers(30, method='Accept')
 	>>> len(Q.nodes[-1].all_individuals), len(Q.nodes[1].all_individuals)
-	(26, 4)
+	(27, 3)

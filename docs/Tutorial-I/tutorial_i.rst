@@ -20,7 +20,7 @@ Gadewch i ni fewnbynnu Ciw::
 
     >>> import ciw
 
-Nawr mae angen i ni ddweud wrth Ciw beth mae'r system yn edrych fel a sut mae'r ymddwyn.
+Nawr mae angen i ni ddweud wrth Ciw beth mae'r system yn edrych fel a sut mae'n ymddwyn.
 Rydym yn gwneud hwn gan greu gwrthrych Network.
 Mae'r cymryd mewn allweddeiriau sy'n cynnwys y wybodaeth ganlynol am y system:
 
@@ -39,9 +39,9 @@ Mae'r cymryd mewn allweddeiriau sy'n cynnwys y wybodaeth ganlynol am y system:
 Ar gyfer y system bac, crëwch y Network::
 
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 0.2]],
-    ...     Service_distributions=[['Exponential', 0.1]],
-    ...     Number_of_servers=[3]
+    ...     arrival_distributions=[ciw.dists.Exponential(0.2)],
+    ...     service_distributions=[ciw.dists.Exponential(0.1)],
+    ...     number_of_servers=[3]
     ... )
 
 Mae hwn yn disgrifio'r banc yn llawn.

@@ -19,11 +19,11 @@ Mae'r ail nod yn segur yn y sefyllfa yma::
 	>>> from collections import Counter
 
 	>>> N = ciw.create_network(
-	...     Arrival_distributions=[['Exponential', 6.0], 'NoArrivals'],
-	...     Service_distributions=[['Exponential', 5.0], ['Exponential', 5.0]],
-	...     Transition_matrices=[[0.0, 0.0], [0.0, 0.0]],
-	...     Number_of_servers=[1, 1],
-	...     Queue_capacities=[10, 'Inf']
+	...     arrival_distributions=[ciw.dists.Exponential(6.0), ciw.dists.NoArrivals()],
+	...     service_distributions=[ciw.dists.Exponential(5.0), ciw.dists.Exponential(5.0)],
+	...     routing=[[0.0, 0.0], [0.0, 0.0]],
+	...     number_of_servers=[1, 1],
+	...     queue_capacities=[10, float('inf')]
 	... )
 
 Nawr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi digwydd wrth y nod cyntaf, a dim wrth yr ail nod::
@@ -34,7 +34,7 @@ Nawr rhedwn yr efelychiad am 100 uned amser, a gwelwn fod 484 gwasanaeth wedi di
 
 	>>> service_nodes = [r.node for r in Q.get_all_records()]
 	>>> Counter(service_nodes)
-	Counter({1: 484})
+	Counter({1: 494})
 
 Nawr crëwn :code:`CustomArrivalNode` newydd felly anfonir unrhyw gwsmeriaid sy'n cyrraedd pan mae'r gan y nod cyntaf 10 neu fwy o gwsmeriaid i'r ail nod.
 Yn gyntaf crëwch y :code:`CustomArrivalNode` sy'n etifeddu o'r :code:`ciw.ArrivalNode`, a throsysgrifwch y dull :code:`send_individual`::
@@ -46,17 +46,17 @@ Yn gyntaf crëwch y :code:`CustomArrivalNode` sy'n etifeddu o'r :code:`ciw.Arriv
 	...         """
 	...         self.number_accepted_individuals += 1
 	...         if len(next_node.all_individuals) <= 10:
-	...             next_node.accept(next_individual, self.next_event_date)
+	...             next_node.accept(next_individual)
 	...         else:
-	...             self.simulation.nodes[2].accept(next_individual, self.next_event_date)
+	...             self.simulation.nodes[2].accept(next_individual)
 
 I redeg yr un system, rhaid i ni hepgor yr allweddair :code:`'Queue_capacities'` felly ni wrthodir cwsmeriaid cyn cyrraedd y dull :code:`send_individual`::
 
 	>>> N = ciw.create_network(
-	...     Arrival_distributions=[['Exponential', 6.0], 'NoArrivals'],
-	...     Service_distributions=[['Exponential', 5.0], ['Exponential', 5.0]],
-	...     Transition_matrices=[[0.0, 0.0], [0.0, 0.0]],
-	...     Number_of_servers=[1, 1]
+	...     arrival_distributions=[ciw.dists.Exponential(6.0)], ciw,dists.NoArrivals()],
+	...     service_distributions=[ciw.dists.Exponential(5.0)], ciw.dists.Exponential(5.0)]],
+	...     routing=[[0.0, 0.0], [0.0, 0.0]],
+	...     number_of_servers=[1, 1]
 	... )
 
 Nawr fe ail-rhedwn y system, yn dweud wrth Ciw am ddefnyddio'r :code:`arrival_node_class` newydd.
@@ -68,4 +68,4 @@ Gwelwn fod yr un nifer o wasanaethau wedi digwydd wrth Nod 1, ond nawr mae'r cws
 
 	>>> service_nodes = [r.node for r in Q.get_all_records()]
 	>>> Counter(service_nodes)
-	Counter({1: 484, 2: 85})
+	Counter({1: 503, 2: 84})

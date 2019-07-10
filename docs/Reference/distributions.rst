@@ -50,7 +50,7 @@ Y Dosraniad Penderfynedig
 Mae'r dosraniad penderfynedig yn ddi-stocastig, ac yn cynhyrchu'r un rhif dro ar ôl tro.
 Ysgrifennwch ddosraniad penderfynedig sy'n rhoi'r gwerth `18.2` pob tro::
 
-    ['Deterministic', 18.2]
+    ciw.dists.Deterministic(18.2)
 
 
 
@@ -65,7 +65,7 @@ Y Dosraniad Trionglog
 Mae'r dosraniad trionglog yn samplu o FfDT parhaus sy'n codi'n llinol o'i werth lleiaf `low` i'w werth moddol `mode`, ac yna'n disgyn yn llinol i'w gwerth mwyaf `high`.
 Ysgrifennwch ddosraniad trionglog rhwng `2.1` a `7.6` gyda modd `3.4`::
 
-    ['Triangular', 2.1, 7.6, 3.4]
+    ciw.dists.Triangular(2.1, 3.4, 7.6)
 
 
 
@@ -80,7 +80,7 @@ Y Dosraniad Esbonyddol
 Mae'r dosraniad esbonyddol yn samplu haprif o'r dosraniad esbonyddol negatif gyda chymedr :math:`1/\lambda`.
 Ysgrifennwch ddosraniad esbonyddol gyda chymedr `0.2`::
 
-    ['Exponential', 5]
+    ciw.dists.Exponential(5)
 
 
 
@@ -95,7 +95,7 @@ Y Dosraniad Gama
 Mae'r dosraniad gama yn samplu haprif o'r dosraniad gama gyda pharamedr siâp :math:`\alpha` a pharamedr graddfa :math:`\beta`.
 Ysgrifennwch ddosraniad gama gyda pharamedrau :math:`\alpha = 0.6` a :math:`\beta = 1.2`::
 
-    ['Gamma', 0.6, 1.2]
+    ciw.dists.Gamma(0.6, 1.2)
 
 
 
@@ -111,7 +111,7 @@ Mae'r dosraniad normal blaendor yn samplu haprif o'r dosraniad normal gyda chyme
 Mae'r dosraniad wedi'i blaendorri wrth 0, felly os samplir rhif negatif yna fe ail-samplir yr arsylwad yna nes samplir rhif positif.
 Ysgrifennwch ddosraniad normal blaendor gyda pharamedrau :math:`\mu = 0.7` a :math:`\sigma = 0.4`::
 
-    ['Normal', 0.7, 0.4]
+    ciw.dists.Normal(0.7, 0.4)
 
 
 
@@ -126,7 +126,7 @@ Y Dosraniad Lognormal
 Mae'r dosraniad lognormal yn samplu haprif o log y dosraniad normal gyda chymedr :math:`\mu` a gwyriad safonol :math:`\sigma`.
 Ysgrifennwch ddosraniad lognormal, hynny yw log o'r dosraniad normal gyda :math:`\mu = 4.5` a :math:`\sigma = 2.0`::
 
-    ['Lognormal', 4.5, 2.0]
+    ciw.dists.Lognormal(4.5, 2.0)
 
 
 
@@ -141,7 +141,7 @@ Y Dosraniad Weibull
 Mae'r dosraniad Weibull yn samplu haprif o'r dosraniad Weibull gyda pharamedr graddfa :math:`\alpha` a pharamedr siâp :math:`\beta`.
 Ysgrifennwch ddosraniad Weibull gyda :math:`\alpha = 0.9` a :math:`\beta = 0.8`::
 
-    ['Weibull', 0.9, 0.8]
+    ciw.dists.Weibull(0.9, 0.8)
 
 
 
@@ -153,15 +153,12 @@ Ysgrifennwch ddosraniad Weibull gyda :math:`\alpha = 0.9` a :math:`\beta = 0.8`:
 Dosraniadau Empirig
 -------------------
 
-Mae yna dau ddull o ddiffinio dosraniadau empirig yn Ciw, naill ai trwy fewnbynnu arsylwadau, neu trwy roi'r path i ffeil :code:`.csv` sy'n cynnwys yr arsylwadau:
-
+Mae'r dosraniad empirig yn dewis gwerthoedd o rhestr ar hap.
+Os yw arsylwadau yn ymddangos yn fwy aml yn y rhestr, byddant yn cael ei samplu'n fwy aml.
 I fewnbynnu rhestr o arsylwadau::
 
-    ['Empirical', [0.3, 0.3, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 1.1, 1.1, 1.1, 1.1]]
+    ciw.dists.Empirical([0.3, 0.3, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 1.1, 1.1, 1.1, 1.1])
 
-I fewnbynnu path i ffeil :code:`.csv`::
-
-    ['Empirical', '<path_i_ffeil>']
 
 
 
@@ -176,7 +173,7 @@ Dosraniadau Dilyniannol
 Mae dosraniad dilyniannol yn cymryd rhestr, ac yn rhoi'r arsylwad nesaf yn y rhestr yn ailadroddol dros amser.
 Mae'r dosraniad yn gylchol, felly unwaith mae holl elfennau'r rhestr wedi'i samplu, mae'r dilyniant o werthoedd i'w samplu yn dechrau eto o ddechrau'r rhestr::
 
-    ['Sequential', [0.1, 0.1, 0.2, 0.1, 0.3, 0.2]]
+    ciw.dists.Sequential([0.1, 0.1, 0.2, 0.1, 0.3, 0.2])
 
 
 
@@ -184,48 +181,15 @@ Mae'r dosraniad yn gylchol, felly unwaith mae holl elfennau'r rhestr wedi'i samp
 
 .. _custom_pdf:
 
----------------------
-Dosraniadau Arwahanol
----------------------
+---------------------------
+Ffwythiant Mas Tebygolrwydd
+---------------------------
 
-Mae Ciw yn gadael i ddefnyddwyr diffinio dosraniadau arwahanol eu hun.
+Mae Ciw yn gadael i ddefnyddwyr diffinio dosraniadau ffwythiant mas tebygolrwydd (FfMT neu PMF) eu hun.
 Mae'r dosraniad yn samplu o set gwerthoedd lle mae gan bob gwerth tebygolrwydd penodol, hynny yw samplu’r gwrth :math:`x` gyda thebygolrwydd :math:`P(x)`.
 Er enghraifft, os yw :math:`P(1.4) = 0.2`, :math:`P(1.7) = 0.5`, a :math:`P(1.9) = 0.3`, ysgrifennwch::
 
-    ['Custom', [1.4, 1.7, 1.9], [0.2, 0.5, 0.3]]
-
-
-
-
-
-
-.. _own_functions:
-
------------------------------------------
-Dosraniadau a Ddiffinnir Gan y Defnyddiwr
------------------------------------------
-
-Mae Ciw yn caniatáu i ddefnyddwyr mewnbynnu ffwythiannau eu hun i eneradu amseroedd gwasanaeth a rhwng-dyfodiad.
-I fwydo mewn ffwythiant, ysgrifennwch::
-
-	['UserDefined', random.random]
-
-
-
-
-
-.. _time_dependent:
-
---------------------------
-Dosraniadau Amser Dibynnol
---------------------------
-
-Yn debyg i ychwanegu ffwythiannau :code:`UserDefined`, mae Ciw yn caniatáu ffwythiannau amser dibynnol.
-Ffwythiannau lambda yw'r rhain sy'n cymryd paramedr amser.
-Mae Ciw yn defnyddio amser presennol yr efelychiad i samplu amseroedd o'r ffwythiant yma::
-
-    ['TimeDependent', time_dependent_function]
-
+    ciw.dists.Pmf([1.4, 1.7, 1.9], [0.2, 0.5, 0.3])
 
 
 
@@ -238,7 +202,6 @@ Dim Dyfodiadau
 
 Os nad yw nod yn cael unrhyw ddyfodiadau o ryw ddosbarth cwsmer, yna gallwch fewnbynnu'r cod isod yn lle dosraniad::
 
-    'NoArrivals'
+    ciw.dists.NoArrivals()
 
-Nodwch ddiffyg bracedi sgwâr yma.
-Hefyd nodwch fod hwn ond yn ddilys ar gyfer dyfodiadau, peidiwch â'i ddefnyddio ar gyfer yr opsiwn :code:`Service_distributions`.
+Nodwch fod hwn ond yn ddilys ar gyfer dyfodiadau, peidiwch â'i ddefnyddio ar gyfer yr opsiwn :code:`service_distributions`.

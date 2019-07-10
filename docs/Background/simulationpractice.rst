@@ -53,10 +53,10 @@ Mae'n dangos sut i ffeindio'r amser aros cymedrig mewn ciw :ref:`M/M/1 <kendall-
 
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 5.0]],
-    ...     Service_distributions=[['Exponential', 8.0]],
-    ...     Transition_matrices=[[0.0]],
-    ...     Number_of_servers=[1]
+    ...     arrival_distributions=[ciw.dists.Exponential(5.0)],
+    ...     service_distributions=[ciw.dists.Exponential(8.0)],
+    ...     transition_matrices=[[0.0]],
+    ...     number_of_servers=[1]
     ... )
     >>>
     >>> average_waits = []
@@ -74,5 +74,5 @@ Mae'n dangos sut i ffeindio'r amser aros cymedrig mewn ciw :ref:`M/M/1 <kendall-
     >>>
     >>> average_wait = sum(average_waits) / len(average_waits)
     >>> average_wait
-    0.204764...
+    0.201313...
 

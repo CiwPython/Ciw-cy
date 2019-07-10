@@ -18,10 +18,11 @@ Edrychwn ar esiampl::
     
     >>> import ciw
     >>> N = ciw.create_network(
-    ...     Arrival_distributions=[['Exponential', 5]],
-    ...     Service_distributions=[['Exponential', 10]],
-    ...     Number_of_servers=[1]
+    ...     arrival_distributions=[ciw.dists.Exponential(5)],
+    ...     service_distributions=[ciw.dists.Exponential(10)],
+    ...     number_of_servers=[1]
     ... )
+
 
 Heb ddefnyddio rhifyddeg union, gwelwn defnyddir rhifau pwynt arnawf trwy gydol y rhediad::
 
@@ -37,10 +38,10 @@ Heb ddefnyddio rhifyddeg union, gwelwn defnyddir rhifau pwynt arnawf trwy gydol 
 Os ddefnyddiwn rifyddeg union, defnyddir mathau :code:`decimal.Decimal` trwy gydol y rhediad::
 
     >>> ciw.seed(2)
-    >>> Q = ciw.Simulation(N, exact=26)
+    >>> Q = ciw.Simulation(N, exact=12)
     >>> Q.simulate_until_max_time(100.0)
     >>> waits = [r.waiting_time for r in Q.get_all_records()]
     >>> waits[-1]
-    Decimal('0.2025188771714382860')
+    Decimal('0.0602990518')
     >>> type(waits[-1])
     <class 'decimal.Decimal'>
