@@ -73,7 +73,6 @@ Crëwyd yr histogram o amseroedd aros isod gan ddefnyddio matplotlib, yn defnydd
     >>> plt.hist(waits); # doctest:+SKIP
 
 .. image:: ../_static/tutorial_iii_waitshist.svg
-   :scale: 100 %
    :alt: Histogram o amseroedd aros ar gyfer Tiwtorial III.
    :align: center
 

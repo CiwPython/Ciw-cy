@@ -25,7 +25,6 @@ Yn y system yma mae yna tri nod: Cownter bwyd oer (Nod 1), Cownter bwyd poeth (N
 Dangosir diagram o'r system isod:
 
 .. image:: ../_static/cafe.svg
-   :scale: 100 %
    :alt: Diagram o'r rhwydwaith ciwio caffi.
    :align: center
 

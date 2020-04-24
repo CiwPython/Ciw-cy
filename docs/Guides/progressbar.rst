@@ -16,7 +16,6 @@ Enghraifft gan ddefnyddio'r dull :code:`simulate_until_max_time`::
 Mae'r ddelwedd isod yn dangos esiampl o'r allbwn:
 
 .. image:: ../_static/progress_bar_time.png
-   :scale: 100 %
    :alt: Allbwn bar cynnydd (simulate_until_max_time).
    :align: center
 
@@ -27,6 +26,5 @@ Enghraifft gan ddefnyddio'r dull :code:`simulate_until_max_customers`::
 Mae'r ddelwedd isod yn dangos esiampl o'r allbwn:
 
 .. image:: ../_static/progress_bar_customers.png
-   :scale: 100 %
    :alt: Allbwn bar cynnydd (simulate_until_max_customers).
    :align: center

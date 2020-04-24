@@ -108,7 +108,7 @@ Ystyriwch dosraniad sy'n samplu'r gwerth `3.0` 50% o'r amser, ac yn samplu hapri
 
     >>> import random
     >>> class CustomDistribution(ciw.dists.Distribution):
-    ...     def sample(t=None, ind=None):
+    ...     def sample(self, t=None, ind=None):
     ...         if random.random() < 0.5:
     ...             return 3.0
     ...         return random.random()

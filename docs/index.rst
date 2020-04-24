@@ -8,7 +8,7 @@ Llyfrgell ar gyfer efelychu rhwydweithiau o giwiau yw Ciw.
 Ei nodweddion craidd yw'r gallu i efelychu rhwydweithiau o giwiau, dosbarthiadau cwsmer lluosog, a blocio o Fath I yn rhwydweithiau cyfyngedig.
 Mae nifer o nodweddion arall wedi'i weithredu hefyd, gan gynnwys blaenoriaeth, balcio, amserlenni gwaith, a chanfod llwyrglo.
 
-Nodwch, ar hyn o bryd mae gan Ciw cymorth ar gyfer, ac wedi’i phrofi’n rheolaidd am fersiynau Python 3.5 a 3.6.
+Nodwch, ar hyn o bryd mae gan Ciw cymorth ar gyfer, ac wedi’i phrofi’n rheolaidd am fersiynau Python 3.5, 3.6 a 3.7.
 
 Cynnwys:
 
