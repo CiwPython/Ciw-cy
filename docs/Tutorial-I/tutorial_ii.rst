@@ -23,8 +23,8 @@ Gallwn mynedu'r nodau gan ddefnyddio::
     >>> Q.nodes
     [Arrival Node, Node 1, Exit Node]
 
-+ **Y Nod Dyfodi (:code:`Arrival Node`):**
-  Dyma le mae cwsmeriaid yn cael eu creu. Caiff ei silio yma, ac fe allant nhw :ref:`balcio <baulking-functions>`, :ref:`cael eu gwrthod <tutorial-vi>` neu gael eu hanfon i nod wasanaeth. Gallwn ei mynedu gan ddefnyddio::
++ **Y Nod Dyfodi:**
+  (:code:`Arrival Node`) Dyma le mae cwsmeriaid yn cael eu creu. Caiff ei silio yma, ac fe allant nhw :ref:`balcio <baulking-functions>`, :ref:`cael eu gwrthod <tutorial-vi>` neu gael eu hanfon i nod wasanaeth. Gallwn ei mynedu gan ddefnyddio::
 
     >>> Q.nodes[0]
     Arrival Node
@@ -35,8 +35,8 @@ Gallwn mynedu'r nodau gan ddefnyddio::
     >>> Q.nodes[1]
     Node 1
 
-+ **Yr Allanfa (:code:`Exit Node`):**
-  Pan mae cwsmeriaid yn gadael y system, caiff eu casglu fan hyn. Yna, pan hoffwn ddarganfod beth ddigwyddodd yn ystod rhediad yr efelychiad, gallwn ffeindio'r cwsmeriaid yma. Gallwn ei mynedu gan ddefnyddio::
++ **Yr Allanfa:**
+  (:code:`Exit Node`) Pan mae cwsmeriaid yn gadael y system, caiff eu casglu fan hyn. Yna, pan hoffwn ddarganfod beth ddigwyddodd yn ystod rhediad yr efelychiad, gallwn ffeindio'r cwsmeriaid yma. Gallwn ei mynedu gan ddefnyddio::
 
     >>> Q.nodes[-1]
     Exit Node

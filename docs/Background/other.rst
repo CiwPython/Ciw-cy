@@ -14,4 +14,4 @@ Fan hyn mae rhestr o opsiynau arall gall fod o ddiddordeb, opsiynau masnachol a 
 - `NetSim <http://www.boson.com/netsim-cisco-network-simulator>`_
 - `Arena <https://www.arenasimulation.com/>`_
 
-Ar gyfer cymhariaeth rhwng Ciw ac offerynnay efelychiad eraill, yn nhermau ailgynhyrchadwyedd a perfformiad, gweler `Ciw: An open-source discrete event simulation library <https://www.tandfonline.com/doi/full/10.1080/17477778.2018.1473909>`_ yn y Journal of Simulation.
+Ar gyfer cymhariaeth rhwng Ciw ac offerynnau efelychiad eraill, yn nhermau ailgynhyrchadwyedd a perfformiad, gweler `Ciw: An open-source discrete event simulation library <https://www.tandfonline.com/doi/full/10.1080/17477778.2018.1473909>`_ yn y Journal of Simulation.

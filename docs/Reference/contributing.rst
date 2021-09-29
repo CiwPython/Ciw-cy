@@ -25,7 +25,12 @@ Rydym yn annog defnydd coverage, yn sicrhau fod pob agwedd o'r cod wedi'i phrofi
     coverage report -m
 
 Ychwanegwch brofion ar gyfer eich newidiadau. Gwnewch eich newidiadau, a gwnewch yn siŵr fod y profion yn pasio.
+
 Diweddarwch y ddogfennaeth hefyd, yn sicrhau fod doctests yn pasio.
+Er mwyn adeiladu'r dogfennaeth (mae angen `Sphinx <https://www.sphinx-doc.org/en/master/>`_)::
+    
+    cd docs
+    make html
 
 Gwthiwch eich fforc a chyflwynwch gais derbyn!
 

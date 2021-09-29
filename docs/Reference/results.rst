@@ -19,7 +19,7 @@ Dylai'r cofnodion yma edrych yn debyg i'r tabl isod:
     | ...    | ...   | ...  | ...          | ...       | ...                | ...          | ...              | ...          | ...       | ...   | ...                   | ...                   |
     +--------+-------+------+--------------+-----------+--------------------+--------------+------------------+--------------+-----------+-------+-----------------------+-----------------------+
 
-Fe allwch gael mynediad i'r cofnodion yma fel rhestr o tuples enwedig, yn defnyddio dull :code:`get_all_records` y gwrthrych Simulation.
+Fe allwch gael mynediad i'r cofnodion yma fel rhestr o tuples enwedig, yn defnyddio dull :code:`get_all_records` y gwrthrych Simulation::
 
     >>> recs = Q.get_all_records() # doctest:+SKIP
 

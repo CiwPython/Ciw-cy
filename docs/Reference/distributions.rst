@@ -20,8 +20,6 @@ Ar yn o bryd cynigir y dosraniadau canlynol:
 - :ref:`empirical_dist`
 - :ref:`sequential_dist`
 - :ref:`custom_pdf`
-- :ref:`own_functions`
-- :ref:`time_dependent`
 - :ref:`no_arrivals`
 
 
@@ -35,7 +33,7 @@ Y Dosraniad Unffurf
 Mae'r dosraniad unffurf yn samplu haprif rhwng dau rif `a` a `b`.
 Ysgrifennwch ddosraniad unffurf rhwng `4` a `9`::
 
-    ['Uniform', 4.0, 9.0]
+    ciw.dists.Uniform(4.0, 9.0)
 
 
 

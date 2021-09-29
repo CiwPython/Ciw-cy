@@ -57,7 +57,7 @@ Pan mae gweinydd angen mynd oddi ar ddyletswydd yng nghanol gwasanaeth cwsmer, m
 + Yn ystod amserlen anrhagdarfiedig, nid yw gwasanaethau cwsmeriaid yn cael ei darfu. Felly, mae gweinydd yn gorffen gwasanaeth y cwsmer presennol cyn diflannu. Mae hwn wrth gwrs yn golygu, pan mae gweinyddion newydd yn cyrraedd, efallai bydd yr hen weinyddion dal yna yn gorffen gwasanaeth y cwsmeriaid gwreiddiol.
 
 Er mwyn gweithredu amserlennu rhagdarfiedig neu anrhagdarfiedig, rhaid rhoi’r amserlen mewn tuple, gyda :code:`True` neu :code:`False` fel yr ail derm, yn dynodi tarfiadau rhagdarfiedig neu anrhagdarfiedig.
-Er enghraifft:
+Er enghraifft::
 
     Number_of_servers=[([[2, 10], [0, 30], [1, 100]], True)] # rhagdarfiedig
 
@@ -65,6 +65,29 @@ Ac::
 
     Number_of_servers=[([[2, 10], [0, 30], [1, 100]], False)] # anrhagdarfiedig
 
-Mae Ciw yn defnyddio amserlennu anrhagdarfiedig fel yr opsiwn diofyn, felly mae’r cod isod yn awgrymu amserlen anrhagdarfiedig:
+Mae Ciw yn defnyddio amserlennu anrhagdarfiedig fel yr opsiwn diofyn, felly mae’r cod isod yn awgrymu amserlen anrhagdarfiedig::
 
     Number_of_servers=[[[2, 10], [0, 30], [1, 100]]] # anrhagdarfiedig
+
+
+
+Gor-weithio
+-----------
+
+Mae amserlenni anrhagdarfiedig yn galluogi'r posibilrwydd o gor-weithio, hynny yw gweinyddion yn gweithio ar ôl i'w sifft gorffen er mwyn cwblhau gwasanaeth cwsmer.
+Mae swm yr amser mae pob gweinydd yn gor-weithio yn cael ei recordio yn priodwedd :code:`overtime` y gwrthrych :code:`Node`. Ystyriwch yr enghraifft canlynol::
+
+
+    >>> import ciw
+    >>> N = ciw.create_network(
+    ...     arrival_distributions=[ciw.dists.Deterministic(3.0)],
+    ...     service_distributions=[ciw.dists.Deterministic(5.0)],
+    ...     number_of_servers=[[[1, 4.0], [2, 10.0], [0, 100.0]]]
+    ... )
+    >>> Q = ciw.Simulation(N)
+    >>> Q.simulate_until_max_time(20.0)
+
+    >>> Q.transitive_nodes[0].overtime
+    [4.0, 1.0, 4.0]
+
+Fan hyn gallwn weld fod y gweinydd cyntaf i orffen gweithio wedi gor-weithio am 4.0 uned amser, gwnaeth yr ail gor-weithio am 1.0 uned amser, a gwnaeth y trydydd gor-weithio am 4.0 uned amser.

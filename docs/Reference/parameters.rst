@@ -71,7 +71,7 @@ Esiampl::
 
 
 
-xlass_change_matrices
+class_change_matrices
 ~~~~~~~~~~~~~~~~~~~~~
 
 *Opsiynol*
@@ -97,11 +97,11 @@ number_of_servers
 Rhestr o nifer o weinyddion paralel wrth bob nod.
 Os ddefnyddir amserlen gweinydd, rhowch yr amserlen yn lle rhif.
 Am fwy o wybodaeth ar amserlenni gweinyddion, gwelwch :ref:`server-schedule`.
-Ar gyfer nifer anfeidraidd o weinyddion gall rhoi :code;`float('inf')`.
+Ar gyfer nifer anfeidraidd o weinyddion gall rhoi :code:`float('inf')`.
 
 Esiampl::
 
-    number_of_servers=[1, 2, float('inf'), 1, 'schedule']
+    number_of_servers=[1, 2, float('inf'), 1, [[1, 10], [2, 15]]]
 
 
 priority_classes

@@ -8,6 +8,7 @@ Ar hyn o bryd mae gan Ciw y tracwyr cyflwr canlynol:
 
 - :ref:`population`
 - :ref:`nodepop`
+- :ref:`nodepopsubset`
 - :ref:`nodeclssmatrix`
 - :ref:`naiveblock`
 - :ref:`matrixblock`
@@ -47,6 +48,24 @@ Mae hwn yn dynodi bod dau cwsmer yn y nod cyntaf, dim cwsmer yn yr ail nod, a pu
 Mae'r gwrthrych Simulation yn cymryd y ddadl opsiynol :code:`tracker`::
 
     >>> Q = ciw.Simulation(N, tracker=ciw.trackers.NodePopulation()) # doctest:+SKIP
+
+
+.. _nodepopsubset:
+
+------------------------------
+Y Traciwr NodePopulationSubset
+------------------------------
+
+Mae'r traciwr NodePopulationSubset, yn debyg i'r traciwr NodePopulation, un recordio nifer o gwsmeriaid ym mhob nod. Ond, mae'r traciwr hwn yn eich galluogi i ond tracio is-set o nodau'r system.
+Mae cyflyrau yn cymryd ffurf rhestr o rhifau. Mae enghraifft o dracio tri nod mewn rhwydwaith ciwio wedi'i ddaqngos isod::
+
+    (2, 0, 5)
+
+Mae hwn yn dynodi bod yna dau cwsmer yn y nod cyntaf i'w arsylwi, dim cwsmeriaid yn yr ail nod i'w arsylwi, a phump cwsmer yn y trydydd nod i'w arsylwi.
+
+Mae'r gwrthrych Simulation yn cymryf y ddadl opsiynol :code:`tracker`, sy'n cymryd dadl :code:`observed_nodes`, rhestr o rhifau nod i'w arsylwi. Caiff ei ddefnyddio fel y ganlyn (yn arsylwi'r nod cyntaf, yr ail, a'r pumed nod)::
+
+    >>> Q = ciw.Simulation(N, tracker=ciw.trackers.NodePopulationSubset([0, 1, 4])) # doctest:+SKIP
 
 
 .. _nodeclssmatrix:

@@ -26,8 +26,8 @@ Mewnbynnir hwn i mewn i'r model efelychu trwy ychwanegu'r allweddair :code:`Clas
     >>> import ciw
     >>> N = ciw.create_network(
     ...     arrival_distributions={'Class 0': [ciw.dists.Exponential(5)],
-    ...                            'Class 1': ciw.dists.NoArrivals()],
-    ...                            'Class 2': ciw.dists.NoArrivals()]},
+    ...                            'Class 1': [ciw.dists.NoArrivals()],
+    ...                            'Class 2': [ciw.dists.NoArrivals()]},
     ...     service_distributions={'Class 0': [ciw.dists.Exponential(10)],
     ...                            'Class 1': [ciw.dists.Exponential(10)],
     ...                            'Class 2': [ciw.dists.Exponential(10)]},

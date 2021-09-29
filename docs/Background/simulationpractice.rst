@@ -55,7 +55,7 @@ Mae'n dangos sut i ffeindio'r amser aros cymedrig mewn ciw :ref:`M/M/1 <kendall-
     >>> N = ciw.create_network(
     ...     arrival_distributions=[ciw.dists.Exponential(5.0)],
     ...     service_distributions=[ciw.dists.Exponential(8.0)],
-    ...     transition_matrices=[[0.0]],
+    ...     routing=[[0.0]],
     ...     number_of_servers=[1]
     ... )
     >>>

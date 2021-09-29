@@ -94,7 +94,7 @@ Ysgrifennwn dosbarth dosraniad i'w ddefnyddio::
 
     >>> class StateDependentDist(ciw.dists.Distribution):
     ...     def sample(self, t=None, ind=None):
-    ...         n = ind.simulation.nodes[ind.node].number_of_individuals
+    ...         n = ind.simulation.statetracker.state
     ...         return max((-0.05*n) + 0.2, 0)
 
 Nawr i wirio os yw hyn yn gweithio, bydd yr amser gwasanaeth cymedrig tua'n hafal i'r gwerth a chafwyd os cymhwyswn y ffwythiant hyn i'r maint ciw cymedrig::
@@ -114,7 +114,34 @@ Nawr i wirio os yw hyn yn gweithio, bydd yr amser gwasanaeth cymedrig tua'n hafa
     >>> sum(services) / len(services)
     0.1549304...
 
-    >>> queue_sizes = [r.queue_size_at_arrival for r in recs if r.arrival_date > 100] + [r.queue_size_at_departure for r in recs if r.arrival_date > 100]
-    >>> average_queue_size = sum(queue_sizes) / len(queue_sizes)
+    >>> average_queue_size = sum(s*p for s, p in Q.statetracker.state_probabilities().items())
     >>> (-0.05 * average_queue_size) + 0.2
-    0.1547408...
+    0.1552347...
+
+For arrival distributions - when creating the :code:`Simulation` object, the distribution objects are given a :code:`.simulation` attribute, so something similar can happen. For example, the following distribution will sample form an Exponential distribution unil :code:`limit` number of individuals has been sampled::
+
+    >>> class LimitedExponential(ciw.dists.Exponential):
+    ...     def __init__(self, rate, limit):
+    ...         super().__init__(rate)
+    ...         self.limit = limit
+    ...         
+    ...     def sample(self, t=None, ind=None):
+    ...         if self.simulation.nodes[0].number_of_individuals < self.limit:
+    ...             return super().sample()
+    ...         else:
+    ...             return float('Inf')
+
+And to see it working, a limit of 44 individuals::
+
+    >>> N = ciw.create_network(
+    ...     arrival_distributions=[LimitedExponential(1, 44)],
+    ...     service_distributions=[ciw.dists.Exponential(3)],
+    ...     number_of_servers=[2]
+    ... )
+
+    >>> ciw.seed(0)
+    >>> Q = ciw.Simulation(N)
+    >>> Q.simulate_until_max_time(3000)
+    >>> recs = Q.get_all_records()
+    >>> len(recs)
+    44

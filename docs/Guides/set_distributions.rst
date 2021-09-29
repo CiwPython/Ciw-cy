@@ -98,8 +98,8 @@ Nawr gwelwn os yw'r amser gwasanaeth ac amser rhwng dyfodiad cymedrig yn cyfateb
 
 
 
-Dosraniadau Gwstwm
-------------------
+Dosraniadau eich hun
+--------------------
 
 Diffinir dosraniad trwy etifeddu o'r dosbarth cyffredinol :code:`ciw.dists.Distribution`.
 Mae hwn yn galluogi defnyddwyr i diffinio'u dosraniadau ei hunain.

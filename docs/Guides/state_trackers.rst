@@ -49,4 +49,8 @@ O hwn gallwn cael cyfrannau'r amser yr oedd y system ym mhob cyflwr::
 
 Felly roedd y system mewn cyflwr :code:`0` (dim unigolion yn y system) 55.4% o'r amser, mewn cyflwr :code:`1` (un unigolyn yn y system) 24.7% o'r amser, cyflwr :code:`2` (dau unigolyn yn y system) 13.1% o'r amser, a chyflwr :code:`3` (tri unigolyn yn y system) 6.8% o'r amser.
 
+Os oes angen amser-twymo ac amser-oeri wrth gyfrifo'r tebygolrwyddau cyflwr, gallwn mewnbynnu cyfnod arsylwi. Er enghraifft, os hoffwn canfod cyfrannau'r amser yr oedd y system ym mhob cyflwr, rhwng dyddiadau :code;`50` ac :code:`200`, yna gallwn defnyddio'r canlynol::
+
+    >>> Q.statetracker.state_probabilities(observation_period=(50, 200)) # doctest:+SKIP
+
 Nodwch bod tracwyr gwahanol yn cynrychioli gwahanol cyflyriau mewn gwahanol ffyrdd, gweler :ref:`refs-statetrackers` ar gyfer rhestr o'r holl dracwyr.

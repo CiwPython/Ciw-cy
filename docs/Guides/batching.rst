@@ -44,9 +44,8 @@ Nodwch:
   + *Ond dosraniadau arwahanol gallwch ddefnyddio,* ar hyn o bryd rhain yw:
      + :code:`Deterministic`
      + :code:`Empirical`
-     + :code:`Custom`
+     + :code:`Pmf`
      + :code:`Sequential`
-     + :code:`TimeDependent`
   + Os hepgorwyd yr allweddair :code:`batching_distributions` ni fyd unrhyw swp-dyfodi. Hynny yw ond un cwsmer bydd yn cyrraedd pob tro. Mae hwn yn cyfateb i :code:`ciw.dists.Deterministic(1)`.
   + Os oes angen swp-dyfodiadau ar rhai nodau/dosbarthau cwsmer, ond fod angen swp-dyfodiadau ar rai, defnyddiwch :code:`ciw.dists.Deterministic(1)`.
   + Fe all swp-dyfodiadau arwain at :ref:`digwyddiadau cydamserol <simultaneous_events>`, cymerwch ofal.
@@ -59,7 +58,7 @@ Mae Ciw yn caniatáu swp-dyfodiadau amser dibynnol.
 Hynny yw mae maint y swp-dyfodiad, y nifer o cwsmeriaid sy'n cyrraedd ar yr un pryd, wedi'i samplu o dosraniad sy'n newid gydag amser.
 
 Dangoswn esiampl, hoffwn cael 2 cwsmeriaid yn cyrraedd ar yr un pryd am y 10 uned amser cyntaf, ond 1 cwsmer yn unig yn cyrraedd ar yr un pryd wedi hynny.
-Deffiniwn dosraniad swp-dyfodiadau amser dibynnol trwy etifeddu o'r gwrthrych cyffredinol:code:`Distribution`::
+Deffiniwn dosraniad swp-dyfodiadau amser dibynnol trwy etifeddu o'r gwrthrych cyffredinol :code:`Distribution`::
 
     >>> class TimeDependentBatches(ciw.dists.Distribution):
     ...     def sample(self, t, ind=None):

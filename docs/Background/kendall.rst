@@ -30,7 +30,7 @@ Ar gyfer y paramedrau :math:`A` a :math:`B` mae yna nifer o nodiannau llaw-fer a
 + :math:`G` / :math:`GI`: dosraniad Cyffredinol / Cyffredinol annibynnol
 
 Mae'r paramedrau :math:`X`, :math:`Y` a :math:`Z` yn opsiynol, a chymerwn yn ganiataol eu bod yn :math:`\infty`, :math:`\infty`, a Cyntaf Mewn Cyntaf Allan (FIFO) yn ôl eu trefn.
-Opsiynau arall ar gyfer y ddisgyblaeth ciwio :math:`Z` yw SIRO (Gwasanaeth Mewn Trefn Ar Hap), LIFO (Olaf Mewn Cyntaf Allan), a PS (Rhannu Prosesau).
+Opsiynau arall ar gyfer y ddisgyblaeth ciwio :math:`Z` yw SIRO (Gwasanaeth Mewn Trefn Ar Hap), LIFO (Olaf Mewn Cyntaf Allan), a PS (Rhannu Prosesyddion).
 
 Rhai enghreifftiau:
 

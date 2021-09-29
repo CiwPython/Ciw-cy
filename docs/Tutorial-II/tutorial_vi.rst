@@ -115,5 +115,5 @@ Yn gyntaf, o dan y system newydd faint o stolion rydym yn disgwyl torri pob awr?
     >>> sum(broken_stools) / len(broken_stools)
     0.875
 
-Felly mae'r system newydd yn safio 5.875 stôl yr awr, tua 58.75c yr awr.
-Felly fe fydd yn cymryd :math:`2500/0.5875 \approx 4255.32` awr gweithredu i'r system talu ar gyfer y system newydd.
+Felly mae'r system newydd yn safio 6.375 stôl yr awr, tua 63.75c yr awr.
+Felly fe fydd yn cymryd :math:`2500/0.6375 \approx 3921.57` awr gweithredu i'r system talu ar gyfer y system newydd.

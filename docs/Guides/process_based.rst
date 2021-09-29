@@ -1,8 +1,8 @@
 .. _process-based:
 
-=================================================
-Sut i Rhedeg Efelychiadau wedi Seilio ar Brosesau
-=================================================
+=======================================================
+Sut i Ddiffinio Trosglwyddiadau wedi Seilio ar Brosesau
+=======================================================
 
 Mae gan Ciw y gallu i rhedeg efelychiadau wedi seilio ar brosesau (process-based). Mae hwn yn golygu fod taith cyfan cwsmer wedi'i pendrefynnu y dechrau, ac nid yw wedi'i penderfynnu gan tebygolrwyddau wrth iddynt teithio trwy'r rhwydwaith.
 Mae hwn yn galluogi i teithiau cael ei penderfynnu gan hanes unigolyn, er enghraifft, ailadrodd nodau nifer penodol o weithiau.
